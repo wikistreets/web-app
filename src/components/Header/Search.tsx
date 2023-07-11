@@ -9,7 +9,7 @@ export default function Search() {
   return (
     <div
       onClick={handleSearch}
-      className="flex w-full items-center justify-center px-4 sm:justify-start"
+      className="flex w-full h-full items-center justify-center mx-4 sm:justify-start"
     >
       <FontAwesomeIcon
         icon={icon({ name: "magnifying-glass", style: "solid" })}
