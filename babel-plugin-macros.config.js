@@ -1,5 +1,5 @@
-export default {
+module.exports = {
     'fontawesome-svg-core': {
-        'license': 'free'
+        license: 'free'
     }
 }

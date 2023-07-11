@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@babel/helper-module-imports": "^7.22.5",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
@@ -23,7 +24,7 @@
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.8",
     "lucide-react": "^0.259.0",
-    "next": "13.4.8",
+    "next": "^13.4.9",
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
