@@ -16,7 +16,7 @@ export default function Search() {
         style={{ color: "#9CA3AF" }}
         className="mr-2"
       />
-      <h2 className="text-secondary">Search</h2>
+      <h6 className="text-secondary">Search</h6>
     </div>
   );
 }
