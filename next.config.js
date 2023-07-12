@@ -1,4 +1,21 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
 
-module.exports = nextConfig
+module.exports = {
+    swcMinify: true,
+    webpack: (config, { isServer }) => {
+        if (!isServer) {
+            config.module.rules.push({
+                test: '/\.jsx?$/',
+                exclude: '/node_modules/',
+                use: {
+                    loader: 'swc-loader',
+                    options: {
+                        // Add any SWC loader options here
+                    },
+                },
+            });
+        }
+
+        return config;
+    },
+}
