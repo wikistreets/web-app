@@ -11,7 +11,7 @@ export default function Hero() {
       {/* Container */}
       <div
         className="container 
-        px-2.5 md:px-6 lg:px-14 
+        px-4 md:px-6 lg:px-14 
         py-10
         flex flex-col gap-6 xl:gap-7 2xl:gap-10 justify-center  
         items-center md:items-start 
