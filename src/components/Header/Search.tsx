@@ -13,6 +13,7 @@ export default function Search() {
     >
       <FontAwesomeIcon
         icon={faSearch}
+        size="sm"
         style={{ color: "#9CA3AF" }}
         className="mr-2"
       />
