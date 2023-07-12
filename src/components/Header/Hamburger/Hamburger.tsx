@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function Hamburger() {
   const [isClicked, setIsClicked] = useState(false);
@@ -22,7 +22,7 @@ export default function Hamburger() {
     <div className="sm:hidden">
       <DropdownMenu>
         <DropdownMenuTrigger className="w-9 h-9 flex justify-center items-center">
-          <FontAwesomeIcon icon={icon({ name: "bars" })} />
+          <FontAwesomeIcon icon={faBars} />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="mr-2.5">
           <DropdownMenuLabel>

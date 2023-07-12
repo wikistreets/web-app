@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { faBell } from "@fortawesome/free-solid-svg-icons";
 
 export default function Notification() {
   const [userId, setUserId] = useState(null);
@@ -13,7 +13,7 @@ export default function Notification() {
   return (
     <>
       <div onClick={handleNotification}>
-        <FontAwesomeIcon icon={icon({ name: "bell", style: "regular" })} />
+        <FontAwesomeIcon icon={faBell} />
       </div>
     </>
   );

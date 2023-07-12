@@ -8,10 +8,10 @@ import Hamburger from "./Hamburger/Hamburger";
 
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { faBell } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userId, setUserId] = useState(null);
   const handleNotification = () => {
     console.log("notification clicked");
@@ -35,7 +35,7 @@ export default function Header() {
       {isLoggedIn && (
         <div className="hidden sm:flex-row sm:inline-flex sm:justify-center sm:items-center sm:w-fit sm:h-full">
           <div onClick={handleNotification}>
-            <FontAwesomeIcon icon={icon({ name: "bell", style: "regular" })} />
+            <FontAwesomeIcon icon={faBell} />
           </div>
           <div className="ml-4">
             <UserPic />
