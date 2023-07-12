@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import userDefault from "../../../public/icons/user-default.svg";
+import userDefault from "../../../public/media/user-default.svg";
 
 export default function UserPic() {
   const [userId, setUserId] = useState(null);
