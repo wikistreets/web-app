@@ -25,7 +25,8 @@ module.exports = {
         secondary: "#EEF2FF" // indigo-50
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans]
+        sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
+        'dm-sans': ['var(--font-dm-sans)']
       },
       keyframes: {
         "accordion-down": {
