@@ -11,7 +11,7 @@ export default function UserPic() {
 
   return (
     <div className="flex shrink-0 grow w-9 h-9">
-      <Image src={userPic} alt="User"></Image>
+      <Image src={userPic} alt="User" priority={true}></Image>
     </div>
   );
 }
