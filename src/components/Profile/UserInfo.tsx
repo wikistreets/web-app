@@ -10,7 +10,7 @@ export default function UserInfo() {
 
   return (
     <div className="flex flex-col justify-start w-full px-2">
-      <h2 className="text-xs">{userName}</h2>
+      <h6 className="text-xs font-medium">{userName}</h6>
       <UserTotalMaps />
     </div>
   );

@@ -10,7 +10,7 @@ export default function ProfileMapInfo() {
   return (
     <div className="flex justify-start items-center w-full text-xs text-secondary font-normal">
       <FontAwesomeIcon icon={faMap} className="mr-1" />
-      <h2>{mapNum}</h2>
+      <p>{mapNum}</p>
     </div>
   );
 }
