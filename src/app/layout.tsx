@@ -1,12 +1,17 @@
 import "./globals.css";
-import { Inter, DM_Sans } from "next/font/google";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false; /* eslint-disable import/first */
 
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
+
+import { Inter, DM_Sans } from "next/font/google";
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
 });
-
 const dm_sans = DM_Sans({
   subsets: ["latin"],
   display: "swap",
@@ -26,7 +31,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${dm_sans.variable}`}>
-      <body>{children}</body>
+      <body className="flex flex-col min-h-screen">
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
