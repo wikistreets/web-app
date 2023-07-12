@@ -18,7 +18,11 @@ export default function Header() {
   };
 
   return (
-    <nav className="Header w-full h-fit px-2.5 mt-2.5 sm:px-6 sm:mt-6 bg-white inline-flex items-center">
+    <nav
+      className="Header w-full h-fit inline-flex items-center bg-white
+      px-2.5 sm:px-6 lg:px-14 
+      mt-2.5 sm:mt-6 lg:mt-8"
+    >
       <Link href="/">
         <Logo />
       </Link>
