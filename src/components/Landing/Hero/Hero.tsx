@@ -11,7 +11,7 @@ export default function Hero() {
       {/* Container - Left */}
       <div
         className="w-full md:w-fit
-        pl-4 md:pl-6 lg:pl-14
+        px-4 md:pl-6 lg:pl-14
         py-10
         flex flex-col gap-6 lg:gap-8 xl:gap-12 2xl:gap-14 justify-center  
         items-center md:items-start 
