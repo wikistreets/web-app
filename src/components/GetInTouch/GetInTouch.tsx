@@ -10,10 +10,17 @@ export default function GetInTouch() {
   const wikiGitHub = "github.com/wikistreets";
 
   return (
-    <section className="flex flex-col sm:flex-row px-4 sm:px-6 lg:px-14 py-14 gap-10">
+    <section
+      className="flex flex-col sm:flex-row
+      px-4 sm:px-6 lg:px-14 xl:px-16
+      py-14
+      gap-10 lg:gap-14 xl:gap-16"
+    >
       {/* Section - 1 */}
-      <section className="flex flex-col gap-3">
-        <h2 className="font-dm-sans tracking-wide lg:text-3xl">Get in touch</h2>
+      <section className="flex flex-col gap-3 lg:gap-6">
+        <h2 className="font-dm-sans tracking-wide md:text-3xl lg:text-4xl">
+          Get in touch
+        </h2>
         <p className="text-secondary font-light text-md lg:text-lg">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
@@ -43,11 +50,11 @@ export default function GetInTouch() {
       </section>
 
       {/* Section - 2 */}
-      <section className="flex flex-col gap-3">
-        <h2 className="font-dm-sans tracking-wide lg:text-3xl">
+      <section className="flex flex-col gap-3 lg:gap-6">
+        <h2 className="font-dm-sans tracking-wide md:text-3xl lg:text-4xl">
           Wikistreets.io
         </h2>
-        <p className="text-secondary font-light text-md lg:text-lg">
+        <p className="text-secondary font-light md:text-md lg:text-lg">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
         </p>

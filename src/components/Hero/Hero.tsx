@@ -7,12 +7,16 @@ import heroImage from "../../../public/media/hero-img.png";
 
 export default function Hero() {
   return (
-    <section className="md:flex flex-row gap-8 lg:gap-20 xl:gap-20 2xl:gap-24">
+    <section
+      className="md:flex flex-row 
+      gap-8 lg:gap-20 xl:gap-20 2xl:gap-24 
+      py-10 xl:py-14 2xl:py-16"
+    >
       {/* Left Section */}
       <section
         className="w-full md:w-fit
-        px-4 md:pl-6 lg:pl-14
-        py-10
+        px-4 md:pl-6 lg:pl-14 xl:pl-16
+        
         flex flex-col gap-6 lg:gap-8 xl:gap-12 2xl:gap-14 justify-center  
         items-center md:items-start 
         text-center md:text-left"
@@ -34,7 +38,9 @@ export default function Hero() {
         <Link href="/sign-up">
           <Button
             className="text-white font-normal w-fit tracking-wide 
-            lg:py-6 lg:text-md xl:py-6 xl:text-lg"
+            lg:px-6 xl:px-8 2xl:px-10
+            lg:py-6 xl:py-7 2xl:py-8
+            lg:text-lg 2xl:text-xl"
           >
             Get Started
           </Button>
@@ -44,7 +50,7 @@ export default function Hero() {
       {/* Hero Image */}
       <figure
         className="hidden md:block w-full 
-        pr-6 lg:pr-14 py-10 bg-cover"
+        pr-6 lg:pr-14 xl:pr-16 bg-cover"
       >
         <Image
           src={heroImage}

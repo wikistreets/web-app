@@ -22,8 +22,8 @@ export default function Header() {
     <header>
       <nav
         className="Header w-full h-fit inline-flex items-center bg-white
-        px-4 sm:px-6 lg:px-14 
-        mt-4 sm:mt-6 lg:mt-8"
+        px-4 sm:px-6 lg:px-14 xl:px-16
+        mt-4 sm:mt-6 lg:mt-8 xl:mt-10"
       >
         <Link href="/">
           <Logo />

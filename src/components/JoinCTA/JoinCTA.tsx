@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export default function JoinCTA() {
   return (
-    <section className="px-4 sm:px-6 lg:px-14 py-14 w-screen">
+    <section className="px-4 sm:px-6 lg:px-14 xl:px-16 py-14 w-screen">
       <div className="grid md:grid-flow-col bg-indigo-700 rounded-lg">
         <section className="flex flex-col justify-center p-8 lg:p-14 xl:p-20">
           <h2 className="text-white xl:text-3xl 2xl:text-4xl">

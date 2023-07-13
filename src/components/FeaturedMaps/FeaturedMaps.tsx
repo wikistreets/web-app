@@ -24,24 +24,31 @@ const FeaturedMaps: React.FC = () => {
 
   return (
     <section
-      className="bg-gradient-to-b from-indigo-600 to-white w-full flex flex-col gap-6 justify-center items-center
-        px-4 sm:px-6 lg:px-14 py-8 sm:py-10"
+      className="bg-gradient-to-b from-indigo-600 to-white w-full flex flex-col justify-center items-center
+      px-4 sm:px-6 lg:px-14 xl:px-16 py-8 sm:py-10
+      gap-6 xl:gap-10"
     >
-      <h2 className="font-dm-sans text-white tracking-wide md:text-2xl lg:text-3xl">
+      <h2 className="font-dm-sans text-white tracking-wide md:text-2xl lg:text-3xl xl:text-4xl">
         Featured Maps
       </h2>
 
       <div
         className="grid grid-cols-1 grid-rows-4 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-3 lg:grid-rows-2
-          gap-3 sm:gap-5 lg:gap-5 
-          justify-items-center items-center w-full h-fit"
+        gap-3 sm:gap-5 xl:gap-7
+        justify-items-center items-center w-full h-fit"
       >
         {mapData.map((data, idx) => (
           <MapCard key={idx} img={data.img} title={data.title} />
         ))}
       </div>
 
-      <Button onClick={handleViewMore} className="w-fit text-white">
+      <Button
+        onClick={handleViewMore}
+        className="w-fit text-white 
+        md:px-6 lg:px-8 xl:px-8 2xl:px-10  
+        md:py-4 lg:py-6 xl:py-6 2xl:py-8
+        xl:text-lg 2xl:text-xl"
+      >
         View more
       </Button>
     </section>
