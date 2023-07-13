@@ -24,7 +24,7 @@ const FeaturedMaps: React.FC = () => {
 
   return (
     <section
-      className="bg-gradient-to-b from-indigo-600 to-white w-full flex flex-col justify-center items-center
+      className="bg-gradient-to-b from-indigo-600 to-white w-screen flex flex-col justify-center items-center
       px-4 sm:px-6 lg:px-14 xl:px-16 py-8 sm:py-10
       gap-6 xl:gap-10"
     >
