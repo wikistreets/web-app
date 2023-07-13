@@ -27,6 +27,17 @@ const Hamburger: React.FC = () => {
           <FontAwesomeIcon icon={faBars} size="lg" />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="mr-2.5">
+          {!isLoggedIn && (
+            <>
+              <DropdownMenuItem>
+                <Link href="/">Home</Link>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem>
+                <Link href="/login">Log in</Link>
+              </DropdownMenuItem>
+            </>
+          )}
           {isLoggedIn && (
             <>
               <DropdownMenuLabel>
@@ -44,21 +55,11 @@ const Hamburger: React.FC = () => {
               <DropdownMenuItem>Log out</DropdownMenuItem>
             </>
           )}
-
-          {!isLoggedIn && (
-            <>
-              <Link href="/">
-                <DropdownMenuItem>Home</DropdownMenuItem>
-              </Link>
-              <Link href="/login">
-                <DropdownMenuItem>Log in</DropdownMenuItem>
-              </Link>
-            </>
-          )}
           <DropdownMenuSeparator />
-          <Link href="/login">
-            <Button className="text-white px-12">Create a new map</Button>
-          </Link>
+
+          <Button className="text-white px-12">
+            <Link href="/login">Create a new map</Link>
+          </Button>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
