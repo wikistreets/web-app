@@ -10,11 +10,5 @@ export default function Notification() {
     console.log("notification clicked");
   };
 
-  return (
-    <>
-      <div onClick={handleNotification}>
-        <FontAwesomeIcon icon={faBell} />
-      </div>
-    </>
-  );
+  return <FontAwesomeIcon icon={faBell} onClick={handleNotification} />;
 }

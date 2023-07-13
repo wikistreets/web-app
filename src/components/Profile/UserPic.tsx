@@ -10,8 +10,11 @@ export default function UserPic() {
   const [userPic, setUserPic] = useState(userDefault);
 
   return (
-    <div className="flex shrink-0 grow w-9 h-9">
-      <Image src={userPic} alt="User" priority={true}></Image>
-    </div>
+    <Image
+      src={userPic}
+      alt="User"
+      priority={true}
+      className="flex shrink-0 grow w-9 h-9"
+    ></Image>
   );
 }

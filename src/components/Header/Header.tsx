@@ -18,34 +18,34 @@ export default function Header() {
   };
 
   return (
-    <nav
-      className="Header w-full h-fit inline-flex items-center bg-white
-      px-4 sm:px-6 lg:px-14 
-      mt-4 sm:mt-6 lg:mt-8"
-    >
-      <Link href="/">
-        <Logo />
-      </Link>
-      <Search />
-
-      {isLoggedIn ? (
-        <Hamburger />
-      ) : (
-        <Link href="/login">
-          <UserPic />
+    <header>
+      <nav
+        className="Header w-full h-fit inline-flex items-center bg-white
+        px-4 sm:px-6 lg:px-14 
+        mt-4 sm:mt-6 lg:mt-8"
+      >
+        <Link href="/">
+          <Logo />
         </Link>
-      )}
+        <Search />
 
-      {isLoggedIn && (
-        <div className="hidden sm:flex-row sm:inline-flex sm:justify-center sm:items-center sm:w-fit sm:h-full">
-          <div onClick={handleNotification}>
-            <FontAwesomeIcon icon={faBell} />
-          </div>
-          <div className="ml-4">
+        {isLoggedIn ? (
+          <Hamburger />
+        ) : (
+          <Link href="/login">
             <UserPic />
+          </Link>
+        )}
+
+        {isLoggedIn && (
+          <div className="hidden sm:flex-row sm:inline-flex sm:justify-center sm:items-center sm:w-fit sm:h-full">
+            <FontAwesomeIcon icon={faBell} onClick={handleNotification} />
+            <div className="ml-4">
+              <UserPic />
+            </div>
           </div>
-        </div>
-      )}
-    </nav>
+        )}
+      </nav>
+    </header>
   );
 }

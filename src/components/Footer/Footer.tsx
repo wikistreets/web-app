@@ -4,14 +4,16 @@ import Link from "next/link";
 import Logo from "../Header/Logo";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import {
+  faInstagram,
+  faTwitter,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 
 export default function Footer() {
   return (
-    <div className="mt-auto px-4 bg-gray-100 text-secondary w-full py-12 flex flex-col gap-6 lg:gap-8 justify-center items-center">
+    <footer className="mt-auto px-4 bg-gray-100 text-secondary w-full py-12 flex flex-col gap-6 lg:gap-8 justify-center items-center">
       <Logo></Logo>
 
       <div className="flex gap-4 text-center">
@@ -49,6 +51,6 @@ export default function Footer() {
         <FontAwesomeIcon icon={faCopyright} className="mr-2" />
         2023 Plastic Past LLC. All rights reserved
       </p>
-    </div>
+    </footer>
   );
 }
