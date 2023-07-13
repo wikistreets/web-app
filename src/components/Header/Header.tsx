@@ -9,6 +9,7 @@ import Hamburger from "./Hamburger/Hamburger";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-regular-svg-icons";
+import { Button } from "../ui/button";
 
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -29,12 +30,12 @@ export default function Header() {
         </Link>
         <Search />
 
-        {isLoggedIn ? (
-          <Hamburger />
-        ) : (
-          <Link href="/login">
-            <UserPic />
-          </Link>
+        <Hamburger />
+
+        {!isLoggedIn && (
+          <Button className="hidden sm:block w-fit shrink-0 text-indigo-600 bg-secondary">
+            <Link href="/login">Log in</Link>
+          </Button>
         )}
 
         {isLoggedIn && (
