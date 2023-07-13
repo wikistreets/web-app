@@ -1,12 +1,12 @@
 import "./globals.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
-config.autoAddCss = false; /* eslint-disable import/first */
-
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-
 import { Inter, DM_Sans } from "next/font/google";
+
+config.autoAddCss = false; /* eslint-disable import/first */
+
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
