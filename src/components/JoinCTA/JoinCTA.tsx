@@ -27,7 +27,7 @@ export default function JoinCTA() {
           </Link>
         </section>
         <figure
-          className="flex justify-end items-center 
+          className="flex justify-end items-center
           md:pt-8 lg:pt-14 xl:pt-20
           pl-8 md:pl-12 lg:pl-28 xl:pl-52
           h-48 md:h-52 lg:h-72 xl:h-80 2xl:h-96"
@@ -35,7 +35,7 @@ export default function JoinCTA() {
           <Image
             src={ctaImage}
             alt="Join Today"
-            className="rounded-tl-md h-full object-cover object-top"
+            className="rounded-tl-md rounded-br-lg h-full object-cover object-top"
           ></Image>
         </figure>
       </div>
