@@ -7,22 +7,24 @@ module.exports = {
     './src/**/*.{ts,tsx}',
   ],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
+    // container: {
+    //   center: true,
+    //   padding: "2rem",
+    //   screens: {
+    //     "2xl": "1400px",
+    //   },
+    // },
     extend: {
       textColor: {
         primary: "#1F2937", // gray-800
         secondary: "#6B7280", // gray-500
-        tertiary: "#E5E7EB" // gray-200
+        tertiary: "#E5E7EB", // gray-200
+        white: "#FFF"
       },
       colors: {
         primary: "#4F46E5", // indigo-600
-        secondary: "#EEF2FF" // indigo-50
+        secondary: "#EEF2FF", // indigo-50
+        white: "#FFF"
       },
       fontFamily: {
         sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
