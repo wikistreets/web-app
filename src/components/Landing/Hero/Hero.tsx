@@ -7,13 +7,13 @@ import heroImage from "../../../../public/media/hero-img.png";
 
 export default function Hero() {
   return (
-    <div className="md:grid grid-cols-2">
-      {/* Container */}
+    <div className="md:flex flex-row gap-8 lg:gap-20 xl:gap-20 2xl:gap-24">
+      {/* Container - Left */}
       <div
-        className="container 
-        px-4 md:px-6 lg:px-14 
+        className="w-full md:w-fit
+        pl-4 md:pl-6 lg:pl-14
         py-10
-        flex flex-col gap-6 xl:gap-7 2xl:gap-10 justify-center  
+        flex flex-col gap-6 lg:gap-8 xl:gap-12 2xl:gap-14 justify-center  
         items-center md:items-start 
         text-center md:text-left"
       >
@@ -22,7 +22,7 @@ export default function Hero() {
         </h3>
 
         <h1
-          className="font-dm-sans capitalize tracking-wide 
+          className="w-max font-dm-sans capitalize tracking-wide 
             lg:text-4xl xl:text-5xl
             leading-tight lg:leading-snug xl:leading-snug"
         >
@@ -34,7 +34,7 @@ export default function Hero() {
         <Link href="/sign-up">
           <Button
             className="text-white font-normal w-fit tracking-wide 
-            xl:py-6 xl:text-lg"
+            lg:py-6 lg:text-md xl:py-6 xl:text-lg"
           >
             Get Started
           </Button>
@@ -43,7 +43,7 @@ export default function Hero() {
 
       {/* Hero Image */}
       <div
-        className="hidden md:block 
+        className="hidden md:block w-full 
         pr-6 lg:pr-14 py-10 bg-cover"
       >
         <Image
