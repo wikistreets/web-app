@@ -14,10 +14,10 @@ export default function Hero() {
     >
       {/* Left Section */}
       <section
-        className="w-full md:w-fit
-        px-4 md:pl-6 lg:pl-14 xl:pl-16
-        
-        flex flex-col gap-6 lg:gap-8 xl:gap-12 2xl:gap-14 justify-center  
+        className="flex flex-col justify-center 
+        w-screen md:w-fit 
+        pl-4 md:pl-6 lg:pl-14 xl:pl-16
+        gap-6 lg:gap-8 xl:gap-12 2xl:gap-14  
         items-center md:items-start 
         text-center md:text-left"
       >
@@ -26,7 +26,7 @@ export default function Hero() {
         </h3>
 
         <h1
-          className="w-max font-dm-sans capitalize tracking-wide 
+          className="font-dm-sans capitalize tracking-wide w-max
             lg:text-4xl xl:text-5xl
             leading-tight lg:leading-snug xl:leading-snug"
         >
