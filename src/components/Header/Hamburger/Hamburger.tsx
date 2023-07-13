@@ -16,7 +16,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
-export default function Hamburger() {
+const Hamburger: React.FC = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
   return (
@@ -26,23 +27,42 @@ export default function Hamburger() {
           <FontAwesomeIcon icon={faBars} size="lg" />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="mr-2.5">
-          <DropdownMenuLabel>
-            <Profile />
-          </DropdownMenuLabel>
+          {isLoggedIn && (
+            <>
+              <DropdownMenuLabel>
+                <Profile />
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Profile</DropdownMenuItem>
+              <div className="flex justify-between items-center">
+                <DropdownMenuItem>Notification</DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Notification />
+                </DropdownMenuItem>
+              </div>
+              <DropdownMenuItem>Settings</DropdownMenuItem>
+              <DropdownMenuItem>Log out</DropdownMenuItem>
+            </>
+          )}
+
+          {!isLoggedIn && (
+            <>
+              <Link href="/">
+                <DropdownMenuItem>Home</DropdownMenuItem>
+              </Link>
+              <Link href="/login">
+                <DropdownMenuItem>Log in</DropdownMenuItem>
+              </Link>
+            </>
+          )}
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <div className="flex justify-between items-center">
-            <DropdownMenuItem>Notification</DropdownMenuItem>
-            <DropdownMenuItem>
-              <Notification />
-            </DropdownMenuItem>
-          </div>
-          <DropdownMenuItem>Settings</DropdownMenuItem>
-          <DropdownMenuItem>Log out</DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <Button className="text-white px-12">Create a new map</Button>
+          <Link href="/login">
+            <Button className="text-white px-12">Create a new map</Button>
+          </Link>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
   );
-}
+};
+
+export default Hamburger;
