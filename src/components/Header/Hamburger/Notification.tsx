@@ -10,5 +10,11 @@ export default function Notification() {
     console.log("notification clicked");
   };
 
-  return <FontAwesomeIcon icon={faBell} onClick={handleNotification} />;
+  return (
+    <FontAwesomeIcon
+      icon={faBell}
+      onClick={handleNotification}
+      className="grow xl:w-full xl:h-full"
+    />
+  );
 }

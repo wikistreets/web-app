@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "../../ui/button";
-import Notification from "./Notification";
 import Profile from "./HamburgerProfile";
 import {
   DropdownMenu,
@@ -15,9 +14,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBell } from "@fortawesome/free-regular-svg-icons";
 
 const Hamburger: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isClicked, setIsClicked] = useState(false);
 
   return (
@@ -47,9 +47,7 @@ const Hamburger: React.FC = () => {
               <DropdownMenuItem>Profile</DropdownMenuItem>
               <div className="flex justify-between items-center">
                 <DropdownMenuItem>Notification</DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Notification />
-                </DropdownMenuItem>
+                <FontAwesomeIcon icon={faBell} className="pr-2" size="sm" />
               </div>
               <DropdownMenuItem>Settings</DropdownMenuItem>
               <DropdownMenuItem>Log out</DropdownMenuItem>

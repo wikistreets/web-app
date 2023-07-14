@@ -14,7 +14,7 @@ export default function UserPic() {
       src={userPic}
       alt="User"
       priority={true}
-      className="flex shrink-0 grow w-9 h-9"
+      className="flex shrink-0 grow w-full h-full"
     ></Image>
   );
 }
