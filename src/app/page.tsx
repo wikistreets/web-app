@@ -2,6 +2,7 @@
 
 import Hero from "@/components/Hero/Hero";
 import FeaturedMaps from "@/components/FeaturedMaps/FeaturedMaps";
+import MapStyles from "@/components/MapStyles/MapStyles";
 import JoinCTA from "@/components/JoinCTA/JoinCTA";
 import GetInTouch from "@/components/GetInTouch/GetInTouch";
 
@@ -12,6 +13,7 @@ export default function Home() {
     <main>
       <Hero />
       <FeaturedMaps />
+      <MapStyles />
       <JoinCTA />
       <GetInTouch />
     </main>
