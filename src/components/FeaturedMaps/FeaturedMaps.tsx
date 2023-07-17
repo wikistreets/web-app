@@ -27,7 +27,7 @@ const FeaturedMaps: React.FC = () => {
       className="bg-gradient-to-b from-indigo-600 to-white w-screen flex flex-col justify-center items-center
       px-4 sm:px-6 lg:px-14 xl:px-16
       py-8 sm:py-10
-      gap-6 xl:gap-10"
+      gap-6 xl:gap-10 2xl:gap-12"
     >
       <h2
         className="font-dm-sans text-white tracking-wide
@@ -38,8 +38,8 @@ const FeaturedMaps: React.FC = () => {
 
       <div
         className="grid grid-cols-1 grid-rows-4 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-3 lg:grid-rows-2
-        gap-3 sm:gap-5 xl:gap-7
-        justify-items-center items-center w-full h-fit"
+        gap-5 sm:gap-5 md:gap-7 xl:gap-9 2xl:gap-12
+        justify-items-center items-center w-fit"
       >
         {mapData.map((data, idx) => (
           <MapCard key={idx} img={data.img} title={data.title} />

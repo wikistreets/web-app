@@ -16,7 +16,7 @@ export default function Hero() {
       <section
         className="flex flex-col justify-center 
         w-screen md:w-fit 
-        pl-4 md:pl-6 lg:pl-14 xl:pl-16
+        px-4 md:pl-6 lg:pl-14 xl:pl-16
         gap-6 lg:gap-8 xl:gap-12 2xl:gap-14  
         items-center md:items-start 
         text-center md:text-left"

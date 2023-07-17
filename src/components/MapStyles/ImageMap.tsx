@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import imageMap from "../../../public/media/image-map.png";
 
@@ -6,20 +7,21 @@ type Props = {};
 const ImageMap = (props: Props) => {
   return (
     <section
-      className="flex flex-col sm:flex-row sm:grid-cols-3 
-      justify-center sm:items-center
-      gap-3 sm:gap-12 lg:gap-16 xl:gap-20
-      max-w-sm sm:min-w-full"
+      className="flex flex-col sm:flex-row 
+      justify-between sm:items-center w-full
+      gap-3 sm:gap-12 lg:gap-16 xl:gap-20"
     >
       <Image
         src={imageMap}
         alt="Custom Image Map"
-        className="rounded-lg object-cover sm:max-w-sm sm:h-max sm:col-span-1"
+        className="rounded-lg object-cover
+        w-full lg:max-w-md xl:max-w-lg 2xl:max-w-xl"
       />
 
       <section
-        className="flex flex-col justify-center gap-3 lg:gap-7 xl:gap-9 2xl:gap-12
-        sm:col-span-2 sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl"
+        className="flex flex-col justify-center
+        gap-3 sm:gap-5 lg:gap-7 xl:gap-12 2xl:gap-20
+        max-w-fit lg:max-w-fit"
       >
         <h3
           className="font-dm-sans font-semibold tracking-wide
@@ -39,8 +41,8 @@ const ImageMap = (props: Props) => {
 
         {/* TODO: make it a component if keeping... */}
         <section
-          className="flex justify-between 
-          sm:justify-start sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28"
+          className="flex justify-between sm:justify-start  
+          sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28"
         >
           <div className="flex flex-col">
             <h3 className="font-bold text-indigo-600 text-lg sm:text-md md:text-lg lg:text-xl xl:text-2xl">

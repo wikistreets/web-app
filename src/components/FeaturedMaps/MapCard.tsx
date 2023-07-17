@@ -9,7 +9,10 @@ interface MapCardProps {
 
 const MapCard: React.FC<MapCardProps> = ({ img, title }) => {
   return (
-    <figure className="flex flex-col justify-center items-center w-full px-4 pt-4 rounded-lg bg-white">
+    <figure
+      className="flex flex-col justify-center items-center w-full px-4 pt-4 rounded-lg bg-white
+      max-w-sm 2xl:max-w-md"
+    >
       <Image
         src={`/${img}`}
         width={338}
