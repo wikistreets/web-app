@@ -12,7 +12,7 @@ export default function GetInTouch() {
   return (
     <section
       className="flex flex-col sm:flex-row
-      px-4 sm:px-6 lg:px-14 xl:px-16
+      px-4 sm:px-6 md:px-10 lg:px-14 xl:px-16
       py-14
       gap-10 lg:gap-14 xl:gap-16"
     >
