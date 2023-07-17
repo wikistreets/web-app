@@ -12,8 +12,9 @@ h2{
 }
 h3 {
   font-size: medium;
+  font-weight: medium;
 }
 h6 {
-  font-size: medium;
+  font-size: small;
   font-weight: 300;
 }
