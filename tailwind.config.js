@@ -2,6 +2,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
+  important: true,
   darkMode: ["class"],
   content: [
     './src/**/*.{ts,tsx}',
@@ -14,7 +15,17 @@ module.exports = {
     //     "2xl": "1400px",
     //   },
     // },
+    // container: {
+    //   padding: {
+    //     DEFAULT: '1rem',
+    //     sm: '1.5rem',
+    //     md: '2.5rem',
+    //     lg: '3.5rem',
+    //     xl: '4rem',
+    //   }
+    // },
     extend: {
+
       textColor: {
         primary: "#1F2937", // gray-800
         secondary: "#6B7280", // gray-500

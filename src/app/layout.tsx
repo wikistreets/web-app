@@ -32,9 +32,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${dm_sans.variable}`}>
       <body className="flex flex-col min-h-screen">
-        <Header />
-        {children}
-        <Footer />
+        <div className="container mx-auto">
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
