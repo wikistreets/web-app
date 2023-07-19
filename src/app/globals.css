@@ -2,19 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-h1 {
-  font-size: xx-large;
-  font-weight: bolder;
+@layer base { 
+  h1 {
+  @apply text-2xl font-bold;
 }
 h2{
-  font-size: x-large;
-  font-weight: bold;
+  @apply text-xl font-bold;
 }
 h3 {
-  font-size: medium;
-  font-weight: medium;
+  @apply text-base font-medium;
 }
 h6 {
-  font-size: small;
-  font-weight: 300;
+  @apply text-sm font-normal;
+}}
+
+@layer components {
+  
+}
+
+@layer utilities {
+
 }
