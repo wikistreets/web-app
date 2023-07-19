@@ -9,14 +9,16 @@ export default function Hero() {
   return (
     <section
       className="md:flex flex-row 
+      justify-between
       gap-8 lg:gap-20 xl:gap-20 2xl:gap-24 
+      px-4 sm:px-6 md:px-10 lg:px-14 xl:px-16
       py-10 xl:py-14 2xl:py-16"
     >
       {/* Left Section */}
       <section
         className="flex flex-col justify-center 
-        w-screen md:w-fit 
-        px-4 md:pl-6 lg:pl-14 xl:pl-16
+        w-full md:w-fit 
+        
         gap-6 lg:gap-8 xl:gap-12 2xl:gap-14  
         items-center md:items-start 
         text-center md:text-left"
@@ -50,7 +52,7 @@ export default function Hero() {
       {/* Hero Image */}
       <figure
         className="hidden md:block w-full 
-        pr-6 lg:pr-14 xl:pr-16 bg-cover"
+        bg-cover"
       >
         <Image
           src={heroImage}
@@ -59,6 +61,6 @@ export default function Hero() {
           className="object-cover w-full h-full"
         ></Image>
       </figure>
-    </section> // end of grid
+    </section>
   );
 }
