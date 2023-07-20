@@ -46,7 +46,7 @@ export default function RootLayout({
         ></script>
       </head>
       <body className="flex flex-col min-h-screen">
-        <div className="container mx-auto">
+        <div className="2xl:container mx-auto">
           <Header />
           <main>{children}</main>
           <Footer />
