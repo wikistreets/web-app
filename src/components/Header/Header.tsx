@@ -46,7 +46,7 @@ export default function Header() {
               <Notification />
             </div>
             <div className="ml-4 w-9 h-9 xl:w-12 xl:h-12 shrink-0">
-              <UserPic />
+              <UserPic userPic="" />
             </div>
           </div>
         )}

@@ -2,12 +2,23 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import userDefault from "../../../public/media/user-default.svg";
 
-export default function UserPic() {
+type UserPicProps = {
+  userPic: string;
+};
+
+const UserPic = (props: UserPicProps) => {
   const [userId, setUserId] = useState(null);
   const [userPic, setUserPic] = useState(userDefault);
+
+  useEffect(() => {
+    props.userPic ?? setUserPic(props.userPic);
+    return () => {
+      // cleanup code here...
+    };
+  }, [props.userPic]);
 
   return (
     <Image
@@ -17,4 +28,6 @@ export default function UserPic() {
       className="flex shrink-0 grow w-full h-full"
     ></Image>
   );
-}
+};
+
+export default UserPic;
