@@ -5,7 +5,7 @@ import Post from "./Post";
 
 type UserObject = {
   userID: string;
-  userName: string;
+  userName: string | "";
   userPic: StaticImageData;
   maps: {
     mapID: string;
@@ -48,7 +48,11 @@ const PostContainer = (props: PostContianerProps) => {
   });
   //   console.log("posts in PostContainer", Posts);
   return (
-    <div className="flex flex-col w-full h-auto overflow-auto bg-blue-50">
+    <div
+      className="md:container flex flex-col w-full h-full bg-blue-50
+      overflow-auto overscroll-contain scroll-smooth
+      lg:h-screen"
+    >
       {Posts}
     </div>
   );
