@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { useEffect, useState } from "react";
 import userDefault from "../../../public/media/user-default.svg";
 
 type UserPicProps = {
-  userPic: string;
+  userPic: StaticImageData;
 };
 
 const UserPic = (props: UserPicProps) => {
