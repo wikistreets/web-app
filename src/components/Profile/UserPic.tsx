@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import userDefault from "../../../public/media/user-default.svg";
 
 type UserPicProps = {
-  userPic: StaticImageData;
+  userPic: StaticImageData | "";
 };
 
 const UserPic = (props: UserPicProps) => {
@@ -14,9 +14,9 @@ const UserPic = (props: UserPicProps) => {
   const [userPic, setUserPic] = useState(userDefault);
 
   useEffect(() => {
-    props.userPic ?? setUserPic(props.userPic);
+    setUserPic(props.userPic);
     return () => {
-      // cleanup code here...
+      userPic;
     };
   }, [props.userPic]);
 
@@ -25,7 +25,7 @@ const UserPic = (props: UserPicProps) => {
       src={userPic}
       alt="User"
       priority={true}
-      className="flex shrink-0 grow w-full h-full"
+      className="flex shrink-0 grow w-full h-full rounded-full"
     ></Image>
   );
 };
