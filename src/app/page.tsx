@@ -1,7 +1,10 @@
 "use client";
 
+import dynamic from "next/dynamic";
+
 import Hero from "@/components/Hero/Hero";
 import FeaturedMaps from "@/components/FeaturedMaps/FeaturedMaps";
+import Feed from "@/components/Feed/Feed";
 import Features from "@/components/Features/Features";
 import MapStyles from "@/components/MapStyles/MapStyles";
 import JoinCTA from "@/components/JoinCTA/JoinCTA";
@@ -14,6 +17,7 @@ export default function Home() {
     <main>
       <Hero />
       <FeaturedMaps />
+      <Feed />
       <Features />
       <MapStyles />
       <JoinCTA />
