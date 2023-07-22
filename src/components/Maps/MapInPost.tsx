@@ -7,7 +7,7 @@ type Props = {};
 const MapInPost = (props: Props) => {
   return (
     <MapContainer
-      className="h-full w-full aspect-square"
+      className="w-full h-min aspect-square sticky top-0"
       center={[51.505, -0.09]}
       zoom={13}
       scrollWheelZoom={true}
