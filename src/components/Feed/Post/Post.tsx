@@ -1,9 +1,12 @@
 "use client";
 
+import { StaticImageData } from "next/image";
 import { useState } from "react";
 import Header from "./Header/Header";
 import Slider from "./Slider";
-import { StaticImageData } from "next/image";
+import Bar from "./Bar";
+import Caption from "./Caption/Caption";
+import CommentContainer from "./Comment/CommentContainer";
 
 type PostProps = {
   userID: string;
@@ -23,7 +26,7 @@ type PostProps = {
       postID: string;
       postTitle: string;
       posted: number;
-      postMedia: StaticImageData[] | [];
+      postMedia: StaticImageData[];
       location?: string;
       caption?: string | null;
       comments?: Array<{ commentText: string }> | [];
@@ -44,7 +47,13 @@ const Post = (props: PostProps) => {
             posted={post.posted}
             mapTitle={map.mapTitle}
           />
-          <Slider postID={post.postID} postMedia={post.postMedia} />
+          {post.postMedia && (
+            <Slider postID={post.postID} postMedia={post.postMedia} />
+          )}
+          {map.mapType === "Geo" && <Bar location={post.location} />}
+          {map.mapType === "Image" && <Bar postTitle={post.postTitle} />}
+          {post.caption && <Caption caption={post.caption} />}
+          <CommentContainer />
         </div>
       );
     });
