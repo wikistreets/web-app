@@ -6,7 +6,7 @@ import Nav from "./Nav";
 import { StaticImageData } from "next/image";
 
 type HeaderProps = {
-  userPic: StaticImageData;
+  userPic: StaticImageData | "";
   username: string;
   posted: number;
   mapTitle: string;
