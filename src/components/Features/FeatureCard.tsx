@@ -9,7 +9,7 @@ import {
   faCamera,
 } from "@fortawesome/free-solid-svg-icons";
 
-const FeatureOne = () => {
+const FeatureCard = () => {
   return (
     <section
       className="flex flex-col sm:flex-row 
@@ -37,7 +37,10 @@ const FeatureOne = () => {
             className="p-2 bg-primary rounded-md mt-1"
           />
           <div className="flex flex-col justify-center items-start">
-            <h6 className="font-dm-sans tracking-wide text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl">
+            <h6
+              className="font-dm-sans tracking-wide
+            text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl"
+            >
               Map on-the-go
             </h6>
             <p
@@ -56,7 +59,7 @@ const FeatureOne = () => {
             color="#fff"
             className="p-2 bg-primary rounded-md mt-1"
           />
-          <div className="flex flex-col justify-center items-start sm:w-full">
+          <div className="flex flex-col justify-center items-start">
             <h6
               className="font-dm-sans tracking-wide
               text-sm sm:text-md md:text-lg lg:text-xl xl:text-2xl"
@@ -107,4 +110,4 @@ const FeatureOne = () => {
   );
 };
 
-export default FeatureOne;
+export default FeatureCard;

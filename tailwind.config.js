@@ -2,6 +2,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
+  important: true,
   darkMode: ["class"],
   content: [
     './src/**/*.{ts,tsx}',
@@ -15,6 +16,7 @@ module.exports = {
     //   },
     // },
     extend: {
+
       textColor: {
         primary: "#1F2937", // gray-800
         secondary: "#6B7280", // gray-500

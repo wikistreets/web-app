@@ -1,21 +1,67 @@
 "use client";
 
-import MapCard from "./MapCard";
+import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 
+const MapCard = dynamic(
+  () => {
+    return import("./MapCard");
+  },
+  { ssr: false }
+);
+
 interface MapData {
-  img: string;
+  centerX: number;
+  centerY: number;
+  markerX: number;
+  markerY: number;
   title: string;
 }
 
 const FeaturedMaps: React.FC = () => {
   const mapData: MapData[] = [
-    { img: "img1", title: "Washington D.C. Family Trip" },
-    { img: "img2", title: "Anatomy of Vermeer's Milkmaid" },
-    { img: "img3", title: "Damaged Sidewalks in Croton" },
-    { img: "img4", title: "School Walking Routes" },
-    { img: "img5", title: "Family Genealogy" },
-    { img: "img6", title: "Best WFH Cafes in East Village" },
+    {
+      centerX: 51.505,
+      centerY: -0.09,
+      markerX: 51.505,
+      markerY: -0.09,
+      title: "Washington D.C. Family Trip",
+    },
+    {
+      centerX: 51.505,
+      centerY: -0.09,
+      markerX: 51.505,
+      markerY: -0.09,
+      title: "Anatomy of Vermeer's Milkmaid",
+    },
+    {
+      centerX: 51.505,
+      centerY: -0.09,
+      markerX: 51.505,
+      markerY: -0.09,
+      title: "Damaged Sidewalks in Croton",
+    },
+    {
+      centerX: 51.505,
+      centerY: -0.09,
+      markerX: 51.505,
+      markerY: -0.09,
+      title: "School Walking Routes",
+    },
+    {
+      centerX: 51.505,
+      centerY: -0.09,
+      markerX: 51.505,
+      markerY: -0.09,
+      title: "Family Genealogy",
+    },
+    {
+      centerX: 51.505,
+      centerY: -0.09,
+      markerX: 51.505,
+      markerY: -0.09,
+      title: "Best WFH Cafes in East Village",
+    },
   ];
 
   const handleViewMore = () => {
@@ -24,10 +70,10 @@ const FeaturedMaps: React.FC = () => {
 
   return (
     <section
-      className="bg-gradient-to-b from-indigo-600 to-white w-screen flex flex-col justify-center items-center
-      px-4 sm:px-6 lg:px-14 xl:px-16
+      className="bg-gradient-to-b from-indigo-600 to-white w-full flex flex-col justify-center items-center
+      px-4 sm:px-6 md:px-10 lg:px-14 xl:px-16
       py-8 sm:py-10
-      gap-6 xl:gap-10 2xl:gap-12"
+      gap-6 xl:gap-14 2xl:gap-12"
     >
       <h2
         className="font-dm-sans text-white tracking-wide
@@ -38,11 +84,18 @@ const FeaturedMaps: React.FC = () => {
 
       <div
         className="grid grid-cols-1 grid-rows-4 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-3 lg:grid-rows-2
-        gap-5 sm:gap-5 md:gap-7 xl:gap-9 2xl:gap-12
-        justify-items-center items-center w-fit"
+        gap-5 sm:gap-5 md:gap-7 lg:gap-9 xl:gap-9 2xl:gap-12
+        justify-items-center items-center w-full"
       >
         {mapData.map((data, idx) => (
-          <MapCard key={idx} img={data.img} title={data.title} />
+          <MapCard
+            key={idx}
+            centerX={data.centerX}
+            centerY={data.centerY}
+            markerX={data.markerX}
+            markerY={data.markerY}
+            title={data.title}
+          />
         ))}
       </div>
 

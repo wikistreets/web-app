@@ -1,20 +1,33 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
+import Image, { StaticImageData } from "next/image";
+import { useEffect, useState } from "react";
 import userDefault from "../../../public/media/user-default.svg";
 
-export default function UserPic() {
+type UserPicProps = {
+  userPic: StaticImageData | "";
+};
+
+const UserPic = (props: UserPicProps) => {
   const [userId, setUserId] = useState(null);
   const [userPic, setUserPic] = useState(userDefault);
+
+  useEffect(() => {
+    setUserPic(props.userPic);
+    return () => {
+      userPic;
+    };
+  }, [props.userPic]);
 
   return (
     <Image
       src={userPic}
       alt="User"
       priority={true}
-      className="flex shrink-0 grow w-full h-full"
+      className="flex shrink-0 grow w-full h-full rounded-full"
     ></Image>
   );
-}
+};
+
+export default UserPic;

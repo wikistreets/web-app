@@ -20,7 +20,7 @@ export default function Header() {
   return (
     <header>
       <nav
-        className="Header w-full h-fit inline-flex items-center bg-white
+        className="bg-white w-full h-fit inline-flex items-center 
         px-4 sm:px-6 md:px-10 lg:px-14 xl:px-16
         mt-4 sm:mt-6 lg:mt-8 xl:mt-10"
       >
@@ -46,7 +46,7 @@ export default function Header() {
               <Notification />
             </div>
             <div className="ml-4 w-9 h-9 xl:w-12 xl:h-12 shrink-0">
-              <UserPic />
+              <UserPic userPic="" />
             </div>
           </div>
         )}
