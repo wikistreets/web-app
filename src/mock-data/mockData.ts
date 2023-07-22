@@ -33,7 +33,7 @@ const users =
                         "posted": 1,
                         "postMedia": [Seylou, Seylou],
                         "location": "Seylou Bakery",
-                        "caption": null,
+                        "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea co!",
                         "comments": [
                             {
                                 "commentText": "Great trip!",
@@ -46,7 +46,7 @@ const users =
                         "posted": 1,
                         "postMedia": [Smithsonian, Smithsonian],
                         "location": "Smithsonian Museum of National History",
-                        "caption": null,
+                        "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea co!",
                         "comments": [
                             {
                                 "commentText": "Great trip!",
@@ -59,7 +59,7 @@ const users =
                         "posted": 1,
                         "postMedia": [WhiteHouse, WhiteHouse],
                         "location": "The White House",
-                        "caption": null,
+                        "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea co!",
                         "comments": [
                             {
                                 "commentText": "Great trip!",
@@ -72,7 +72,7 @@ const users =
                         "posted": 1,
                         "postMedia": [Ethiopian, Ethiopian],
                         "location": "Ethiopian family restaurant",
-                        "caption": null,
+                        "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea co!",
                         "comments": [
                             {
                                 "commentText": "Great trip!",
@@ -85,7 +85,7 @@ const users =
                         "posted": 1,
                         "postMedia": [Lincoln, Lincoln],
                         "location": "Lincoln Memorial",
-                        "caption": null,
+                        "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea co!",
                         "comments": [
                             {
                                 "commentText": "Great trip!",
@@ -97,7 +97,7 @@ const users =
                         "posted": 1,
                         "postMedia": [Espita, Espita],
                         "location": "Espita Mezcaleria",
-                        "caption": null,
+                        "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea co!",
                         "comments": [
                             {
                                 "commentText": "Great trip!",
@@ -124,7 +124,7 @@ const users =
                         "posted": 1,
                         "postMedia": [],
                         "location": "Croton Elementary School",
-                        "caption": null,
+                        "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea co!",
                         "comments": [
                             {
                                 "commentText": "Great trip!",
@@ -161,7 +161,7 @@ const users =
                         "postTitle": "Flowing milk",
                         "posted": 1,
                         "postMedia": [FlowingMilk, FlowingMilk],
-                        "caption": null,
+                        "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea co!",
                         "comments": [
                             {
                                 "commentText": "Great trip!",
@@ -195,7 +195,7 @@ const users =
                         "posted": 1,
                         "postMedia": [],
                         "location": "Pitt Street Mall, Sydney New South Wales, Australia",
-                        "caption": null,
+                        "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea co!",
                         "comments": [
                             {
                                 "commentText": "Great trip!",
