@@ -31,6 +31,7 @@ const Nav = (props: Props) => {
           )}
           {isLoggedIn && (
             <>
+              <DropdownMenuItem>Save</DropdownMenuItem>
               <DropdownMenuItem>Share</DropdownMenuItem>
               <DropdownMenuItem>Edit</DropdownMenuItem>
               <DropdownMenuItem>Delete</DropdownMenuItem>
