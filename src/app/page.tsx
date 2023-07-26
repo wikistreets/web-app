@@ -1,7 +1,3 @@
-"use client";
-
-import dynamic from "next/dynamic";
-
 import Hero from "@/components/Hero/Hero";
 import FeaturedMaps from "@/components/FeaturedMaps/FeaturedMaps";
 import Feed from "@/components/Feed/Feed";
@@ -14,7 +10,7 @@ import GetInTouch from "@/components/GetInTouch/GetInTouch";
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Hero />
       <FeaturedMaps />
       <Feed />
@@ -22,6 +18,6 @@ export default function Home() {
       <MapStyles />
       <JoinCTA />
       <GetInTouch />
-    </main>
+    </>
   );
 }
