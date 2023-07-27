@@ -46,9 +46,8 @@ export default function RootLayout({
         ></script>
       </head>
       <body className="flex flex-col min-h-screen">
-        <div className="2xl:container w-full h-screen mx-auto">
-          <Header />
-          <main>{children}</main>
+        <div className="2xl:container w-full mx-auto">
+          {children}
           <Footer />
         </div>
       </body>
