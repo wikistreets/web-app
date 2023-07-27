@@ -1,3 +1,4 @@
+import Header from "@/components/Header/Header";
 import Hero from "@/components/Hero/Hero";
 import FeaturedMaps from "@/components/FeaturedMaps/FeaturedMaps";
 import Feed from "@/components/Feed/Feed";
@@ -11,13 +12,16 @@ import GetInTouch from "@/components/GetInTouch/GetInTouch";
 export default function Home() {
   return (
     <>
-      <Hero />
-      <FeaturedMaps />
-      <Feed />
-      <Features />
-      <MapStyles />
-      <JoinCTA />
-      <GetInTouch />
+      <Header />
+      <main className="h-full">
+        <Hero />
+        <FeaturedMaps />
+        <Feed />
+        <Features />
+        <MapStyles />
+        <JoinCTA />
+        <GetInTouch />
+      </main>
     </>
   );
 }
