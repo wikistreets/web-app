@@ -14,6 +14,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 
+import Link from "next/link";
+import Logo from "@/components/Header/Logo";
 import OrDivider from "./OrDivider";
 import SocialLogIn from "./SocialLogIn";
 import SupportingInput from "./SupportingInput";
@@ -42,50 +44,64 @@ const LogInForm = () => {
     console.log(values);
   }
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email address</FormLabel>
-              <FormControl>
-                <Input className="w-full" placeholder="" {...field} />
-              </FormControl>
-              <FormDescription>
-                {/* This is your public display name. */}
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Password</FormLabel>
-              <FormControl>
-                <Input className="w-full" placeholder="" {...field} />
-              </FormControl>
-              <FormDescription>
-                {/* This is your public display name. */}
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <OrDivider />
-        <SocialLogIn />
-        <SupportingInput />
-        <FormBtn type="Log in" />
-        <SupportingQuestion
-          ask="Don't have an account?"
-          answer="Sign up for free"
-        />
-      </form>
-    </Form>
+    <>
+      <div className="flex flex-col gap-12 lg:gap-10">
+        <div className="hidden sm:block w-12 h-12">
+          <Link href="/">
+            <Logo />
+          </Link>
+        </div>
+        <h1 className="font-dm-sans tracking-wide">Welcome back!</h1>
+      </div>
+
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="mt-8 space-y-6 lg:space-y-4"
+        >
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-xs">Email address</FormLabel>
+                <FormControl>
+                  <Input className="w-full" placeholder="" {...field} />
+                </FormControl>
+                <FormDescription>
+                  {/* This is your public display name. */}
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-xs">Password</FormLabel>
+                <FormControl>
+                  <Input className="w-full" placeholder="" {...field} />
+                </FormControl>
+                <FormDescription>
+                  {/* This is your public display name. */}
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <OrDivider />
+          <SocialLogIn />
+          <SupportingInput />
+          <FormBtn type="Log in" />
+          <SupportingQuestion
+            ask="Don't have an account?"
+            answer="Sign up for free"
+          />
+        </form>
+      </Form>
+    </>
   );
 };
 
