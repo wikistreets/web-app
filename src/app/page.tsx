@@ -1,7 +1,4 @@
-"use client";
-
-import dynamic from "next/dynamic";
-
+import Header from "@/components/Header/Header";
 import Hero from "@/components/Hero/Hero";
 import FeaturedMaps from "@/components/FeaturedMaps/FeaturedMaps";
 import Feed from "@/components/Feed/Feed";
@@ -14,14 +11,17 @@ import GetInTouch from "@/components/GetInTouch/GetInTouch";
 
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <FeaturedMaps />
-      <Feed />
-      <Features />
-      <MapStyles />
-      <JoinCTA />
-      <GetInTouch />
-    </main>
+    <>
+      <Header />
+      <main className="h-full">
+        <Hero />
+        <FeaturedMaps />
+        <Feed />
+        <Features />
+        <MapStyles />
+        <JoinCTA />
+        <GetInTouch />
+      </main>
+    </>
   );
 }
