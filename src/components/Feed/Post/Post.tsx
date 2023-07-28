@@ -6,7 +6,7 @@ import Header from "./Header/Header";
 import Slider from "./Slider";
 import Bar from "./Bar";
 import Caption from "./Caption/Caption";
-import CommentContainer from "./Comment/CommentContainer";
+import ViewAll from "./Reply/ViewAll";
 
 type PostProps = {
   userID: string;
@@ -34,11 +34,14 @@ type PostProps = {
   }[];
 };
 
-const Post = (props: PostProps) => {
+export const Post: React.FC<PostProps> = (props) => {
   const [userID, setUserID] = useState(null);
+  const totalReplies: number = 23;
+
   const Post = props.maps.map((map) => {
     return map.posts.map((post, idx) => {
       const uniqueKey = `${map.mapID}-${post.postID}`;
+
       return (
         <div key={uniqueKey}>
           <Header
@@ -53,7 +56,7 @@ const Post = (props: PostProps) => {
           {map.mapType === "Geo" && <Bar location={post.location} />}
           {map.mapType === "Image" && <Bar postTitle={post.postTitle} />}
           {post.caption && <Caption caption={post.caption} />}
-          <CommentContainer />
+          <ViewAll total={totalReplies} />
         </div>
       );
     });
