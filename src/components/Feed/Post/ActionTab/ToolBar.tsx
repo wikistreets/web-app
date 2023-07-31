@@ -113,11 +113,12 @@ export const ToolBar: React.FC<ToolBarProps> = () => {
           </>
         </MenubarTrigger>
         <MenubarContent>
+          <MenubarItem>Copy map</MenubarItem>
           <MenubarItem>
-            New Map
+            Create map
             {/* <MenubarShortcut>⌘M</MenubarShortcut> */}
           </MenubarItem>
-          <MenubarItem>New Post</MenubarItem>
+          <MenubarItem>Create post</MenubarItem>
         </MenubarContent>
       </MenubarMenu>
 
