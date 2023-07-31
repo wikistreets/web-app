@@ -12,12 +12,12 @@ type InfoProps = {
 const Info = (props: InfoProps) => {
   return (
     <section className="flex flex-col w-full">
-      <div className="flex flex-row justify-start items-center gap-1">
-        <h6 className="">{props.username}</h6>
+      <div className="flex justify-start items-center gap-1.5">
+        <p className="text-sm">{props.username}</p>
         <FontAwesomeIcon icon={faCircle} className="w-0.5 text-secondary" />
-        <h6 className="text-secondary ">{props.posted}d</h6>
+        <p className="text-secondary text-sm">{props.posted}d</p>
       </div>
-      <h6 className="text-secondary ">{props.mapTitle}</h6>
+      <p className="text-secondary text-sm">{props.mapTitle}</p>
     </section>
   );
 };
