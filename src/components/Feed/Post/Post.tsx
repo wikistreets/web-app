@@ -3,7 +3,7 @@
 import { StaticImageData } from "next/image";
 import { useState } from "react";
 import Header from "./Header/Header";
-import Carousel from "./Carousel";
+import Carousel from "./Carousel/Carousel";
 import Bar from "./Bar";
 import Caption from "./Caption/Caption";
 import CommentContainer from "./Comment/CommentContainer";
