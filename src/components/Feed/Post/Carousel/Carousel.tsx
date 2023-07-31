@@ -1,37 +1,24 @@
 "use client";
 
+import { useCallback } from "react";
+import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
+import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import Image, { StaticImageData } from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleChevronLeft,
   faCircleChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import useEmblaCarousel, {
-  EmblaCarouselType,
-  EmblaOptionsType,
-  EmblaPluginType,
-  EmblaEventType,
-  UseEmblaCarouselType,
-} from "embla-carousel-react";
-import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
-import { useCallback } from "react";
 
 type CarouselProps = {
   postID: string;
   postMedia: StaticImageData[] | [];
 };
 
-const wheelGesturesOptions = {
-  wheelDraggingClass: "",
-};
-
 export const Carousel: React.FC<CarouselProps> = ({ postID, postMedia }) => {
-  const options = {
-    loop: true,
-    plugins: [WheelGesturesPlugin(wheelGesturesOptions)],
-  };
+  const options: EmblaOptionsType = { loop: true };
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, []);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -56,11 +43,14 @@ export const Carousel: React.FC<CarouselProps> = ({ postID, postMedia }) => {
 
   return (
     <>
-      <div className="embla overflow-hidden relative">
+      <div className="embla relative overflow-hidden">
         <div className="embla__viewport w-full" ref={emblaRef}>
           <div className="embla__container w-full flex">{carouselContent}</div>
         </div>
-        <div className="embla__buttons absolute top-1/2 w-full flex justify-between px-2 text-white opacity-60">
+        <div
+          className="embla__buttons absolute top-1/2 w-full
+          flex justify-between px-2 text-white opacity-60"
+        >
           {carouselContent.length > 1 && (
             <>
               <button className="embla__prev z-10" onClick={scrollPrev}>

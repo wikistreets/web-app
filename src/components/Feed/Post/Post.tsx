@@ -48,7 +48,11 @@ const Post = (props: PostProps) => {
             mapTitle={map.mapTitle}
           />
           {post.postMedia && (
-            <Carousel postID={post.postID} postMedia={post.postMedia} />
+            <Carousel
+              postID={post.postID}
+              postMedia={post.postMedia}
+              options={{ loop: true }}
+            />
           )}
           {map.mapType === "Geo" && <Bar location={post.location} />}
           {map.mapType === "Image" && <Bar postTitle={post.postTitle} />}
