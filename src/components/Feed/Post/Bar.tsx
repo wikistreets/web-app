@@ -28,7 +28,7 @@ const Bar = (props: BarProps) => {
     </>
   );
   return (
-    <section className="bg-indigo-50 flex flex-row gap-2 px-2 py-3 justify-start items-center">
+    <section className="bg-indigo-50 flex gap-2 px-2 py-3 justify-start items-center">
       {props.location && geoMapBar}
       {props.postTitle && imageMapBar}
     </section>

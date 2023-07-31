@@ -3,7 +3,7 @@
 import { StaticImageData } from "next/image";
 import { useState } from "react";
 import Header from "./Header/Header";
-import Slider from "./Slider";
+import Carousel from "./Carousel/Carousel";
 import Bar from "./Bar";
 import Caption from "./Caption/Caption";
 import ViewAll from "./Reply/ViewAll";
@@ -51,7 +51,11 @@ export const Post: React.FC<PostProps> = (props) => {
             mapTitle={map.mapTitle}
           />
           {post.postMedia && (
-            <Slider postID={post.postID} postMedia={post.postMedia} />
+            <Carousel
+              postID={post.postID}
+              postMedia={post.postMedia}
+              options={{ loop: true }}
+            />
           )}
           {map.mapType === "Geo" && <Bar location={post.location} />}
           {map.mapType === "Image" && <Bar postTitle={post.postTitle} />}

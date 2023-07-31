@@ -14,7 +14,7 @@ type HeaderProps = {
 
 const Header = (props: HeaderProps) => {
   return (
-    <section className="bg-white flex flex-row w-full justify-center items-center gap-2 px-2 py-3">
+    <section className="bg-white flex w-full justify-center items-center gap-2 px-2 py-3">
       <div className="w-12">
         <UserPic userPic={props.userPic} />
       </div>
