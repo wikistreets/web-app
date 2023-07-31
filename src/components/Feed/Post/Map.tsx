@@ -10,7 +10,7 @@ const MapInPost = (props: Props) => {
     <>
       <MapContainer
         className="w-full h-60 sticky top-0 z-20
-        sm:aspect-square sm:h-full"
+        sm:h-full"
         center={[51.505, -0.09]}
         zoom={13}
         scrollWheelZoom={true}

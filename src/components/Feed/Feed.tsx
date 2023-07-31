@@ -17,11 +17,12 @@ const Feed = () => {
   //   console.log("mockUsers", mockUsers);
   return (
     <section
-      className="relative flex w-full h-full mx-auto
+      className="relative mx-auto flex w-full h-full sm:h-screen 
       flex-col sm:flex-row sm:gap-4
-      max-w-lg sm:max-w-none sm:overflow-auto
+      max-w-lg sm:max-w-none 
       sm:px-4 md:px-10 lg:px-14 xl:px-16
-      py-8 sm:py-10"
+      py-8 sm:py-10
+      sm:overflow-auto"
     >
       <Map />
       <section className="flex flex-col items-center justify-center container">
