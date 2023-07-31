@@ -23,9 +23,7 @@ const Slider = (props: SliderProps) => {
   // console.log(sliderContent);
 
   return (
-    <figure className="flex flex-row w-full overflow-x-auto">
-      {sliderContent}
-    </figure>
+    <figure className="flex w-full overflow-x-auto">{sliderContent}</figure>
   );
 };
 
