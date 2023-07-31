@@ -1,9 +1,9 @@
 "use client";
 
+import Image, { StaticImageData } from "next/image";
 import { useCallback } from "react";
 import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
 import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
-import Image, { StaticImageData } from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleChevronLeft,
@@ -13,12 +13,15 @@ import {
 type CarouselProps = {
   postID: string;
   postMedia: StaticImageData[] | [];
+  options?: EmblaOptionsType;
 };
 
-export const Carousel: React.FC<CarouselProps> = ({ postID, postMedia }) => {
-  const options: EmblaOptionsType = { loop: true };
-
-  const [emblaRef, emblaApi] = useEmblaCarousel(options, []);
+export const Carousel: React.FC<CarouselProps> = ({
+  postID,
+  postMedia,
+  options,
+}) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
