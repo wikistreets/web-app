@@ -1,6 +1,11 @@
 "use client";
 
 import Image, { StaticImageData } from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCircleChevronLeft,
+  faCircleChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 import useEmblaCarousel, {
   EmblaCarouselType,
   EmblaOptionsType,
@@ -14,7 +19,6 @@ import { useCallback } from "react";
 type CarouselProps = {
   postID: string;
   postMedia: StaticImageData[] | [];
-  // options?: EmblaOptionsType;
 };
 
 const wheelGesturesOptions = {
@@ -24,9 +28,9 @@ const wheelGesturesOptions = {
 export const Carousel: React.FC<CarouselProps> = ({ postID, postMedia }) => {
   const options = {
     loop: true,
-    dragFree: true,
     plugins: [WheelGesturesPlugin(wheelGesturesOptions)],
   };
+
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
   const scrollPrev = useCallback(() => {
@@ -37,7 +41,7 @@ export const Carousel: React.FC<CarouselProps> = ({ postID, postMedia }) => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
-  const sliderContent = postMedia.map((media, idx) => (
+  const carouselContent = postMedia.map((media, idx) => (
     <div className="embla__slide shrink-0 w-full" key={idx}>
       <Image
         key={idx}
@@ -49,21 +53,24 @@ export const Carousel: React.FC<CarouselProps> = ({ postID, postMedia }) => {
       />
     </div>
   ));
-  // console.log(sliderContent);
 
   return (
     <>
-      <div className="embla overflow-hidden">
-        <div className="embla__viewport  w-full" ref={emblaRef}>
-          <div className="embla__container w-full flex">{sliderContent}</div>
+      <div className="embla overflow-hidden relative">
+        <div className="embla__viewport w-full" ref={emblaRef}>
+          <div className="embla__container w-full flex">{carouselContent}</div>
         </div>
-        <div className="embla__buttons object-center flex justify-between">
-          <button className="embla__prev z-10" onClick={scrollPrev}>
-            Prev
-          </button>
-          <button className="embla__next z-10" onClick={scrollNext}>
-            Next
-          </button>
+        <div className="embla__buttons absolute top-1/2 w-full flex justify-between px-2 text-white opacity-60">
+          {carouselContent.length > 1 && (
+            <>
+              <button className="embla__prev z-10" onClick={scrollPrev}>
+                <FontAwesomeIcon icon={faCircleChevronLeft} size="xl" />
+              </button>
+              <button className="embla__next z-10" onClick={scrollNext}>
+                <FontAwesomeIcon icon={faCircleChevronRight} size="xl" />
+              </button>
+            </>
+          )}
         </div>
       </div>
     </>
