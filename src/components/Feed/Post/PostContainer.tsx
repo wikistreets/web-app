@@ -2,7 +2,6 @@
 
 import { StaticImageData } from "next/image";
 import Post from "./Post";
-
 type UserObject = {
   userID: string;
   userName: string | "";
@@ -49,9 +48,9 @@ const PostContainer = (props: PostContianerProps) => {
   //   console.log("posts in PostContainer", Posts);
   return (
     <div
-      className="md:container flex flex-col w-full h-full bg-blue-50
+      className="flex flex-col w-full h-full bg-white 
       overflow-auto overscroll-contain scroll-smooth
-      lg:h-screen"
+      sm:h-screen"
     >
       {Posts}
     </div>
