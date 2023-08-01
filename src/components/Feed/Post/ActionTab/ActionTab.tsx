@@ -13,7 +13,7 @@ export const ActionTab: React.FC<ActionTabProps> = (props) => {
     >
       <Dropdown />
       <ToolBar />
-      <Info totalPosts={30} totalContributors={9} totalCopies={25} />
+      <Info totalPosts={30} totalContributors={9} totalDuplicates={25} />
     </div>
   );
 };

@@ -17,8 +17,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass,
   faArrowUpFromBracket,
+  faLocationDot,
+  faDrawPolygon,
 } from "@fortawesome/free-solid-svg-icons";
 import { PiPlusCircleBold, PiGearBold } from "react-icons/pi";
+import { IoAnalyticsSharp } from "react-icons/io5";
 
 type ToolBarProps = {};
 
@@ -55,9 +58,6 @@ export const ToolBar: React.FC<ToolBarProps> = () => {
             />
           </>
         </MenubarTrigger>
-        <MenubarContent>
-          <MenubarItem>Search</MenubarItem>
-        </MenubarContent>
       </MenubarMenu>
 
       {/* SHARE */}
@@ -78,6 +78,9 @@ export const ToolBar: React.FC<ToolBarProps> = () => {
           </>
         </MenubarTrigger>
         <MenubarContent>
+          <MenubarItem>Add to Favorites</MenubarItem>
+          <MenubarItem>Duplicate</MenubarItem>
+          <MenubarSeparator />
           <MenubarSub>
             <MenubarSubTrigger>Share</MenubarSubTrigger>
             <MenubarSubContent>
@@ -88,11 +91,7 @@ export const ToolBar: React.FC<ToolBarProps> = () => {
               <MenubarItem>Email</MenubarItem>
             </MenubarSubContent>
           </MenubarSub>
-          <MenubarSeparator />
-          <MenubarItem>
-            Copy link
-            {/* <MenubarShortcut>⌘T</MenubarShortcut> */}
-          </MenubarItem>
+          <MenubarItem>Copy link</MenubarItem>
         </MenubarContent>
       </MenubarMenu>
 
@@ -113,12 +112,29 @@ export const ToolBar: React.FC<ToolBarProps> = () => {
           </>
         </MenubarTrigger>
         <MenubarContent>
-          <MenubarItem>Copy map</MenubarItem>
+          <MenubarItem disabled>Add to map :</MenubarItem>
+          <MenubarSeparator></MenubarSeparator>
           <MenubarItem>
-            Create map
-            {/* <MenubarShortcut>⌘M</MenubarShortcut> */}
+            <div className="flex gap-2 justify-start items-center">
+              <FontAwesomeIcon icon={faLocationDot} size="lg" />
+              Marker
+            </div>
+            {/* <MenubarShortcut>m</MenubarShortcut> */}
           </MenubarItem>
-          <MenubarItem>Create post</MenubarItem>
+          <MenubarItem>
+            <div className="flex gap-2 justify-start items-center">
+              <IoAnalyticsSharp size="1.3rem" />
+              Line
+            </div>
+            {/* <MenubarShortcut>l</MenubarShortcut> */}
+          </MenubarItem>
+          <MenubarItem>
+            <div className="flex gap-2 justify-start items-center">
+              <FontAwesomeIcon icon={faDrawPolygon} size="lg" />
+              Polygon
+            </div>
+            {/* <MenubarShortcut>a</MenubarShortcut> */}
+          </MenubarItem>
         </MenubarContent>
       </MenubarMenu>
 
@@ -143,6 +159,11 @@ export const ToolBar: React.FC<ToolBarProps> = () => {
             <MenubarContent>
               <MenubarItem>Map settings</MenubarItem>
               <MenubarItem>Reorder posts</MenubarItem>
+              <MenubarItem>Invite collaborators</MenubarItem>
+              <MenubarSeparator></MenubarSeparator>
+              <MenubarItem>Import data</MenubarItem>
+              <MenubarItem>Export data</MenubarItem>
+              <MenubarSeparator></MenubarSeparator>
               <MenubarItem>Delete map</MenubarItem>
             </MenubarContent>
           </MenubarMenu>
