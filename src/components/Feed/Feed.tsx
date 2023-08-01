@@ -25,10 +25,7 @@ const Feed = () => {
       sm:overflow-auto"
     >
       <Map />
-      <section className="flex flex-col items-center justify-center container">
-        <ActionTab />
-        <PostContainer users={mockUsers} />
-      </section>
+      <PostContainer users={mockUsers} />
     </section>
   );
 };

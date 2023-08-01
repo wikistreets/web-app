@@ -1,7 +1,9 @@
 "use client";
 
 import { StaticImageData } from "next/image";
+import ActionTab from "./ActionTab/ActionTab";
 import Post from "./Post";
+
 type UserObject = {
   userID: string;
   userName: string | "";
@@ -47,13 +49,16 @@ const PostContainer = (props: PostContianerProps) => {
   });
   //   console.log("posts in PostContainer", Posts);
   return (
-    <div
-      className="flex flex-col w-full h-full bg-white 
+    <section className="flex flex-col items-center justify-center h-full container">
+      <ActionTab />
+      <div
+        className="flex flex-col w-full h-full bg-white 
       overflow-auto overscroll-contain scroll-smooth
       sm:h-screen"
-    >
-      {Posts}
-    </div>
+      >
+        {Posts}
+      </div>
+    </section>
   );
 };
 
