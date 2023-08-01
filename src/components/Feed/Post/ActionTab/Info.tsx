@@ -4,13 +4,13 @@ import { faCircle } from "@fortawesome/free-solid-svg-icons";
 type InfoProps = {
   totalPosts: number;
   totalContributors: number;
-  totalCopies: number;
+  totalDuplicates: number;
 };
 
 export const Info: React.FC<InfoProps> = ({
   totalPosts,
   totalContributors,
-  totalCopies,
+  totalDuplicates,
 }) => {
   return (
     <div className="flex flex-col justify-center items-center text-secondary text-center gap-1">
@@ -21,7 +21,7 @@ export const Info: React.FC<InfoProps> = ({
         <FontAwesomeIcon icon={faCircle} className="w-0.5" />
         <p className="text-xs">{totalContributors} contributors</p>
         <FontAwesomeIcon icon={faCircle} className="w-0.5" />
-        <p className="text-xs">{totalCopies} copies</p>
+        <p className="text-xs">{totalDuplicates} duplicates</p>
       </div>
     </div>
   );

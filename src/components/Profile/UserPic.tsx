@@ -18,7 +18,7 @@ const UserPic = (props: UserPicProps) => {
     return () => {
       userPic;
     };
-  }, [props.userPic]);
+  }, [props.userPic, userPic]);
 
   return (
     <Image

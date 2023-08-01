@@ -4,11 +4,11 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-type Props = {
+type ViewAllProps = {
   total: number;
 };
 
-export const ViewAll: React.FC<Props> = ({ total }) => {
+export const ViewAll: React.FC<ViewAllProps> = ({ total }) => {
   const handleViewAll = () => {
     console.log("handleViewAll!");
   };
