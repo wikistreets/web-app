@@ -17,8 +17,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass,
   faArrowUpFromBracket,
+  faLocationDot,
+  faDrawPolygon,
 } from "@fortawesome/free-solid-svg-icons";
 import { PiPlusCircleBold, PiGearBold } from "react-icons/pi";
+import { IoAnalyticsSharp } from "react-icons/io5";
 
 type ToolBarProps = {};
 
@@ -112,18 +115,24 @@ export const ToolBar: React.FC<ToolBarProps> = () => {
           <MenubarItem disabled>Add to map :</MenubarItem>
           <MenubarSeparator></MenubarSeparator>
           <MenubarItem>
-            <div className="flex gap-1 justify-start items-center">
-              <PiPlusCircleBold size="1.1rem" onClick={handleCreate} />
+            <div className="flex gap-2 justify-start items-center">
+              <FontAwesomeIcon icon={faLocationDot} size="lg" />
               Marker
             </div>
             {/* <MenubarShortcut>m</MenubarShortcut> */}
           </MenubarItem>
           <MenubarItem>
-            Line
+            <div className="flex gap-2 justify-start items-center">
+              <IoAnalyticsSharp size="1.3rem" />
+              Line
+            </div>
             {/* <MenubarShortcut>l</MenubarShortcut> */}
           </MenubarItem>
           <MenubarItem>
-            Area
+            <div className="flex gap-2 justify-start items-center">
+              <FontAwesomeIcon icon={faDrawPolygon} size="lg" />
+              Polygon
+            </div>
             {/* <MenubarShortcut>a</MenubarShortcut> */}
           </MenubarItem>
         </MenubarContent>
