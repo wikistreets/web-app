@@ -9,7 +9,7 @@ const Features = () => {
       py-8 sm:py-10"
     >
       <h2 className="text-center font-dm-sans tracking-wide md:text-2xl lg:text-3xl xl:text-4xl">
-        Map Just As You'd Imagine
+        Map Just As You&apos;d Imagine
       </h2>
       <FeatureCard />
     </section>
