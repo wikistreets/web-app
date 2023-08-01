@@ -55,9 +55,6 @@ export const ToolBar: React.FC<ToolBarProps> = () => {
             />
           </>
         </MenubarTrigger>
-        <MenubarContent>
-          <MenubarItem>Search</MenubarItem>
-        </MenubarContent>
       </MenubarMenu>
 
       {/* SHARE */}
@@ -78,6 +75,9 @@ export const ToolBar: React.FC<ToolBarProps> = () => {
           </>
         </MenubarTrigger>
         <MenubarContent>
+          <MenubarItem>Add to Favorites</MenubarItem>
+          <MenubarItem>Duplicate</MenubarItem>
+          <MenubarSeparator />
           <MenubarSub>
             <MenubarSubTrigger>Share</MenubarSubTrigger>
             <MenubarSubContent>
@@ -88,11 +88,7 @@ export const ToolBar: React.FC<ToolBarProps> = () => {
               <MenubarItem>Email</MenubarItem>
             </MenubarSubContent>
           </MenubarSub>
-          <MenubarSeparator />
-          <MenubarItem>
-            Copy link
-            {/* <MenubarShortcut>⌘T</MenubarShortcut> */}
-          </MenubarItem>
+          <MenubarItem>Copy link</MenubarItem>
         </MenubarContent>
       </MenubarMenu>
 
@@ -113,12 +109,23 @@ export const ToolBar: React.FC<ToolBarProps> = () => {
           </>
         </MenubarTrigger>
         <MenubarContent>
-          <MenubarItem>Copy map</MenubarItem>
+          <MenubarItem disabled>Add to map :</MenubarItem>
+          <MenubarSeparator></MenubarSeparator>
           <MenubarItem>
-            Create map
-            {/* <MenubarShortcut>⌘M</MenubarShortcut> */}
+            <div className="flex gap-1 justify-start items-center">
+              <PiPlusCircleBold size="1.1rem" onClick={handleCreate} />
+              Marker
+            </div>
+            {/* <MenubarShortcut>m</MenubarShortcut> */}
           </MenubarItem>
-          <MenubarItem>Create post</MenubarItem>
+          <MenubarItem>
+            Line
+            {/* <MenubarShortcut>l</MenubarShortcut> */}
+          </MenubarItem>
+          <MenubarItem>
+            Area
+            {/* <MenubarShortcut>a</MenubarShortcut> */}
+          </MenubarItem>
         </MenubarContent>
       </MenubarMenu>
 
@@ -143,6 +150,11 @@ export const ToolBar: React.FC<ToolBarProps> = () => {
             <MenubarContent>
               <MenubarItem>Map settings</MenubarItem>
               <MenubarItem>Reorder posts</MenubarItem>
+              <MenubarItem>Invite collaborators</MenubarItem>
+              <MenubarSeparator></MenubarSeparator>
+              <MenubarItem>Import data</MenubarItem>
+              <MenubarItem>Export data</MenubarItem>
+              <MenubarSeparator></MenubarSeparator>
               <MenubarItem>Delete map</MenubarItem>
             </MenubarContent>
           </MenubarMenu>
