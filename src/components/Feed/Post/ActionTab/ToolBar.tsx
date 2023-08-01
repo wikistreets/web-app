@@ -131,7 +131,7 @@ export const ToolBar: React.FC<ToolBarProps> = () => {
           <MenubarItem>
             <div className="flex gap-2 justify-start items-center">
               <FontAwesomeIcon icon={faDrawPolygon} size="lg" />
-              Polygon
+              Area
             </div>
             {/* <MenubarShortcut>a</MenubarShortcut> */}
           </MenubarItem>
