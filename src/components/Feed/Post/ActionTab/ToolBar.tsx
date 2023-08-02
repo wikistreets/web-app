@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import SearchBar from "@/components/Search/SearchBar";
 import {
   Menubar,
   MenubarContent,
@@ -27,9 +28,11 @@ type ToolBarProps = {};
 
 export const ToolBar: React.FC<ToolBarProps> = () => {
   const [isAdmin, setIsAdmin] = useState(true);
+  const [searchIsClicked, setSearchIsClicked] = useState(false);
 
   const handleSearch = () => {
-    console.log("search");
+    setSearchIsClicked(!searchIsClicked);
+    console.log("searchIsClicked", searchIsClicked);
   };
   const handleShare = () => {
     console.log("Share");
@@ -40,136 +43,139 @@ export const ToolBar: React.FC<ToolBarProps> = () => {
   const handleSettings = () => {};
 
   return (
-    <Menubar className="flex gap-6 justify-center items-center bg-white w-full text-indigo-600 border-none">
-      {/* SEARCH */}
-      <MenubarMenu>
-        <MenubarTrigger>
-          <>
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
-              onClick={handleSearch}
-              className="lg:hidden"
-            />
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
-              onClick={handleSearch}
-              size="lg"
-              className="hidden lg:block"
-            />
-          </>
-        </MenubarTrigger>
-      </MenubarMenu>
+    <>
+      <Menubar className="flex gap-6 justify-center items-center bg-white w-full text-indigo-600 border-none">
+        {/* SEARCH */}
+        <MenubarMenu>
+          <MenubarTrigger>
+            <>
+              <FontAwesomeIcon
+                icon={faMagnifyingGlass}
+                onClick={handleSearch}
+                className="lg:hidden"
+              />
+              <FontAwesomeIcon
+                icon={faMagnifyingGlass}
+                onClick={handleSearch}
+                size="lg"
+                className="hidden lg:block"
+              />
+            </>
+          </MenubarTrigger>
+        </MenubarMenu>
 
-      {/* SHARE */}
-      <MenubarMenu>
-        <MenubarTrigger>
-          <>
-            <FontAwesomeIcon
-              icon={faArrowUpFromBracket}
-              onClick={handleShare}
-              className="lg:hidden"
-            />
-            <FontAwesomeIcon
-              icon={faArrowUpFromBracket}
-              onClick={handleShare}
-              size="lg"
-              className="hidden lg:block"
-            />
-          </>
-        </MenubarTrigger>
-        <MenubarContent>
-          <MenubarItem>Add to Favorites</MenubarItem>
-          <MenubarItem>Duplicate</MenubarItem>
-          <MenubarSeparator />
-          <MenubarSub>
-            <MenubarSubTrigger>Share</MenubarSubTrigger>
-            <MenubarSubContent>
-              <MenubarItem>Instagram</MenubarItem>
-              <MenubarItem>Threads</MenubarItem>
-              <MenubarItem>Twitter</MenubarItem>
-              <MenubarItem>Messages</MenubarItem>
-              <MenubarItem>Email</MenubarItem>
-            </MenubarSubContent>
-          </MenubarSub>
-          <MenubarItem>Copy link</MenubarItem>
-        </MenubarContent>
-      </MenubarMenu>
+        {/* SHARE */}
+        <MenubarMenu>
+          <MenubarTrigger>
+            <>
+              <FontAwesomeIcon
+                icon={faArrowUpFromBracket}
+                onClick={handleShare}
+                className="lg:hidden"
+              />
+              <FontAwesomeIcon
+                icon={faArrowUpFromBracket}
+                onClick={handleShare}
+                size="lg"
+                className="hidden lg:block"
+              />
+            </>
+          </MenubarTrigger>
+          <MenubarContent>
+            <MenubarItem>Add to Favorites</MenubarItem>
+            <MenubarItem>Duplicate</MenubarItem>
+            <MenubarSeparator />
+            <MenubarSub>
+              <MenubarSubTrigger>Share</MenubarSubTrigger>
+              <MenubarSubContent>
+                <MenubarItem>Instagram</MenubarItem>
+                <MenubarItem>Threads</MenubarItem>
+                <MenubarItem>Twitter</MenubarItem>
+                <MenubarItem>Messages</MenubarItem>
+                <MenubarItem>Email</MenubarItem>
+              </MenubarSubContent>
+            </MenubarSub>
+            <MenubarItem>Copy link</MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
 
-      {/* CREATE */}
-      <MenubarMenu>
-        <MenubarTrigger>
-          <>
-            <PiPlusCircleBold
-              size="1.1rem"
-              onClick={handleCreate}
-              className="lg:hidden"
-            />
-            <PiPlusCircleBold
-              size="1.3rem"
-              onClick={handleCreate}
-              className="hidden lg:block"
-            />
-          </>
-        </MenubarTrigger>
-        <MenubarContent>
-          <MenubarItem disabled>Add to map :</MenubarItem>
-          <MenubarSeparator></MenubarSeparator>
-          <MenubarItem>
-            <div className="flex gap-2 justify-start items-center">
-              <FontAwesomeIcon icon={faLocationDot} size="lg" />
-              Marker
-            </div>
-            {/* <MenubarShortcut>m</MenubarShortcut> */}
-          </MenubarItem>
-          <MenubarItem>
-            <div className="flex gap-2 justify-start items-center">
-              <IoAnalyticsSharp size="1.3rem" />
-              Line
-            </div>
-            {/* <MenubarShortcut>l</MenubarShortcut> */}
-          </MenubarItem>
-          <MenubarItem>
-            <div className="flex gap-2 justify-start items-center">
-              <FontAwesomeIcon icon={faDrawPolygon} size="lg" />
-              Area
-            </div>
-            {/* <MenubarShortcut>a</MenubarShortcut> */}
-          </MenubarItem>
-        </MenubarContent>
-      </MenubarMenu>
+        {/* CREATE */}
+        <MenubarMenu>
+          <MenubarTrigger>
+            <>
+              <PiPlusCircleBold
+                size="1.1rem"
+                onClick={handleCreate}
+                className="lg:hidden"
+              />
+              <PiPlusCircleBold
+                size="1.3rem"
+                onClick={handleCreate}
+                className="hidden lg:block"
+              />
+            </>
+          </MenubarTrigger>
+          <MenubarContent>
+            <MenubarItem disabled>Add to map :</MenubarItem>
+            <MenubarSeparator></MenubarSeparator>
+            <MenubarItem>
+              <div className="flex gap-2 justify-start items-center">
+                <FontAwesomeIcon icon={faLocationDot} size="lg" />
+                Marker
+              </div>
+              {/* <MenubarShortcut>m</MenubarShortcut> */}
+            </MenubarItem>
+            <MenubarItem>
+              <div className="flex gap-2 justify-start items-center">
+                <IoAnalyticsSharp size="1.3rem" />
+                Line
+              </div>
+              {/* <MenubarShortcut>l</MenubarShortcut> */}
+            </MenubarItem>
+            <MenubarItem>
+              <div className="flex gap-2 justify-start items-center">
+                <FontAwesomeIcon icon={faDrawPolygon} size="lg" />
+                Area
+              </div>
+              {/* <MenubarShortcut>a</MenubarShortcut> */}
+            </MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
 
-      {/* ADMIN FEATURES */}
-      {isAdmin && (
-        <>
-          <MenubarMenu>
-            <MenubarTrigger>
-              <>
-                <PiGearBold
-                  size="1.1rem"
-                  onClick={handleCreate}
-                  className="lg:hidden"
-                />
-                <PiGearBold
-                  size="1.3rem"
-                  onClick={handleCreate}
-                  className="hidden lg:block"
-                />
-              </>
-            </MenubarTrigger>
-            <MenubarContent>
-              <MenubarItem>Map settings</MenubarItem>
-              <MenubarItem>Reorder posts</MenubarItem>
-              <MenubarItem>Invite collaborators</MenubarItem>
-              <MenubarSeparator></MenubarSeparator>
-              <MenubarItem>Import data</MenubarItem>
-              <MenubarItem>Export data</MenubarItem>
-              <MenubarSeparator></MenubarSeparator>
-              <MenubarItem>Delete map</MenubarItem>
-            </MenubarContent>
-          </MenubarMenu>
-        </>
-      )}
-    </Menubar>
+        {/* ADMIN FEATURES */}
+        {isAdmin && (
+          <>
+            <MenubarMenu>
+              <MenubarTrigger>
+                <>
+                  <PiGearBold
+                    size="1.1rem"
+                    onClick={handleCreate}
+                    className="lg:hidden"
+                  />
+                  <PiGearBold
+                    size="1.3rem"
+                    onClick={handleCreate}
+                    className="hidden lg:block"
+                  />
+                </>
+              </MenubarTrigger>
+              <MenubarContent>
+                <MenubarItem>Map settings</MenubarItem>
+                <MenubarItem>Reorder posts</MenubarItem>
+                <MenubarItem>Invite collaborators</MenubarItem>
+                <MenubarSeparator></MenubarSeparator>
+                <MenubarItem>Import data</MenubarItem>
+                <MenubarItem>Export data</MenubarItem>
+                <MenubarSeparator></MenubarSeparator>
+                <MenubarItem>Delete map</MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+          </>
+        )}
+      </Menubar>
+      {searchIsClicked && <SearchBar />}
+    </>
   );
 };
 
