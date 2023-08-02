@@ -1,7 +1,6 @@
 "use client";
 
 import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 type Props = {};
 
