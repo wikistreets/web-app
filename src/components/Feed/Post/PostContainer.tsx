@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { StaticImageData } from "next/image";
 import ActionTab from "./ActionTab/ActionTab";
 import Post from "./Post";
+import Info from "./ActionTab/Info";
 
 type UserObject = {
   userID: string;
@@ -35,6 +37,9 @@ type PostContianerProps = {
 };
 
 const PostContainer = (props: PostContianerProps) => {
+  const [searchIsClicked, setSearchIsClicked] = useState(false);
+  // REACT CONTEXT!
+
   // TODO: which posts to show & order
   const Posts = props.users.map((user, idx) => {
     return (
@@ -53,9 +58,10 @@ const PostContainer = (props: PostContianerProps) => {
       <ActionTab />
       <div
         className="flex flex-col w-full h-full bg-white 
-      overflow-auto overscroll-contain scroll-smooth
-      sm:h-screen"
+        overflow-auto overscroll-contain scroll-smooth
+        sm:h-screen"
       >
+        <Info totalPosts={30} totalContributors={9} totalDuplicates={25} />
         {Posts}
       </div>
     </section>
