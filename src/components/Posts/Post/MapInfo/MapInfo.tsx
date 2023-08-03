@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faFileLines } from "@fortawesome/free-solid-svg-icons";
 
-type BarProps = {
+type Props = {
   location?: string;
   postTitle?: string;
 };
 
-const Bar = (props: BarProps) => {
+export const MapInfo: React.FC<Props> = ({ location, postTitle }) => {
   const geoMapBar = (
     <>
       <FontAwesomeIcon
@@ -14,7 +14,7 @@ const Bar = (props: BarProps) => {
         size="lg"
         className="text-indigo-600"
       />
-      <h6 className="text-indigo-600 text-md font-medium">{props.location}</h6>
+      <h6 className="text-indigo-600 text-md font-medium">{location}</h6>
     </>
   );
   const imageMapBar = (
@@ -24,15 +24,15 @@ const Bar = (props: BarProps) => {
         size="lg"
         className="text-indigo-600"
       />
-      <h6 className="text-indigo-600 text-md font-medium">{props.postTitle}</h6>
+      <h6 className="text-indigo-600 text-md font-medium">{postTitle}</h6>
     </>
   );
   return (
     <section className="bg-indigo-50 flex gap-2 px-2 py-3 justify-start items-center">
-      {props.location && geoMapBar}
-      {props.postTitle && imageMapBar}
+      {location && geoMapBar}
+      {postTitle && imageMapBar}
     </section>
   );
 };
 
-export default Bar;
+export default MapInfo;

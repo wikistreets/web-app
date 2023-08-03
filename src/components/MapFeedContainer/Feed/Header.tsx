@@ -1,18 +1,16 @@
-import Dropdown from "./Dropdown";
+import Selector from "./Selector";
 import ToolBar from "./ToolBar";
 
-type ActionTabProps = {};
-
-export const ActionTab: React.FC<ActionTabProps> = (props) => {
+export const Header: React.FC = () => {
   return (
     <div
       className="flex flex-col w-full justify-center items-center bg-white
       sticky top-60 sm:top-0 z-10"
     >
-      <Dropdown />
+      <Selector />
       <ToolBar />
     </div>
   );
 };
 
-export default ActionTab;
+export default Header;

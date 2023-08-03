@@ -1,13 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
-type PostInfoProps = {
+type Props = {
   totalPosts: number;
   totalContributors: number;
   totalDuplicates: number;
 };
 
-export const PostInfo: React.FC<PostInfoProps> = ({
+export const Info: React.FC<Props> = ({
   totalPosts,
   totalContributors,
   totalDuplicates,
@@ -27,4 +27,4 @@ export const PostInfo: React.FC<PostInfoProps> = ({
   );
 };
 
-export default PostInfo;
+export default Info;

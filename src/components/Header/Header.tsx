@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { Button } from "../ui/button";
 import Link from "next/link";
 import Logo from "./Logo";
 import Search from "./Search";
@@ -7,10 +9,7 @@ import UserPic from "../Profile/UserPic";
 import Hamburger from "./Hamburger/Hamburger";
 import Notification from "./Hamburger/Notification";
 
-import { useState } from "react";
-import { Button } from "../ui/button";
-
-export default function Header() {
+export const Header: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userId, setUserId] = useState(null);
   const handleNotification = () => {
@@ -46,11 +45,13 @@ export default function Header() {
               <Notification />
             </div>
             <div className="ml-4 w-9 h-9 xl:w-12 xl:h-12 shrink-0">
-              <UserPic userPic="" />
+              <UserPic userPicData="" />
             </div>
           </div>
         )}
       </nav>
     </header>
   );
-}
+};
+
+export default Header;

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import UserTotalMaps from "@/components/Profile/UserTotalMaps";
 
-export default function UserInfo() {
+export const UserInfo: React.FC = () => {
   const [userId, setUserId] = useState(null);
   const [userName, setUserName] = useState("foo.barstein");
   const [mapNum, setMapNum] = useState(0);
@@ -14,4 +14,6 @@ export default function UserInfo() {
       <UserTotalMaps />
     </div>
   );
-}
+};
+
+export default UserInfo;

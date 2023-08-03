@@ -1,8 +1,4 @@
-import React from "react";
-
-type SearchResultProps = {};
-
-export const SearchResult: React.FC<SearchResultProps> = () => {
+export const SearchResult: React.FC = () => {
   const handleSearch = () => {};
 
   return (

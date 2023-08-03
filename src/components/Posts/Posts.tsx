@@ -2,8 +2,8 @@
 
 import { useContext } from "react";
 import { StaticImageData } from "next/image";
-import Post from "./Post";
-import PostInfo from "./PostInfo";
+import Post from "./Post/Post";
+import Info from "../MapFeedContainer/Feed/Info";
 import { SearchContext } from "@/context/SearchContext";
 
 type UserObject = {
@@ -32,11 +32,11 @@ type UserObject = {
   }[];
 };
 
-type PostsProps = {
+type Props = {
   users: UserObject[];
 };
 
-export const Posts: React.FC<PostsProps> = ({ users }) => {
+export const Posts: React.FC<Props> = ({ users }) => {
   const { searchIsClicked } = useContext(SearchContext);
 
   // TODO: which posts to show & order
@@ -61,11 +61,7 @@ export const Posts: React.FC<PostsProps> = ({ users }) => {
       {/* TODO: POSTS ALSO NEED TO SHOW UP WHEN CLICKED OUTSIDE OF THE SEARCH ICON! */}
       {searchIsClicked ? null : (
         <>
-          <PostInfo
-            totalPosts={30}
-            totalContributors={9}
-            totalDuplicates={25}
-          />
+          <Info totalPosts={30} totalContributors={9} totalDuplicates={25} />
           {Posts}
         </>
       )}

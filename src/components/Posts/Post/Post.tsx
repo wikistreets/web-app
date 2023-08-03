@@ -4,9 +4,9 @@ import { StaticImageData } from "next/image";
 import { useState } from "react";
 import Header from "./Header/Header";
 import Carousel from "./Carousel/Carousel";
-import Bar from "./Bar";
-import Caption from "./Caption/Caption";
-import CommentContainer from "./Comment/CommentContainer";
+import MapInfo from "./MapInfo/MapInfo";
+import Caption from "./Body/Body";
+import RepliesPreview from "./RepliesPreview/RepliesPreview";
 
 type PostProps = {
   userID: string;
@@ -34,16 +34,16 @@ type PostProps = {
   }[];
 };
 
-const Post = (props: PostProps) => {
+export const Post: React.FC<PostProps> = ({ userName, userPic, maps }) => {
   const [userID, setUserID] = useState(null);
-  const Post = props.maps.map((map) => {
+  const Post = maps.map((map) => {
     return map.posts.map((post, idx) => {
       const uniqueKey = `${map.mapID}-${post.postID}`;
       return (
         <div key={uniqueKey}>
           <Header
-            userPic={props.userPic}
-            username={props.userName}
+            userPic={userPic}
+            username={userName}
             posted={post.posted}
             mapTitle={map.mapTitle}
           />
@@ -54,10 +54,10 @@ const Post = (props: PostProps) => {
               options={{ loop: true }}
             />
           )}
-          {map.mapType === "Geo" && <Bar location={post.location} />}
-          {map.mapType === "Image" && <Bar postTitle={post.postTitle} />}
-          {post.caption && <Caption caption={post.caption} />}
-          <CommentContainer />
+          {map.mapType === "Geo" && <MapInfo location={post.location} />}
+          {map.mapType === "Image" && <MapInfo postTitle={post.postTitle} />}
+          {post.caption && <Caption bodyText={post.caption} />}
+          <RepliesPreview total={25} />
         </div>
       );
     });

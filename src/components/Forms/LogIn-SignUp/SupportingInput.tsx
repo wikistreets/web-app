@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Checkbox } from "@/components/ui/checkbox";
 
-const SupportingInput = () => {
+export const SupportingInput: React.FC = () => {
   return (
     <div className="flex flex-row justify-between items-center">
       <div className="flex flex-row justify-start items-center gap-2">
@@ -21,4 +21,3 @@ const SupportingInput = () => {
 };
 
 export default SupportingInput;
-// hello! kiki was here

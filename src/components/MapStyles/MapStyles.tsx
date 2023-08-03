@@ -1,8 +1,9 @@
 "use client";
+
 import GeographicMap from "./GeographicMap";
 import ImageMap from "./ImageMap";
 
-const MapStyles = () => {
+export const MapStyles: React.FC = () => {
   return (
     <section
       className="w-full flex flex-col justify-center items-center

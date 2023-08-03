@@ -27,7 +27,7 @@ const formSchema = z.object({
   password: z.string().min(8).max(50),
 });
 
-const LogInForm = () => {
+export const LogInForm: React.FC = () => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

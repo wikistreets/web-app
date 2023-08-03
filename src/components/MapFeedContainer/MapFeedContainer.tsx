@@ -1,17 +1,17 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import PostContainer from "./Post/PostContainer";
+import Container from "../Posts/Container";
 import MockData from "../../mock-data/mockData";
 
 const Map = dynamic(
   () => {
-    return import("@/components/Feed/Post/Map");
+    return import("@/components/MapFeedContainer/Map/Map");
   },
   { ssr: false }
 );
 
-const Feed = () => {
+const MapFeedContainer = () => {
   const mockUsers = MockData;
   //   console.log("mockUsers", mockUsers);
   return (
@@ -24,9 +24,9 @@ const Feed = () => {
       sm:overflow-auto"
     >
       <Map />
-      <PostContainer users={mockUsers} />
+      <Container users={mockUsers} />
     </section>
   );
 };
 
-export default Feed;
+export default MapFeedContainer;

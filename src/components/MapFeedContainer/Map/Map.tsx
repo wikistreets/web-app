@@ -3,9 +3,7 @@
 import { useEffect } from "react";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
 
-type Props = {};
-
-const MapInPost = (props: Props) => {
+export const Map: React.FC = () => {
   // useEffect(() => {
   //   const el = document.getElementsByClassName("mapInFeed")[0];
   //   const topPos = el.getBoundingClientRect().top;
@@ -34,4 +32,4 @@ const MapInPost = (props: Props) => {
   );
 };
 
-export default MapInPost;
+export default Map;

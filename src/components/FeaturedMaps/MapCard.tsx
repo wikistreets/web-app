@@ -3,15 +3,15 @@
 import { v4 as uuidv4 } from "uuid";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
 
-interface MapCardProps {
+type Props = {
   centerX: number;
   centerY: number;
   markerX: number;
   markerY: number;
   title: string;
-}
+};
 
-const MapCard: React.FC<MapCardProps> = ({
+const MapCard: React.FC<Props> = ({
   centerX,
   centerY,
   markerX,

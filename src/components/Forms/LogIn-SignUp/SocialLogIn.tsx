@@ -4,9 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FcGoogle } from "react-icons/fc";
 
-type SocialLogInProps = {};
-
-const SocialLogIn = (props: SocialLogInProps) => {
+export const SocialLogIn: React.FC = () => {
   return (
     <div className="flex flex-row gap-2">
       <Button

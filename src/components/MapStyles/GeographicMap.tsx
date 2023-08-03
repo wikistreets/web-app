@@ -1,8 +1,9 @@
 "use client";
+
 import Image from "next/image";
 import geoMap from "../../../public/media/geo-map.png";
 
-const GeographicMap = () => {
+export const GeographicMap: React.FC = () => {
   return (
     <section
       className="flex flex-col sm:flex-row  
