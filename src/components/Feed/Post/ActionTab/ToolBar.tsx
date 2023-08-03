@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import { SearchContext } from "@/context/SearchContext";
 import SearchBar from "@/components/Search/SearchBar";
 import {
   Menubar,
@@ -28,18 +29,16 @@ type ToolBarProps = {};
 
 export const ToolBar: React.FC<ToolBarProps> = () => {
   const [isAdmin, setIsAdmin] = useState(true);
-  const [searchIsClicked, setSearchIsClicked] = useState(false);
+  const { searchIsClicked, handleSearch } = useContext(SearchContext);
 
-  const handleSearch = () => {
-    setSearchIsClicked(!searchIsClicked);
-    console.log("searchIsClicked", searchIsClicked);
-  };
   const handleShare = () => {
     console.log("Share");
   };
+
   const handleCreate = () => {
     console.log("Create map? post?");
   };
+
   const handleSettings = () => {};
 
   return (
@@ -51,12 +50,12 @@ export const ToolBar: React.FC<ToolBarProps> = () => {
             <>
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
-                onClick={handleSearch}
+                onClick={() => handleSearch(searchIsClicked)}
                 className="lg:hidden"
               />
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
-                onClick={handleSearch}
+                onClick={() => handleSearch(searchIsClicked)}
                 size="lg"
                 className="hidden lg:block"
               />
