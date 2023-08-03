@@ -1,6 +1,6 @@
 import FeatureCard from "./FeatureCard";
 
-const Features = () => {
+export const Features: React.FC = () => {
   return (
     <section
       className="w-full flex flex-col justify-center items-center

@@ -9,7 +9,7 @@ import {
   faCamera,
 } from "@fortawesome/free-solid-svg-icons";
 
-const FeatureCard = () => {
+export const FeatureCard: React.FC = () => {
   return (
     <section
       className="flex flex-col sm:flex-row 

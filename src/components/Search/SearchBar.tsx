@@ -6,9 +6,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Input } from "@/components/ui/input";
 import SearchResult from "./SearchResult";
 
-type SearchBarProps = {};
-
-export const SearchBar: React.FC<SearchBarProps> = () => {
+export const SearchBar: React.FC = () => {
   const [query, setQuery] = useState<string>("");
   const [inputChanged, setInputChanged] = useState(false);
   const [enterPressed, setEnterPressed] = useState(false);

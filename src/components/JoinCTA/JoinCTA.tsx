@@ -5,7 +5,7 @@ import Image from "next/image";
 import ctaImage from "../../../public/media/join-cta.png";
 import { Button } from "@/components/ui/button";
 
-export default function JoinCTA() {
+export const JoinCTA: React.FC = () => {
   return (
     <section className="px-4 sm:px-6 md:px-10 lg:px-14 xl:px-16 py-14 w-full">
       <div className="grid md:grid-flow-col bg-indigo-700 rounded-lg">
@@ -41,4 +41,6 @@ export default function JoinCTA() {
       </div>
     </section>
   );
-}
+};
+
+export default JoinCTA;

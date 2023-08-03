@@ -25,7 +25,8 @@ const formSchema = z.object({
   email: z.string().min(2).max(50),
   password: z.string().min(8).max(50),
 });
-const SignUpForm = () => {
+
+export const SignUpForm: React.FC = () => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

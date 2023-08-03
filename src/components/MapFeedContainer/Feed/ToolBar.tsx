@@ -25,9 +25,7 @@ import {
 import { PiPlusCircleBold, PiGearBold } from "react-icons/pi";
 import { IoAnalyticsSharp } from "react-icons/io5";
 
-type ToolBarProps = {};
-
-export const ToolBar: React.FC<ToolBarProps> = () => {
+export const ToolBar: React.FC = () => {
   const [isAdmin, setIsAdmin] = useState(true);
   const { searchIsClicked, handleSearch } = useContext(SearchContext);
 

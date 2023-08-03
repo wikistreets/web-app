@@ -10,15 +10,15 @@ const MapCard = dynamic(
   { ssr: false }
 );
 
-interface MapData {
+type MapData = {
   centerX: number;
   centerY: number;
   markerX: number;
   markerY: number;
   title: string;
-}
+};
 
-const FeaturedMaps: React.FC = () => {
+export const FeaturedMaps: React.FC = () => {
   const mapData: MapData[] = [
     {
       centerX: 51.505,

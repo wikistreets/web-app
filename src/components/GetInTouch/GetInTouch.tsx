@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-export default function GetInTouch() {
+export const GetInTouch: React.FC = () => {
   const wikiEmail = "hello@wikistreets.io";
   const wikiGitHub = "github.com/wikistreets";
 
@@ -61,4 +61,6 @@ export default function GetInTouch() {
       </section>
     </section>
   );
-}
+};
+
+export default GetInTouch;

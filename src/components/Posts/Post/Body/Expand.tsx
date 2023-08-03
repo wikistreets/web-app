@@ -5,9 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-type Props = {};
-
-const ReadMore = (props: Props) => {
+export const Expand: React.FC = () => {
   return (
     <div className="gap-2 text-sm text-secondary font-light">
       <Accordion type="single" collapsible>
@@ -22,4 +20,4 @@ const ReadMore = (props: Props) => {
   );
 };
 
-export default ReadMore;
+export default Expand;

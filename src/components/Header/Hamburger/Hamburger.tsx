@@ -16,7 +16,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faBell } from "@fortawesome/free-regular-svg-icons";
 
-const Hamburger: React.FC = () => {
+export const Hamburger: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isClicked, setIsClicked] = useState(false);
 

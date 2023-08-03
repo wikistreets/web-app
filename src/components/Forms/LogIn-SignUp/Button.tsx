@@ -1,10 +1,10 @@
 import { Button } from "../../ui/button";
 
-type LogInBtnProps = {
+type Props = {
   type: string;
 };
 
-const FormBtn = (props: LogInBtnProps) => {
+const FormBtn = (props: Props) => {
   return (
     <Button type="submit" className="text-white w-full">
       {props.type}

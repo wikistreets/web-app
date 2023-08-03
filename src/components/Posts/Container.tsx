@@ -1,7 +1,7 @@
 "use client";
 
 import { StaticImageData } from "next/image";
-import ActionTab from "./ActionTab/ActionTab";
+import Header from "../MapFeedContainer/Feed/Header";
 import Posts from "./Posts";
 import SearchContextProvider from "@/context/SearchContext";
 
@@ -32,19 +32,19 @@ type UserObject = {
   }[];
 };
 
-type PostContianerProps = {
+type Props = {
   users: UserObject[];
 };
 
-export const PostContainer: React.FC<PostContianerProps> = ({ users }) => {
+export const Container: React.FC<Props> = ({ users }) => {
   return (
     <SearchContextProvider>
       <section className="relative flex flex-col items-center justify-start h-full container">
-        <ActionTab />
+        <Header />
         <Posts users={users} />
       </section>
     </SearchContextProvider>
   );
 };
 
-export default PostContainer;
+export default Container;

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Logo from "../Header/Logo";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
@@ -11,7 +10,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 
-export default function Footer() {
+export const Footer: React.FC = () => {
   return (
     <footer className="mt-auto px-4 bg-gray-100 text-secondary w-full py-12 flex flex-col gap-6 lg:gap-8 justify-center items-center">
       <div className="w-9 h-9 xl:w-12 xl:h-12">
@@ -55,4 +54,6 @@ export default function Footer() {
       </p>
     </footer>
   );
-}
+};
+
+export default Footer;

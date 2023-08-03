@@ -1,10 +1,9 @@
 "use client";
+
 import Image from "next/image";
 import imageMap from "../../../public/media/image-map.png";
 
-type Props = {};
-
-const ImageMap = (props: Props) => {
+export const ImageMap: React.FC = () => {
   return (
     <section
       className="flex flex-col sm:flex-row 

@@ -5,9 +5,7 @@ import { Switch } from "@/components/ui/switch";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-type DropdownProps = {};
-
-export const Dropdown: React.FC<DropdownProps> = (props) => {
+export const Selector: React.FC = () => {
   const [selectedMap, setSelectedMap] = useState("Dummy Map");
 
   const handleDropDown = () => {};
@@ -39,4 +37,4 @@ export const Dropdown: React.FC<DropdownProps> = (props) => {
   );
 };
 
-export default Dropdown;
+export default Selector;

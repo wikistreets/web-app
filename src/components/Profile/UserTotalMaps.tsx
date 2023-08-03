@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMap } from "@fortawesome/free-regular-svg-icons";
 
-export default function ProfileMapInfo() {
+export const ProfileMapInfo: React.FC = () => {
   const [userId, setUserId] = useState(null);
   const [mapNum, setMapNum] = useState(0);
   return (
@@ -13,4 +13,6 @@ export default function ProfileMapInfo() {
       <p>{mapNum}</p>
     </div>
   );
-}
+};
+
+export default ProfileMapInfo;

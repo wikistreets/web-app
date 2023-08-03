@@ -10,17 +10,13 @@ import {
   faCircleChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-type CarouselProps = {
+type Props = {
   postID: string;
   postMedia: StaticImageData[] | [];
   options?: EmblaOptionsType;
 };
 
-export const Carousel: React.FC<CarouselProps> = ({
-  postID,
-  postMedia,
-  options,
-}) => {
+export const Carousel: React.FC<Props> = ({ postID, postMedia, options }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
   const scrollPrev = useCallback(() => {

@@ -1,14 +1,10 @@
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+"use client";
 
-type ViewAllProps = {
+type Props = {
   total: number;
 };
 
-export const ViewAll: React.FC<ViewAllProps> = ({ total }) => {
+export const RepliesPreview: React.FC<Props> = ({ total }) => {
   const handleViewAll = () => {
     console.log("handleViewAll!");
   };
@@ -22,4 +18,4 @@ export const ViewAll: React.FC<ViewAllProps> = ({ total }) => {
   );
 };
 
-export default ViewAll;
+export default RepliesPreview;

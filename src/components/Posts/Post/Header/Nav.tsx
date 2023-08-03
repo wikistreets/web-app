@@ -10,9 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-type Props = {};
-
-const Nav = (props: Props) => {
+export const Nav: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isMyPost, setIsMyPost] = useState(false);
 

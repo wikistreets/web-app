@@ -1,28 +1,29 @@
 "use client";
 
+import { StaticImageData } from "next/image";
 import UserPic from "@/components/Profile/UserPic";
 import Info from "./Info";
 import Nav from "./Nav";
-import { StaticImageData } from "next/image";
 
-type HeaderProps = {
+type Props = {
   userPic: StaticImageData | "";
   username: string;
   posted: number;
   mapTitle: string;
 };
 
-const Header = (props: HeaderProps) => {
+export const Header: React.FC<Props> = ({
+  userPic,
+  username,
+  posted,
+  mapTitle,
+}) => {
   return (
     <section className="bg-white flex w-full justify-center items-center gap-2 px-2 py-3">
       <div className="w-12">
-        <UserPic userPic={props.userPic} />
+        <UserPic userPicData={userPic} />
       </div>
-      <Info
-        username={props.username}
-        posted={props.posted}
-        mapTitle={props.mapTitle}
-      />
+      <Info username={username} posted={posted} mapTitle={mapTitle} />
       <Nav />
     </section>
   );

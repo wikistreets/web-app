@@ -3,7 +3,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-export default function Search() {
+export const Search: React.FC = () => {
   const handleSearch = () => {};
 
   return (
@@ -20,4 +20,6 @@ export default function Search() {
       <h6 className="text-secondary">Search</h6>
     </div>
   );
-}
+};
+
+export default Search;

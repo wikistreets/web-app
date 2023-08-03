@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import heroImage from "../../../public/media/hero-img.png";
 
-export default function Hero() {
+export const Hero: React.FC = () => {
   return (
     <section
       className="md:flex flex-row 
@@ -63,4 +63,6 @@ export default function Hero() {
       </figure>
     </section>
   );
-}
+};
+
+export default Hero;
