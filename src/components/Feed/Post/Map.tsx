@@ -1,15 +1,22 @@
 "use client";
 
+import { useEffect } from "react";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
 
 type Props = {};
 
 const MapInPost = (props: Props) => {
+  // useEffect(() => {
+  //   const el = document.getElementsByClassName("mapInFeed")[0];
+  //   const topPos = el.getBoundingClientRect().top;
+  //   console.log("topPos", topPos);
+  //   // window.scrollTo(0, topPos);
+  // });
   return (
     <>
       <MapContainer
-        className="w-full h-60 sticky top-0 z-20
-        sm:h-full"
+        className="mapInFeed w-full h-60 sticky top-0 z-20
+        sm:aspect-square sm:h-full"
         center={[51.505, -0.09]}
         zoom={13}
         scrollWheelZoom={true}
