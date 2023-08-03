@@ -2,7 +2,6 @@
 
 import dynamic from "next/dynamic";
 import PostContainer from "./Post/PostContainer";
-import ActionTab from "./Post/ActionTab/ActionTab";
 import MockData from "../../mock-data/mockData";
 
 const Map = dynamic(
