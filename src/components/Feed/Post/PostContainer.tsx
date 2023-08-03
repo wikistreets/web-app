@@ -1,7 +1,11 @@
 "use client";
 
 import { StaticImageData } from "next/image";
-import Post from "./Post";
+import ActionTab from "./ActionTab/ActionTab";
+import Posts from "./Posts";
+import SearchContextProvider from "@/context/SearchContext";
+
+// TODO: create UserContext
 type UserObject = {
   userID: string;
   userName: string | "";
@@ -32,28 +36,14 @@ type PostContianerProps = {
   users: UserObject[];
 };
 
-const PostContainer = (props: PostContianerProps) => {
-  // TODO: which posts to show & order
-  const Posts = props.users.map((user, idx) => {
-    return (
-      <Post
-        key={idx}
-        userID={user.userID}
-        userName={user.userName}
-        userPic={user.userPic}
-        maps={user.maps}
-      />
-    );
-  });
-  //   console.log("posts in PostContainer", Posts);
+export const PostContainer: React.FC<PostContianerProps> = ({ users }) => {
   return (
-    <div
-      className="flex flex-col w-full h-full bg-white 
-      overflow-auto overscroll-contain scroll-smooth
-      sm:h-screen"
-    >
-      {Posts}
-    </div>
+    <SearchContextProvider>
+      <section className="relative flex flex-col items-center justify-start h-full container">
+        <ActionTab />
+        <Posts users={users} />
+      </section>
+    </SearchContextProvider>
   );
 };
 

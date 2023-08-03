@@ -2,7 +2,6 @@
 
 import dynamic from "next/dynamic";
 import PostContainer from "./Post/PostContainer";
-import ActionTab from "./Post/ActionTab/ActionTab";
 import MockData from "../../mock-data/mockData";
 
 const Map = dynamic(
@@ -25,10 +24,7 @@ const Feed = () => {
       sm:overflow-auto"
     >
       <Map />
-      <section className="flex flex-col items-center justify-center container">
-        <ActionTab />
-        <PostContainer users={mockUsers} />
-      </section>
+      <PostContainer users={mockUsers} />
     </section>
   );
 };
