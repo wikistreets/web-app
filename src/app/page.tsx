@@ -1,7 +1,7 @@
 import Header from "@/components/Header/Header";
 import Hero from "@/components/Hero/Hero";
 import FeaturedMaps from "@/components/FeaturedMaps/FeaturedMaps";
-import MapFeedContainer from "@/components/MapFeedContainer/MapFeedContainer";
+import Feed from "@/components/Feed/Feed";
 import Features from "@/components/Features/Features";
 import MapStyles from "@/components/MapStyles/MapStyles";
 import JoinCTA from "@/components/JoinCTA/JoinCTA";
@@ -16,7 +16,7 @@ export default function Home() {
       <main className="h-full">
         <Hero />
         <FeaturedMaps />
-        <MapFeedContainer />
+        <Feed />
         <Features />
         <MapStyles />
         <JoinCTA />
