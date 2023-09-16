@@ -65,7 +65,8 @@ export const FeaturedMaps: React.FC = () => {
     },
   ];
 
-  // TODO: endpoint to retrieve map id
+  // TODO: API call to retrieve map id
+  const id: number = 111;
 
   const handleViewMore = () => {
     console.log("View More clicked!");
@@ -91,7 +92,7 @@ export const FeaturedMaps: React.FC = () => {
         justify-items-center items-center w-full"
       >
         {mapData.map((data, idx) => (
-          <Link href="/" passHref className="w-full">
+          <Link href={`/map/${id}`} passHref className="w-full">
             <MapCard
               key={idx}
               centerX={data.centerX}
