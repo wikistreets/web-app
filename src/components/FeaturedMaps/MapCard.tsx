@@ -31,10 +31,10 @@ const MapCard: React.FC<Props> = ({
           className="w-full h-48 text-center"
           center={[centerX, centerY]}
           zoom={13}
-          scrollWheelZoom={false}
+          scrollWheelZoom={true}
           zoomControl={false}
           attributionControl={false}
-          dragging={true}
+          dragging={false}
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           <Marker position={[markerX, markerY]}>
