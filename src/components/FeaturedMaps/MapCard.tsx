@@ -33,6 +33,7 @@ const MapCard: React.FC<Props> = ({
         scrollWheelZoom={false}
         zoomControl={false}
         attributionControl={false}
+        dragging={true}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <Marker position={[markerX, markerY]}>
