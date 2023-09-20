@@ -2,6 +2,7 @@
 
 import { v4 as uuidv4 } from "uuid";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import Link from "next/link";
 
 type Props = {
   centerX: number;
@@ -20,32 +21,36 @@ const MapCard: React.FC<Props> = ({
 }) => {
   const mapContainerId = uuidv4();
 
+  const mapId: string = "111"; // publicId
+
   return (
     <>
       <figure
         className="flex flex-col justify-center items-center w-full px-4 pt-4 rounded-lg bg-white
           max-w-sm 2xl:max-w-md"
       >
-        <MapContainer
-          id={mapContainerId}
-          className="w-full h-48 text-center"
-          center={[centerX, centerY]}
-          zoom={13}
-          scrollWheelZoom={true}
-          zoomControl={false}
-          attributionControl={false}
-          dragging={false}
-        >
-          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          <Marker position={[markerX, markerY]}>
-            {/* <Popup>
+        <Link href={`/${mapId}`} passHref className="w-full">
+          <MapContainer
+            id={mapContainerId}
+            className="w-full h-48 text-center"
+            center={[centerX, centerY]}
+            zoom={13}
+            scrollWheelZoom={true}
+            zoomControl={false}
+            attributionControl={false}
+            dragging={false}
+          >
+            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+            <Marker position={[markerX, markerY]}>
+              {/* <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup> */}
-          </Marker>
-        </MapContainer>
-        <figcaption className="w-full py-4 text-center text-md">
-          {title}
-        </figcaption>
+            </Marker>
+          </MapContainer>
+          <figcaption className="w-full py-4 text-center text-md">
+            {title}
+          </figcaption>
+        </Link>
       </figure>
     </>
   );
