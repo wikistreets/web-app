@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 
@@ -65,8 +64,6 @@ export const FeaturedMaps: React.FC = () => {
     },
   ];
 
-  // TODO: endpoint to retrieve map id
-
   const handleViewMore = () => {
     console.log("View More clicked!");
   };
@@ -91,16 +88,14 @@ export const FeaturedMaps: React.FC = () => {
         justify-items-center items-center w-full"
       >
         {mapData.map((data, idx) => (
-          <Link href="/" passHref className="w-full">
-            <MapCard
-              key={idx}
-              centerX={data.centerX}
-              centerY={data.centerY}
-              markerX={data.markerX}
-              markerY={data.markerY}
-              title={data.title}
-            />
-          </Link>
+          <MapCard
+            key={idx}
+            centerX={data.centerX}
+            centerY={data.centerY}
+            markerX={data.markerX}
+            markerY={data.markerY}
+            title={data.title}
+          />
         ))}
       </div>
 
