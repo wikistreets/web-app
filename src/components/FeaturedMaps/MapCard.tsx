@@ -29,7 +29,7 @@ const MapCard: React.FC<Props> = ({
         className="flex flex-col justify-center items-center w-full px-4 pt-4 rounded-lg bg-white
           max-w-sm 2xl:max-w-md"
       >
-        <Link href={`/${mapId}`} passHref className="w-full">
+        <Link href={`/map/${mapId}`} passHref className="w-full">
           <MapContainer
             id={mapContainerId}
             className="w-full h-48 text-center"
