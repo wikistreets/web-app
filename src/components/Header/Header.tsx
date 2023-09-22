@@ -5,12 +5,12 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import Logo from "./Logo";
 import Search from "./Search";
-import UserPic from "../Profile/UserPic";
+import UserProfileImage from "../Profile/UserProfileImage";
 import Hamburger from "./Hamburger/Hamburger";
 import Notification from "./Hamburger/Notification";
 
 export const Header: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [userId, setUserId] = useState(null);
   const handleNotification = () => {
     console.log("notification clicked");
@@ -25,7 +25,10 @@ export const Header: React.FC = () => {
       >
         <Link href="/">
           <div className="w-9 h-9 xl:w-12 xl:h-12">
-            <Logo />
+            <Logo
+              size="w-full h-full"
+              style="flex justify-center items-center shrink-0 border border-slate-300 bg-white text-2xl"
+            />
           </div>
         </Link>
 
@@ -41,12 +44,12 @@ export const Header: React.FC = () => {
 
         {isLoggedIn && (
           <div className="hidden sm:flex sm:flex-row sm:justify-between sm:items-center sm:w-max sm:h-full">
-            <div className="xl:w-5 xl:h-5">
-              <Notification />
-            </div>
-            <div className="ml-4 w-9 h-9 xl:w-12 xl:h-12 shrink-0">
-              <UserPic userPicData="" />
-            </div>
+            <Notification size="xl:w-5 xl:h-5" />
+            <UserProfileImage
+              imageUrl=""
+              size="ml-4 w-9 h-9 xl:w-12 xl:h-12 shrink-0"
+              style={""}
+            />
           </div>
         )}
       </nav>
