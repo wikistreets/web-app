@@ -16,7 +16,7 @@ type MapData = {
   markerX: number;
   markerY: number;
   title: string;
-  updated: number;
+  updated: number; // update TYPE later!
   saved: number;
   copied: number;
   shared: number;
