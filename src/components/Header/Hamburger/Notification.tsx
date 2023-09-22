@@ -4,7 +4,17 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-regular-svg-icons";
 
-export const Notification: React.FC = () => {
+type Props = {
+  size?: string;
+  style?: string;
+};
+
+export const Notification: React.FC<Props> = ({
+  size = "grow xl:w-full xl:h-full",
+  style,
+}) => {
+  const NotificationClasses = `${size} ${style || ""}`;
+
   const [userId, setUserId] = useState(null);
   const handleNotification = () => {
     console.log("notification clicked");
@@ -14,7 +24,7 @@ export const Notification: React.FC = () => {
     <FontAwesomeIcon
       icon={faBell}
       onClick={handleNotification}
-      className="grow xl:w-full xl:h-full"
+      className={NotificationClasses}
     />
   );
 };
