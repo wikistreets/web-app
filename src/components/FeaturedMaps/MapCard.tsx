@@ -10,6 +10,8 @@ type Props = {
   markerX: number;
   markerY: number;
   title: string;
+  size?: string;
+  style?: string;
 };
 
 const MapCard: React.FC<Props> = ({
@@ -18,9 +20,12 @@ const MapCard: React.FC<Props> = ({
   markerX,
   markerY,
   title,
+  size,
+  style,
 }) => {
-  const mapContainerId = uuidv4();
+  const MapContainerClasses = `${size} ${style || ""}`;
 
+  const mapContainerId = uuidv4();
   const mapId: string = "111"; // publicId
 
   return (
@@ -32,7 +37,7 @@ const MapCard: React.FC<Props> = ({
         <Link href={`/map/${mapId}`} passHref className="w-full">
           <MapContainer
             id={mapContainerId}
-            className="w-full h-48 text-center"
+            className={MapContainerClasses}
             center={[centerX, centerY]}
             zoom={13}
             scrollWheelZoom={true}

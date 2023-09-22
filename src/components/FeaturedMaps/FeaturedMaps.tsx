@@ -95,6 +95,8 @@ export const FeaturedMaps: React.FC = () => {
             markerX={data.markerX}
             markerY={data.markerY}
             title={data.title}
+            size="w-full h-48"
+            style="text-center"
           />
         ))}
       </div>
