@@ -22,28 +22,38 @@ export const Selector: React.FC = () => {
 
   return (
     <>
-      <div className="w-full flex justify-between bg-primary px-3 py-2">
-        <div className="invisible flex justify-center items-center gap-2">
-          {/* exists for positioning purpose */}
+      <div
+        className="w-full flex justify-center bg-primary px-3 py-2"
+        onClick={toggleDropdown}
+      >
+        {/* exists for positioning purpose */}
+        {/* <div className="invisible flex justify-center items-center gap-2">
           <Switch />
           <FontAwesomeIcon icon={faBars} />
-        </div>
+        </div> */}
 
         <div className="flex justify-center items-center gap-2 text-white">
+          <FontAwesomeIcon
+            icon={isDropdownOpen ? faChevronUp : faChevronDown}
+            className="invisible w-3"
+            onClick={toggleDropdown}
+          />
+          {/* for centering purposes only */}
+
           <h3 className="font-dm-sans font-medium tracking-wide text-sm text-center">
             {selectedMap}
           </h3>
+
           <FontAwesomeIcon
-            icon={isDropdownOpen ? faChevronDown : faChevronUp}
+            icon={isDropdownOpen ? faChevronUp : faChevronDown}
             className="w-3"
-            onClick={toggleDropdown}
           />
         </div>
 
-        <div className="flex justify-center items-center gap-2">
+        {/* <div className="flex justify-center items-center gap-2">
           <Switch />
           <FontAwesomeIcon icon={faBars} className="text-white" />
-        </div>
+        </div> */}
       </div>
       {dropdownContent}
     </>

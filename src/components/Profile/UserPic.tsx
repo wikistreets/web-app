@@ -2,7 +2,7 @@
 
 import Image, { StaticImageData } from "next/image";
 import { useEffect, useState } from "react";
-import userDefault from "../../../public/media/user-default.svg";
+import userDefault from "public/media/user-default.svg";
 
 type Props = {
   userPicData: StaticImageData | "";

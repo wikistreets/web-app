@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import heroImage from "../../../public/media/hero-img.png";
+import heroImage from "public/media/hero-img.png";
 
 export const Hero: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ export const Hero: React.FC = () => {
       justify-between
       gap-8 lg:gap-20 xl:gap-20 2xl:gap-24 
       px-4 sm:px-6 md:px-10 lg:px-14 xl:px-16
-      py-10 xl:py-14 2xl:py-16"
+      pt-2 py-2 xl:py-14 2xl:py-16"
     >
       {/* Left Section */}
       <section

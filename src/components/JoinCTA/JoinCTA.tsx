@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import ctaImage from "../../../public/media/join-cta.png";
+import ctaImage from "public/media/join-cta.png";
 import { Button } from "@/components/ui/button";
 
 export const JoinCTA: React.FC = () => {

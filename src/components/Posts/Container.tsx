@@ -1,7 +1,7 @@
 "use client";
 
 import { StaticImageData } from "next/image";
-import Header from "../MapFeedContainer/Feed/Header";
+import Header from "@/components/MapFeedContainer/Feed/Header";
 import Posts from "./Posts";
 import SearchContextProvider from "@/context/SearchContext";
 

@@ -3,7 +3,7 @@
 import { useContext } from "react";
 import { StaticImageData } from "next/image";
 import Post from "./Post/Post";
-import Info from "../MapFeedContainer/Feed/Info";
+import Info from "@/components/MapFeedContainer/Feed/Info";
 import { SearchContext } from "@/context/SearchContext";
 
 type UserObject = {

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import featureOne from "../../../public/media/feature-one.png";
+import featureOne from "public/media/feature-one.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHandPointUp,

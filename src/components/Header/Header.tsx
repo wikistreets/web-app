@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Logo from "./Logo";
 import Search from "./Search";
-import UserPic from "../Profile/UserPic";
+import UserPic from "@/components/Profile/UserPic";
 import Hamburger from "./Hamburger/Hamburger";
 import Notification from "./Hamburger/Notification";
 
@@ -21,7 +21,7 @@ export const Header: React.FC = () => {
       <nav
         className="bg-white w-full h-fit inline-flex items-center 
         px-4 sm:px-6 md:px-10 lg:px-14 xl:px-16
-        mt-4 sm:mt-6 lg:mt-8 xl:mt-10"
+        mt-2 sm:mt-2 lg:mt-2 xl:mt-2"
       >
         <Link href="/">
           <div className="w-9 h-9 xl:w-12 xl:h-12">

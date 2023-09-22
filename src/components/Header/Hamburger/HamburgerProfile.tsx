@@ -1,8 +1,8 @@
 "use client";
 
-import UserPic from "../../Profile/UserPic";
-import UserInfo from "../../Profile/UserInfo";
-import userDefault from "../../../../public/media/user-default.svg";
+import UserPic from "@/components/Profile/UserPic";
+import UserInfo from "@/components/Profile/UserInfo";
+import userDefault from "public/media/user-default.svg";
 
 export const Profile: React.FC = () => {
   return (

@@ -1,8 +1,9 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Container from "../Posts/Container";
-import MockData from "../../mock-data/mockData";
+import Container from "@/components/Posts/Container";
+import MockData from "@/mock-data/mockData";
+// import Map from "@/components/MapFeedContainer/Map/Map"
 
 const Map = dynamic(
   () => {
@@ -20,7 +21,7 @@ const MapFeedContainer = () => {
       flex-col sm:flex-row sm:gap-4
       max-w-lg sm:max-w-none 
       sm:px-4 md:px-10 lg:px-14 xl:px-16
-      py-8 sm:py-10
+      py-2 sm:py-2
       sm:overflow-auto"
     >
       <Map />
