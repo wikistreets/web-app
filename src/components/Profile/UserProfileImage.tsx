@@ -7,8 +7,8 @@ import userDefault from "../../../public/media/user-default.svg";
 
 type Props = {
   imageUrl: StaticImageData | "";
-  size?: string; // Optional size prop
-  style?: string; // Additional styles
+  size?: string;
+  style?: string;
 };
 
 export const UserProfileImage: React.FC<Props> = ({
@@ -30,7 +30,7 @@ export const UserProfileImage: React.FC<Props> = ({
   //
 
   return (
-    <Link href={`/users/${userId}`} passHref>
+    <Link href={`/users/${userId}/maps`} passHref>
       <Image
         src={profileImageUrl}
         alt="Profile"
