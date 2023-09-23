@@ -1,6 +1,13 @@
 "use client";
 
-import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  GeoJSON,
+  useMap,
+  Marker,
+  Popup,
+} from "react-leaflet";
 import Loading from "./loading";
 
 export const Map: React.FC = async () => {
@@ -11,9 +18,10 @@ export const Map: React.FC = async () => {
   //   // window.scrollTo(0, topPos);
   // });
 
+  // get some mock data
   async function getData() {
     const res = await fetch(
-      "https://my.api.mockaroo.com/features.json?key=d9ddfc40&num=100"
+      "http://localhost:3000/media/mock-feature-collections/feature-collection-1.json"
     );
 
     if (!res.ok) {
@@ -25,14 +33,23 @@ export const Map: React.FC = async () => {
   }
 
   const data = await getData();
+  const features = data.features;
+  // features.map(marker => {
+  //   console.log(
+  //     `marker (${marker.geometry.type}) coordinates: ${marker.geometry.coordinates}`
+  //   );
+  // });
 
   const mapOptions = {
-    center: [51.505, -0.09],
-    zoom: 3,
+    center: data.features.length
+      ? data.features[0].properties.center.filter(() => true).reverse() // clone, then reverse to get lat, lng
+      : [51.505, -0.09],
+    zoom: data.features.length ? data.features[0].properties.zoom : 4,
     scrollWheelZoom: true,
     zoomControl: false,
     attributionControl: false,
   };
+  // console.log(`mapOptions: ${JSON.stringify(mapOptions, null, 2)}`);
 
   return (
     <>
@@ -42,15 +59,7 @@ export const Map: React.FC = async () => {
         {...mapOptions}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        {data.map(marker => (
-          <Marker key={marker._id} position={marker.geometry.coordinates}>
-            <Popup>
-              {marker.properties.title}
-              <hr />
-              {marker.properties.body}
-            </Popup>
-          </Marker>
-        ))}
+        <GeoJSON key={data.publicId} data={data} />
       </MapContainer>
     </>
   );

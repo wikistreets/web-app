@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
+// import MockFeatureCollection from "@/mock-data/mockFeatureCollection";
 
 const MapCard = dynamic(
   () => {
@@ -10,59 +11,26 @@ const MapCard = dynamic(
   { ssr: false }
 );
 
-type MapData = {
-  centerX: number;
-  centerY: number;
-  markerX: number;
-  markerY: number;
-  title: string;
-};
+export const FeaturedMaps: React.FC = async () => {
+  async function getData() {
+    const res = await fetch(
+      "http://localhost:3000/media/mock-feature-collections/feature-collection-1.json"
+    );
 
-export const FeaturedMaps: React.FC = () => {
-  const mapData: MapData[] = [
-    {
-      centerX: 51.505,
-      centerY: -0.09,
-      markerX: 51.505,
-      markerY: -0.09,
-      title: "Washington D.C. Family Trip",
-    },
-    {
-      centerX: 51.505,
-      centerY: -0.09,
-      markerX: 51.505,
-      markerY: -0.09,
-      title: "Anatomy of Vermeer's Milkmaid",
-    },
-    {
-      centerX: 51.505,
-      centerY: -0.09,
-      markerX: 51.505,
-      markerY: -0.09,
-      title: "Damaged Sidewalks in Croton",
-    },
-    {
-      centerX: 51.505,
-      centerY: -0.09,
-      markerX: 51.505,
-      markerY: -0.09,
-      title: "School Walking Routes",
-    },
-    {
-      centerX: 51.505,
-      centerY: -0.09,
-      markerX: 51.505,
-      markerY: -0.09,
-      title: "Family Genealogy",
-    },
-    {
-      centerX: 51.505,
-      centerY: -0.09,
-      markerX: 51.505,
-      markerY: -0.09,
-      title: "Best WFH Cafes in East Village",
-    },
-  ];
+    if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
+  }
+
+  // make some mock data
+  const mockMapData = await getData();
+  const featureCollections = [];
+  for (let i = 0; i < 6; i++) {
+    featureCollections.push(mockMapData);
+  }
 
   const handleViewMore = () => {
     console.log("View More clicked!");
@@ -87,15 +55,8 @@ export const FeaturedMaps: React.FC = () => {
         gap-5 sm:gap-5 md:gap-7 lg:gap-9 xl:gap-9 2xl:gap-12
         justify-items-center items-center w-full"
       >
-        {mapData.map((data, idx) => (
-          <MapCard
-            key={idx}
-            centerX={data.centerX}
-            centerY={data.centerY}
-            markerX={data.markerX}
-            markerY={data.markerY}
-            title={data.title}
-          />
+        {featureCollections.map((data, idx) => (
+          <MapCard key={idx} data={data} />
         ))}
       </div>
 
