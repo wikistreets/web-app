@@ -9,6 +9,7 @@ import {
   Popup,
 } from "react-leaflet";
 import Loading from "./loading";
+import WSMarker from "@/components/MapFeedContainer/WSMarker/WSMarker";
 
 export const Map: React.FC = async () => {
   // useEffect(() => {
@@ -59,7 +60,11 @@ export const Map: React.FC = async () => {
         {...mapOptions}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <GeoJSON key={data.publicId} data={data} />
+        {/* <GeoJSON key={data.publicId} data={data} /> */}
+
+        {features.map(feature => (
+          <WSMarker key={feature._id} feature={feature} />
+        ))}
       </MapContainer>
     </>
   );
