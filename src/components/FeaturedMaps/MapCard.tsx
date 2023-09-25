@@ -29,17 +29,19 @@ const MapCard = ({ data }) => {
 
   // differentiate clicks from drags
   const mouseDownCoords = e => {
-    window.checkForDrag = e.clientX;
+    window.mouseDownX = e.clientX;
+    window.mouseDownY = e.clientY;
   };
   const clickOrDrag = (e, mapId) => {
-    const mouseUp = e.clientX;
-    if (
-      mouseUp < window.checkForDrag + 5 &&
-      mouseUp > window.checkForDrag - 5
-    ) {
-      // if clicked, navigate to the map detail page
-      navigateToMap(mapId);
-    }
+    const mouseUpX = e.clientX;
+    const mouseUpY = e.clientY;
+    const dx = Math.abs(window.mouseDownX - mouseUpX);
+    const dy = Math.abs(window.mouseDownY - mouseUpY);
+    const isDragX = dx >= 5;
+    const isDragY = dy >= 5;
+    console.log(`${dx} ${dy} ${isDragX} ${isDragY}`);
+    // if clicked, not dragged, navigate to the map detail page
+    if (!isDragX && !isDragY) navigateToMap(mapId);
   };
 
   return (

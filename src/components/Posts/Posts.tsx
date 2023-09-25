@@ -36,8 +36,10 @@ type Props = {
   users: UserObject[];
 };
 
-export const Posts: React.FC<Props> = ({ users }) => {
+export const Posts = ({ data, users }) => {
   const { searchIsClicked } = useContext(SearchContext);
+
+  const features = data.features;
 
   // TODO: which posts to show & order
   const Posts = users.map((user, idx) => {

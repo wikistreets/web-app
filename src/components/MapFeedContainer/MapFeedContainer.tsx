@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import dynamic from "next/dynamic";
 import Container from "@/components/Posts/Container";
@@ -12,7 +12,23 @@ const Map = dynamic(
   { ssr: false }
 );
 
-const MapFeedContainer = () => {
+const MapFeedContainer = async () => {
+  // get some mock data
+  async function getData() {
+    const res = await fetch(
+      "http://localhost:3000/media/mock-feature-collections/feature-collection-1.json"
+    );
+
+    if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
+  }
+
+  const data = await getData();
+
   const mockUsers = MockData;
   //   console.log("mockUsers", mockUsers);
   return (
@@ -24,8 +40,8 @@ const MapFeedContainer = () => {
       py-2 sm:py-2
       sm:overflow-auto"
     >
-      <Map />
-      <Container users={mockUsers} />
+      <Map data={data} />
+      <Container data={data} users={mockUsers} />
     </section>
   );
 };
