@@ -39,7 +39,7 @@ const MapCard = ({ data }) => {
     const dy = Math.abs(window.mouseDownY - mouseUpY);
     const isDragX = dx >= 5;
     const isDragY = dy >= 5;
-    console.log(`${dx} ${dy} ${isDragX} ${isDragY}`);
+    // console.log(`${dx} ${dy} ${isDragX} ${isDragY}`);
     // if clicked, not dragged, navigate to the map detail page
     if (!isDragX && !isDragY) navigateToMap(mapId);
   };

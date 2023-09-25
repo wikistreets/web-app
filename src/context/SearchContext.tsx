@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Dispatch,
   ReactNode,
@@ -30,7 +32,7 @@ export const SearchContextProvider: React.FC<ProviderProps> = ({
   const [searchIsClicked, setSearchIsClicked] = useState(initial);
 
   const handleSearch = (prev: boolean) => {
-    setSearchIsClicked((prev) => !prev);
+    setSearchIsClicked(prev => !prev);
     // const el = document.getElementsByClassName("mapInFeed")[0];
     // const topPos = el.getBoundingClientRect().top;
     // console.log("topPos", topPos);

@@ -19,13 +19,8 @@ export const Map = ({ data }) => {
   //   // window.scrollTo(0, topPos);
   // });
 
-  const features = data.features;
-
-  // features.map(marker => {
-  //   console.log(
-  //     `marker (${marker.geometry.type}) coordinates: ${marker.geometry.coordinates}`
-  //   );
-  // });
+  console.log("Map component loading...");
+  let features = data.features;
 
   const mapOptions = {
     center: data.features.length
@@ -47,10 +42,10 @@ export const Map = ({ data }) => {
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {/* <GeoJSON key={data.publicId} data={data} /> */}
-
-        {features.map(feature => (
-          <WSMarker key={feature._id} feature={feature} />
-        ))}
+        {features.map(feature => {
+          // console.log(feature.geometry.coordinates);
+          return <WSMarker key={feature._id} feature={feature} />;
+        })}
       </MapContainer>
     </>
   );

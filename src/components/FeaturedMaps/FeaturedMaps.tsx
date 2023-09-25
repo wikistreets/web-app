@@ -1,7 +1,5 @@
-"use client";
-
 import dynamic from "next/dynamic";
-import { Button } from "@/components/ui/button";
+import LearnMoreButton from "@/components/ui/learn-more-button";
 // import MockFeatureCollection from "@/mock-data/mockFeatureCollection";
 
 const MapCard = dynamic(
@@ -32,10 +30,6 @@ export const FeaturedMaps: React.FC = async () => {
     featureCollections.push(mockMapData);
   }
 
-  const handleViewMore = () => {
-    console.log("View More clicked!");
-  };
-
   return (
     <section
       className="bg-gradient-to-b from-indigo-600 to-white w-full flex flex-col justify-center items-center
@@ -60,15 +54,7 @@ export const FeaturedMaps: React.FC = async () => {
         ))}
       </div>
 
-      <Button
-        onClick={handleViewMore}
-        className="w-fit text-white 
-        md:px-6 lg:px-8 xl:px-8 2xl:px-10  
-        md:py-4 lg:py-6 xl:py-6 2xl:py-8
-        xl:text-lg 2xl:text-xl"
-      >
-        View more
-      </Button>
+      <LearnMoreButton />
     </section>
   );
 };

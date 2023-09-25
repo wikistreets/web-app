@@ -1,5 +1,3 @@
-// "use client";
-
 import dynamic from "next/dynamic";
 import Container from "@/components/Posts/Container";
 import MockData from "@/mock-data/mockData";
@@ -14,20 +12,17 @@ const Map = dynamic(
 
 const MapFeedContainer = async () => {
   // get some mock data
-  async function getData() {
-    const res = await fetch(
-      "http://localhost:3000/media/mock-feature-collections/feature-collection-1.json"
-    );
+  const res = await fetch(
+    "http://localhost:3000/media/mock-feature-collections/feature-collection-1.json"
+  );
 
-    if (!res.ok) {
-      // This will activate the closest `error.js` Error Boundary
-      throw new Error("Failed to fetch data");
-    }
-
-    return res.json();
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
   }
 
-  const data = await getData();
+  const data = await res.json();
+  // console.log("data", data);
 
   const mockUsers = MockData;
   //   console.log("mockUsers", mockUsers);

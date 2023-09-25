@@ -3,7 +3,19 @@
 import { Marker, Polyline, Polygon, GeoJSON } from "react-leaflet";
 
 const WSMarker = ({ feature }) => {
-  //   console.log(`feature.geometry.type: ${feature.geometry.type}`);
+  // console.log(`feature.geometry.type: ${feature.geometry.type}`);
+
+  const geoJSONToLeafletCoords = coords => {
+    // convert array of GeoJSON coordinates to array of Leaflet coordinates, including two-dimensional arrays
+    if (Array.isArray(coords) && typeof coords[0] === "number") {
+      // base case - coords is an array containing numbers, so simply reverse them
+      // console.log(`base case: ${coords}`);
+      return coords.reverse();
+    }
+    // recursive case - coords is an array of arrays, so recurse
+    // console.log(`recursive case: ${coords}`);
+    return coords.map(coord => geoJSONToLeafletCoords(coord));
+  };
 
   const handleClick = e => {
     console.log(`Clicked a marker!`);
@@ -12,44 +24,50 @@ const WSMarker = ({ feature }) => {
   // return the appropriate kind of map element
   switch (feature.geometry.type) {
     case "LineString":
-      // need to reverse all damn long/lat coords
-      feature.geometry.coordinates.forEach(coord => {
-        coord.reverse();
-      });
+      // convert GeoJSON lng,lat coordinates to Leaflet lat,lng coordinates
+      if (!feature.geometry.latLngCoordinates)
+        feature.geometry.latLngCoordinates = geoJSONToLeafletCoords(
+          feature.geometry.coordinates
+        );
       return (
         <Polyline
           key={feature.properties._id}
-          positions={feature.geometry.coordinates}
+          positions={feature.geometry.latLngCoordinates}
           eventHandlers={{ click: handleClick }}
         />
       );
       break;
     case "Polygon":
-      // need to reverse all damn long/lat coords
-      feature.geometry.coordinates.forEach(coord => {
-        coord.reverse();
-      });
+      // convert GeoJSON lng,lat coordinates to Leaflet lat,lng coordinates
+      if (!feature.geometry.latLngCoordinates)
+        feature.geometry.latLngCoordinates = geoJSONToLeafletCoords(
+          feature.geometry.coordinates
+        );
       return (
         <Polygon
           key={feature.properties._id}
-          positions={feature.geometry.coordinates}
+          positions={feature.geometry.latLngCoordinates}
           eventHandlers={{ click: handleClick }}
         />
       );
       break;
     case "Point":
-      // need to reverse all damn long/lat coords
-      feature.geometry.coordinates.reverse();
+      // convert GeoJSON lng,lat coordinates to Leaflet lat,lng coordinates
+      if (!feature.geometry.latLngCoordinates)
+        feature.geometry.latLngCoordinates = geoJSONToLeafletCoords(
+          feature.geometry.coordinates
+        );
       return (
         <Marker
           key={feature.properties._id}
-          position={feature.geometry.coordinates}
+          position={feature.geometry.latLngCoordinates}
           eventHandlers={{ click: handleClick }}
         />
       );
       break;
     default:
-      // generic GeoJSON object
+      // some other GeoJSON object
+      // uses the GeoJson lng,lat coordinates in the original data
       return (
         <GeoJSON
           key={feature.properties._id}
