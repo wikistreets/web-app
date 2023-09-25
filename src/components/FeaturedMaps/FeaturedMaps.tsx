@@ -10,24 +10,21 @@ const MapCard = dynamic(
 );
 
 export const FeaturedMaps: React.FC = async () => {
-  async function getData() {
-    const res = await fetch(
-      "http://localhost:3000/media/mock-feature-collections/feature-collection-1.json"
-    );
+  const res = await fetch(
+    "http://localhost:3000/media/mock-feature-collections/feature-collection-1.json"
+  );
 
-    if (!res.ok) {
-      // This will activate the closest `error.js` Error Boundary
-      throw new Error("Failed to fetch data");
-    }
-
-    return res.json();
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
   }
 
+  const data = await res.json();
+
   // make some mock data
-  const mockMapData = await getData();
   const featureCollections = [];
   for (let i = 0; i < 6; i++) {
-    featureCollections.push(mockMapData);
+    featureCollections.push(data);
   }
 
   return (

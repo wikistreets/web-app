@@ -19,7 +19,7 @@ export const Map = ({ data }) => {
   //   // window.scrollTo(0, topPos);
   // });
 
-  console.log("Map component loading...");
+  // console.log("Map component loading...");
   let features = data.features;
 
   const mapOptions = {
