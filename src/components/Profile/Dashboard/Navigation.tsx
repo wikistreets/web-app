@@ -7,6 +7,8 @@ import { faMagnifyingGlass, faSort } from "@fortawesome/free-solid-svg-icons";
 type Props = {};
 
 export const Navigation: React.FC<Props> = ({}) => {
+  const userId: string = "111";
+
   return (
     <>
       <nav
@@ -17,10 +19,10 @@ export const Navigation: React.FC<Props> = ({}) => {
           <ul className="flex justify-between text-sm">
             <div className="flex space-x-4 items-center">
               <li>
-                <Link href="/">Maps</Link>
+                <Link href={`/users/${userId}/maps`}>Maps</Link>
               </li>
               <li>
-                <Link href="/">Posts</Link>
+                <Link href={`/users/${userId}/posts`}>Posts</Link>
               </li>
               <li>
                 <Link href="/">Saved</Link>
