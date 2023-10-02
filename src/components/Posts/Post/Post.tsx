@@ -36,7 +36,7 @@ type PostProps = {
 
 export const Post: React.FC<PostProps> = ({ userName, userPic, maps }) => {
   const [userID, setUserID] = useState(null);
-  const Post = maps.map((map) => {
+  const Post = maps.map(map => {
     return map.posts.map((post, idx) => {
       const uniqueKey = `${map.mapID}-${post.postID}`;
       return (

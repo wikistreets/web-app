@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import geoMap from "../../../public/media/geo-map.png";
+import geoMap from "public/media/geo-map.png";
 
 export const GeographicMap: React.FC = () => {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Logo from "../Header/Logo";
+import Logo from "@/components/Header/Logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,

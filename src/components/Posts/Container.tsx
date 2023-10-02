@@ -1,7 +1,5 @@
-"use client";
-
 import { StaticImageData } from "next/image";
-import Header from "../MapFeedContainer/Feed/Header";
+import Header from "@/components/MapFeedContainer/Feed/Header";
 import Posts from "./Posts";
 import SearchContextProvider from "@/context/SearchContext";
 
@@ -36,12 +34,12 @@ type Props = {
   users: UserObject[];
 };
 
-export const Container: React.FC<Props> = ({ users }) => {
+const Container = ({ data, users }) => {
   return (
     <SearchContextProvider>
       <section className="relative flex flex-col items-center justify-start h-full container">
         <Header />
-        <Posts users={users} />
+        <Posts data={data} users={users} />
       </section>
     </SearchContextProvider>
   );

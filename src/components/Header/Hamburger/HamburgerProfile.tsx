@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import UserProfileImage from "../../Profile/UserProfileImage";
+import UserProfileImage from "@/components/Profile/UserProfileImage";
 import userDefault from "../../../../public/media/user-default.svg";
 import UserName from "@/components/Profile/UserName";
 import UserTotalMaps from "@/components/Profile/UserTotalMaps";

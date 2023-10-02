@@ -3,7 +3,7 @@
 import { useContext } from "react";
 import { StaticImageData } from "next/image";
 import Post from "./Post/Post";
-import Info from "../MapFeedContainer/Feed/Info";
+import Info from "@/components/MapFeedContainer/Feed/Info";
 import { SearchContext } from "@/context/SearchContext";
 
 type UserObject = {
@@ -36,8 +36,10 @@ type Props = {
   users: UserObject[];
 };
 
-export const Posts: React.FC<Props> = ({ users }) => {
+export const Posts = ({ data, users }) => {
   const { searchIsClicked } = useContext(SearchContext);
+
+  const features = data.features;
 
   // TODO: which posts to show & order
   const Posts = users.map((user, idx) => {

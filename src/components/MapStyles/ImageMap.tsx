@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import imageMap from "../../../public/media/image-map.png";
+import imageMap from "public/media/image-map.png";
 
 export const ImageMap: React.FC = () => {
   return (

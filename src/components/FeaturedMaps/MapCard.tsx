@@ -1,61 +1,64 @@
 "use client";
 
-import { v4 as uuidv4 } from "uuid";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
-import Link from "next/link";
+import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from "react-leaflet";
+import { useRouter } from "next/navigation";
 
-type Props = {
-  centerX: number;
-  centerY: number;
-  markerX: number;
-  markerY: number;
-  title: string;
-  size?: string;
-  style?: string;
-};
+const MapCard = ({ data }) => {
+  // console.log(JSON.stringify(data, null, 2));
+  const router = useRouter();
 
-const MapCard: React.FC<Props> = ({
-  centerX,
-  centerY,
-  markerX,
-  markerY,
-  title,
-  size,
-  style,
-}) => {
-  const MapContainerClasses = `${size} ${style || ""}`;
+  const mapOptions = {
+    center: data.features.length
+      ? data.features[0].properties.center.filter(() => true).reverse() // clone, then reverse to get lat, lng
+      : [51.505, -0.09],
+    zoom: data.features.length ? data.features[0].properties.zoom - 2 : 13,
+    scrollWheelZoom: true,
+    zoomControl: false,
+    attributionControl: false,
+    dragging: true,
+  };
+  // console.log(`mapOptions: ${JSON.stringify(mapOptions, null, 2)}`);
 
-  const mapContainerId = uuidv4();
-  const mapId: string = "111"; // publicId
+  const features = data.features;
+  // console.log(JSON.stringify(features, null, 2));
+
+  const navigateToMap = (mapId: string) => {
+    // navigate to another page using nextjs's router
+    router.push(`/map/${mapId}`);
+  };
+
+  // differentiate clicks from drags
+  const mouseDownCoords = e => {
+    window.mouseDownX = e.clientX;
+    window.mouseDownY = e.clientY;
+  };
+  const clickOrDrag = (e, mapId) => {
+    const mouseUpX = e.clientX;
+    const mouseUpY = e.clientY;
+    const dx = Math.abs(window.mouseDownX - mouseUpX);
+    const dy = Math.abs(window.mouseDownY - mouseUpY);
+    const isDragX = dx >= 5;
+    const isDragY = dy >= 5;
+    // console.log(`${dx} ${dy} ${isDragX} ${isDragY}`);
+    // if clicked, not dragged, navigate to the map detail page
+    if (!isDragX && !isDragY) navigateToMap(mapId);
+  };
 
   return (
     <>
       <figure
         className="flex flex-col justify-center items-center w-full px-4 pt-4 rounded-lg bg-white
           max-w-sm 2xl:max-w-md"
+        onMouseDown={e => mouseDownCoords(e)}
+        onMouseUp={e => clickOrDrag(e, data.publicId)}
       >
-        <Link href={`/map/${mapId}`} passHref className="w-full">
-          <MapContainer
-            id={mapContainerId}
-            className={MapContainerClasses}
-            center={[centerX, centerY]}
-            zoom={13}
-            scrollWheelZoom={true}
-            zoomControl={false}
-            attributionControl={false}
-            dragging={false}
-          >
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <Marker position={[markerX, markerY]}>
-              {/* <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup> */}
-            </Marker>
-          </MapContainer>
-          <figcaption className="w-full py-4 text-center text-md">
-            {title}
-          </figcaption>
-        </Link>
+        <MapContainer className="w-full h-48 text-center" {...mapOptions}>
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <GeoJSON key={data.publicId} data={data} />
+        </MapContainer>
+        <figcaption className="w-full py-4 text-center text-md">
+          {data.title}
+        </figcaption>
       </figure>
     </>
   );

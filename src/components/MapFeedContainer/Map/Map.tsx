@@ -1,32 +1,51 @@
 "use client";
 
-import { useEffect } from "react";
-import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  GeoJSON,
+  useMap,
+  Marker,
+  Popup,
+} from "react-leaflet";
+import Loading from "./loading";
+import WSMarker from "@/components/MapFeedContainer/WSMarker/WSMarker";
 
-export const Map: React.FC = () => {
+export const Map = ({ data }) => {
   // useEffect(() => {
   //   const el = document.getElementsByClassName("mapInFeed")[0];
   //   const topPos = el.getBoundingClientRect().top;
   //   console.log("topPos", topPos);
   //   // window.scrollTo(0, topPos);
   // });
+
+  // console.log("Map component loading...");
+  let features = data.features;
+
+  const mapOptions = {
+    center: data.features.length
+      ? data.features[0].properties.center.filter(() => true).reverse() // clone, then reverse to get lat, lng
+      : [51.505, -0.09],
+    zoom: data.features.length ? data.features[0].properties.zoom : 4,
+    scrollWheelZoom: true,
+    zoomControl: false,
+    attributionControl: false,
+  };
+  // console.log(`mapOptions: ${JSON.stringify(mapOptions, null, 2)}`);
+
   return (
     <>
       <MapContainer
         className="mapInFeed w-full h-60 sticky top-0 z-20
         sm:aspect-square sm:h-full"
-        center={[51.505, -0.09]}
-        zoom={13}
-        scrollWheelZoom={true}
-        zoomControl={false}
-        attributionControl={false}
+        {...mapOptions}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <Marker position={[51.505, -0.09]}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
+        {/* <GeoJSON key={data.publicId} data={data} /> */}
+        {features.map(feature => {
+          // console.log(feature.geometry.coordinates);
+          return <WSMarker key={feature._id} feature={feature} />;
+        })}
       </MapContainer>
     </>
   );

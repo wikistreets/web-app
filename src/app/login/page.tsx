@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SplitImg from "../../../public/media/login-signup-img.png";
+import SplitImg from "public/media/login-signup-img.png";
 import LogInForm from "@/components/Forms/LogIn-SignUp/LogInForm";
 import Header from "@/components/Header/Header";
 
