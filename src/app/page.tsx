@@ -16,7 +16,7 @@ export default function Home() {
       <main className="h-full">
         <Hero />
         <FeaturedMaps />
-        <MapFeedContainer />
+        <MapFeedContainer style="" />
         <Features />
         <MapStyles />
         <JoinCTA />
