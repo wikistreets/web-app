@@ -2,6 +2,7 @@
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
+import { extractDateOnly } from "../../extractDateOnly";
 
 type Props = {
   username: string;
@@ -10,8 +11,7 @@ type Props = {
 };
 
 export const Info = ({ username, createdAt, mapTitle }: Props) => {
-  const dateString = createdAt;
-  const dateOnly = dateString.split("T")[0];
+  const dateOnly = extractDateOnly(createdAt);
 
   return (
     <section className="flex flex-col w-full">
