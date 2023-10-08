@@ -2,43 +2,51 @@ import Title from "./Title";
 import Info from "./Info/Info";
 import TextPreview from "./TextPreview";
 import Thumbnail from "./Thumbnail";
-
+import { FeatureCollection } from "@/types/featureCollection";
+import Separator from "@/components/Separator/Separator";
 type Props = {
-  imageUrl: string;
-  title: string;
-  posted: string;
-  location: string;
-  textPreview: string;
+  data: FeatureCollection;
   size?: string;
   style?: string;
 };
 
-export const PostListSingle = ({
-  title,
-  posted,
-  location,
-  textPreview,
-  size,
-  style,
-}: Props) => {
+export const PostListSingle = ({ data, size, style }: Props) => {
   const PostListSingleClasses = `${size} ${style}`;
+  const features = data.features;
 
   return (
-    <div className={PostListSingleClasses}>
-      <div className="flex flex-col justify-between py-2 text-secondary font-light">
-        <Title
-          title={title}
-          style="font-medium text-primary text-sm text-start"
-        />
-        <Info
-          posted={posted}
-          location={location}
-          style="flex gap-2 items-center text-xs text-start"
-        />
-        <TextPreview textPreview={textPreview} style="text-xs text-start" />
-      </div>
-      <Thumbnail imageUrl={""} size="h-28 aspect-square" />
-    </div>
+    <>
+      {features.map((feature, idx) => (
+        <>
+          <div key={idx} className={`${PostListSingleClasses} overflow-hidden`}>
+            <div className="col-span-2 pr-4 text-secondary font-light max-h-28">
+              <Title
+                title={feature.properties.title}
+                style="font-medium text-primary text-sm text-start"
+              />
+              <Info
+                createdAt={feature.createdAt}
+                location={feature.properties.address}
+                style="flex gap-2 items-center text-xs text-start overflow-hidden py-3.5"
+              />
+              <TextPreview
+                textPreview={feature.properties.body}
+                style="text-xs text-start overflow-hidden"
+              />
+            </div>
+            <Thumbnail
+              imageUrl={
+                feature.properties.photos.length > 0
+                  ? feature.properties.photos[0].path
+                  : "" // TODO: render different thumbnails based on type
+              }
+              size="col-span-1 aspect-square w-full"
+            />
+          </div>
+          <Separator />
+        </>
+      ))}
+    </>
   );
 };
 
