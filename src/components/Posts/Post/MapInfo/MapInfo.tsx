@@ -14,7 +14,7 @@ export const MapInfo: React.FC<Props> = ({ location, postTitle }) => {
         size="lg"
         className="text-indigo-600"
       />
-      <h6 className="text-indigo-600 text-md font-medium">{location}</h6>
+      <h6 className="text-indigo-600 text-xs font-medium">{location}</h6>
     </>
   );
   const imageMapBar = (
@@ -24,7 +24,7 @@ export const MapInfo: React.FC<Props> = ({ location, postTitle }) => {
         size="lg"
         className="text-indigo-600"
       />
-      <h6 className="text-indigo-600 text-md font-medium">{postTitle}</h6>
+      <h6 className="text-indigo-600 text-xs font-medium">{postTitle}</h6>
     </>
   );
   return (
