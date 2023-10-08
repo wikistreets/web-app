@@ -2,9 +2,10 @@
 
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from "react-leaflet";
 import { useRouter } from "next/navigation";
+import { Data } from "@/types/data";
 
-const MapCard = ({ data }) => {
-  // console.log(JSON.stringify(data, null, 2));
+const MapCard = ({ data }: Data) => {
+  console.log(JSON.stringify(data, null, 2));
   const router = useRouter();
 
   const mapOptions = {
@@ -28,15 +29,22 @@ const MapCard = ({ data }) => {
   };
 
   // differentiate clicks from drags
-  const mouseDownCoords = e => {
-    window.mouseDownX = e.clientX;
-    window.mouseDownY = e.clientY;
+  const mouseDownCoords = (e: React.MouseEvent<HTMLElement>) => {
+    (window as any).mouseDownX = e.clientX;
+    (window as any).mouseDownY = e.clientY;
   };
-  const clickOrDrag = (e, mapId) => {
+
+  const clickOrDrag = (e: React.MouseEvent<HTMLElement>, mapId: string) => {
     const mouseUpX = e.clientX;
     const mouseUpY = e.clientY;
-    const dx = Math.abs(window.mouseDownX - mouseUpX);
-    const dy = Math.abs(window.mouseDownY - mouseUpY);
+    const dx =
+      (window as any).mouseDownX !== undefined
+        ? Math.abs((window as any).mouseDownX - mouseUpX)
+        : 0;
+    const dy =
+      (window as any).mouseDownY !== undefined
+        ? Math.abs((window as any).mouseDownY - mouseUpY)
+        : 0;
     const isDragX = dx >= 5;
     const isDragY = dy >= 5;
     // console.log(`${dx} ${dy} ${isDragX} ${isDragY}`);
@@ -49,15 +57,15 @@ const MapCard = ({ data }) => {
       <figure
         className="flex flex-col justify-center items-center w-full px-4 pt-4 rounded-lg bg-white
           max-w-sm 2xl:max-w-md"
-        onMouseDown={e => mouseDownCoords(e)}
-        onMouseUp={e => clickOrDrag(e, data.publicId)}
+        onMouseDown={(e) => mouseDownCoords(e)}
+        onMouseUp={(e) => clickOrDrag(e, data.publicId)}
       >
         <MapContainer className="w-full h-48 text-center" {...mapOptions}>
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           <GeoJSON key={data.publicId} data={data} />
         </MapContainer>
         <figcaption className="w-full py-4 text-center text-md">
-          {data.title}
+          {features[0].properties.title}
         </figcaption>
       </figure>
     </>

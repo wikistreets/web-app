@@ -47,18 +47,6 @@ export const FeaturedMaps: React.FC = async () => {
         justify-items-center items-center w-full"
       >
 
-        {/* {mapData.map((data, idx) => (
-          <MapCard
-            key={idx}
-            centerX={data.centerX}
-            centerY={data.centerY}
-            markerX={data.markerX}
-            markerY={data.markerY}
-            title={data.title}
-            size="w-full h-48"
-            style="text-center"
-          /> */}
-
         {featureCollections.map((data, idx) => (
           <MapCard key={idx} data={data} />
         ))}

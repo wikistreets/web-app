@@ -1,7 +1,5 @@
 import dynamic from "next/dynamic";
 import Container from "@/components/Posts/Container";
-import MockData from "@/mock-data/mockData";
-// import Map from "@/components/MapFeedContainer/Map/Map"
 
 const Map = dynamic(
   () => {
@@ -24,8 +22,6 @@ const MapFeedContainer = async () => {
   const data = await res.json();
   // console.log("data", data);
 
-  const mockUsers = MockData;
-  //   console.log("mockUsers", mockUsers);
   return (
     <section
       className="relative mx-auto flex w-full h-full sm:h-screen 
@@ -36,7 +32,7 @@ const MapFeedContainer = async () => {
       sm:overflow-auto"
     >
       <Map data={data} />
-      <Container data={data} users={mockUsers} />
+      <Container data={data} />
     </section>
   );
 };
