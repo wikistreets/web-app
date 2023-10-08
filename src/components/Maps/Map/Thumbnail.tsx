@@ -26,7 +26,11 @@ const Thumbnail = ({ data, size, style }: Data) => {
 
   return (
     <>
-      <figure className="justify-center items-center h-full aspect-square max-w-xs 2xl:max-w-md">
+      <figure
+        className="justify-center items-center h-full
+              aspect-square max-w-xs sm:w-full 2xl:max-w-md
+              sm:pl-8"
+      >
         <Link href={`/map/${mapId}`} passHref className="w-full">
           <MapContainer
             id={mapContainerId}

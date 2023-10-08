@@ -11,20 +11,23 @@ export const MapListSingle = ({ data, size, style }: Data) => {
 
   return (
     <div className={MapListSingleClasses}>
-      <div className="flex flex-col justify-between text-secondary font-light">
+      <div className="flex flex-col justify-between font-light">
         <Title
           title={data.title}
-          style="font-medium text-primary text-sm text-start"
+          style="font-bold text-primary text-sm sm:text-base text-start"
         />
-        <UpdatedDate updated={dateString} style="text-xs text-start" />
+        <UpdatedDate
+          updated={dateString}
+          style="text-xs text-start text-secondary"
+        />
         <Info
           saved={data.subscribers.length}
           copied={data.forks.length}
           shared={50}
-          style="flex gap-2 justify-start items-center text-xs"
+          style="flex gap-2 justify-start items-center text-xs text-primary font-normal"
         />
       </div>
-      <Thumbnail data={data} size="w-full h-28" />
+      <Thumbnail data={data} size="h-full w-full" style="" />
     </div>
   );
 };

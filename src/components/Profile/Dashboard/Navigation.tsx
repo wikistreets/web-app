@@ -1,45 +1,39 @@
-"use client";
-
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faSort } from "@fortawesome/free-solid-svg-icons";
 
-type Props = {};
-
-export const Navigation: React.FC<Props> = ({}) => {
+export const Navigation = () => {
   const userId: string = "111";
 
   return (
     <>
       <nav
-        className="bg-white flex items-center px-4 sm:px-6 md:px-10 lg:px-14 xl:px-16
-        my-4 sm:my-6 lg:my-8 xl:my-10 text-secondary"
+        className="bg-white flex items-center w-full px-4 sm:px-6 md:px-10 lg:px-14 xl:px-16
+        my-4 text-secondary"
       >
-        <div className="container mx-auto">
-          <ul className="flex justify-between text-sm">
-            <div className="flex space-x-4 items-center">
-              <li>
-                <Link href={`/users/${userId}/maps`}>Maps</Link>
-              </li>
-              <li>
-                <Link href={`/users/${userId}/posts`}>Posts</Link>
-              </li>
-              <li>
-                <Link href="/">Saved</Link>
-              </li>
-              <li>
-                <Link href="/">Settings</Link>
-              </li>
-              <li className="my-auto">
-                <FontAwesomeIcon icon={faMagnifyingGlass} />
-              </li>
-            </div>
-
+        <ul className="flex justify-between items-center text-sm w-full">
+          <div className="flex space-x-4">
             <li>
-              <FontAwesomeIcon icon={faSort} className="h-4" />
+              <Link href={`/users/${userId}/maps`}>Maps</Link>
             </li>
-          </ul>
-        </div>
+            <li>
+              <Link href={`/users/${userId}/posts`}>Posts</Link>
+            </li>
+            <li>
+              <Link href="/">Saved</Link>
+            </li>
+            <li>
+              <Link href="/">Settings</Link>
+            </li>
+            <li className="my-auto">
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </li>
+          </div>
+
+          <li>
+            <FontAwesomeIcon icon={faSort} className="h-4" />
+          </li>
+        </ul>
       </nav>
     </>
   );

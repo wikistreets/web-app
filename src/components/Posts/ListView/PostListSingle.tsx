@@ -22,7 +22,7 @@ export const PostListSingle = ({ data, size, style }: Props) => {
             <div className="col-span-2 pr-4 text-secondary font-light max-h-28">
               <Title
                 title={feature.properties.title}
-                style="font-medium text-primary text-sm text-start"
+                style="font-bold text-primary text-sm sm:text-base text-start"
               />
               <Info
                 createdAt={feature.createdAt}
@@ -31,16 +31,17 @@ export const PostListSingle = ({ data, size, style }: Props) => {
               />
               <TextPreview
                 textPreview={feature.properties.body}
-                style="text-xs text-start text-clip overflow-hidden"
+                style="font-normal text-xs text-start text-primary text-clip overflow-hidden"
               />
             </div>
             <Thumbnail
               imageUrl={
                 feature.properties.photos.length > 0
                   ? feature.properties.photos[0].path
-                  : "" // TODO: render different thumbnails based on type
+                  : "https://wikistreets.io/static/uploads/b80c2c75-bb08-4f89-aabe-8aec1e5565a2.jpg" // TODO: render different thumbnails based on type
               }
-              size="col-span-1 aspect-square w-full"
+              size="col-span-1 w-full h-full pl-4 sm:pl-8"
+              style="object-cover object-center"
             />
           </div>
           <Separator />
