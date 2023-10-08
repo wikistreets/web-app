@@ -16,11 +16,11 @@ export const Info = ({ username, createdAt, mapTitle }: Props) => {
   return (
     <section className="flex flex-col w-full">
       <div className="flex justify-start items-center gap-1.5">
-        <p className="text-sm">{username}</p>
+        <p className="text-xs">{username}</p>
         <FontAwesomeIcon icon={faCircle} className="w-0.5 text-secondary" />
-        <p className="text-secondary text-sm">{dateOnly}</p>
+        <p className="text-secondary text-xs">{dateOnly}</p>
       </div>
-      <p className="text-secondary text-sm">{mapTitle}</p>
+      <p className="text-secondary text-xs">{mapTitle}</p>
     </section>
   );
 };
