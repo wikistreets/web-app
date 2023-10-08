@@ -31,7 +31,7 @@ export const PostListSingle = ({ data, size, style }: Props) => {
               />
               <TextPreview
                 textPreview={feature.properties.body}
-                style="text-xs text-start overflow-hidden"
+                style="text-xs text-start text-clip overflow-hidden"
               />
             </div>
             <Thumbnail
