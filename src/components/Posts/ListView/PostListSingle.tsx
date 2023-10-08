@@ -13,14 +13,14 @@ type Props = {
   style?: string;
 };
 
-export const PostListSingle: React.FC<Props> = ({
+export const PostListSingle = ({
   title,
   posted,
   location,
   textPreview,
   size,
   style,
-}) => {
+}: Props) => {
   const PostListSingleClasses = `${size} ${style}`;
 
   return (
