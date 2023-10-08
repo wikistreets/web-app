@@ -20,7 +20,7 @@ export const Nav: React.FC = () => {
         <DropdownMenuTrigger className="w-fit h-9 flex justify-center items-center">
           <FontAwesomeIcon icon={faEllipsisVertical} />
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="mr-2.5">
+        <DropdownMenuContent className="mr-4 sm:mr-4 md:mr-10 lg:mr-14 xl:mr-16">
           {/* TODO: clarify logic */}
           {!isLoggedIn && (
             <>
