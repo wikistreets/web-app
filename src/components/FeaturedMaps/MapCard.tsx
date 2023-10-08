@@ -65,7 +65,7 @@ const MapCard = ({ data }: Data) => {
           <GeoJSON key={data.publicId} data={data} />
         </MapContainer>
         <figcaption className="w-full py-4 text-center text-md">
-          {features[0].properties.title}
+          {data.title}
         </figcaption>
       </figure>
     </>

@@ -2,58 +2,29 @@ import Title from "./Title";
 import UpdatedDate from "./UpdatedDate";
 import Info from "./Info/Info";
 import Thumbnail from "./Thumbnail";
+import { extractDateOnly } from "@/components/Posts/extractDateOnly";
+import { Data } from "@/types/data";
 
-type Props = {
-  centerX: number;
-  centerY: number;
-  markerX: number;
-  markerY: number;
-  title: string;
-  updated: number;
-  saved: number;
-  copied: number;
-  shared: number;
-  size?: string;
-  style?: string;
-};
-
-export const MapListSingle: React.FC<Props> = ({
-  centerX,
-  centerY,
-  markerX,
-  markerY,
-  title,
-  updated,
-  saved,
-  copied,
-  shared,
-  size,
-  style,
-}) => {
+export const MapListSingle = ({ data, size, style }: Data) => {
   const MapListSingleClasses = `${size} ${style}`;
+  const dateString = extractDateOnly(data.updatedAt);
 
   return (
     <div className={MapListSingleClasses}>
-      <div className="flex flex-col justify-between py-2 text-secondary font-light">
+      <div className="flex flex-col justify-between text-secondary font-light">
         <Title
-          title={title}
+          title={data.title}
           style="font-medium text-primary text-sm text-start"
         />
-        <UpdatedDate updated={updated} style="text-xs text-start" />
+        <UpdatedDate updated={dateString} style="text-xs text-start" />
         <Info
-          saved={saved}
-          copied={copied}
-          shared={shared}
+          saved={data.subscribers.length}
+          copied={data.forks.length}
+          shared={50}
           style="flex gap-2 justify-start items-center text-xs"
         />
       </div>
-      <Thumbnail
-        centerX={centerX}
-        centerY={centerY}
-        markerX={markerX}
-        markerY={markerY}
-        size="w-full h-28"
-      />
+      <Thumbnail data={data} size="w-full h-28" />
     </div>
   );
 };

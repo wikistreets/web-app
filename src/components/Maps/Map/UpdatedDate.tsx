@@ -1,8 +1,8 @@
-type Props = { updated: number; style?: string };
+type Props = { updated: string; style?: string };
 
-export const UpdatedDate: React.FC<Props> = ({ updated, style }) => {
+export const UpdatedDate = ({ updated, style }: Props) => {
   const UpdatedDateClasses = `${style || ""}`;
-  return <p className={UpdatedDateClasses}>updated {updated} day ago</p>;
+  return <p className={UpdatedDateClasses}>updated {updated}</p>;
 };
 
 export default UpdatedDate;
