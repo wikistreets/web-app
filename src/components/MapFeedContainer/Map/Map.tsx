@@ -38,7 +38,7 @@ export const Map = ({ data }: Data) => {
     <>
       <MapContainer
         className="mapInFeed w-full h-60 sticky top-0 z-20
-        sm:aspect-square sm:h-full"
+        md:h-full"
         {...mapOptions}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />

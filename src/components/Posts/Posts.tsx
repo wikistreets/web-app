@@ -23,7 +23,7 @@ export const Posts = ({ data }: Data) => {
     <div
       className="flex flex-col w-full h-full bg-white 
           overflow-auto overscroll-contain scroll-smooth
-          sm:h-screen"
+          md:h-screen"
     >
       {/* TODO: POSTS ALSO NEED TO SHOW UP WHEN CLICKED OUTSIDE OF THE SEARCH ICON! */}
       {searchIsClicked ? null : (
