@@ -28,12 +28,12 @@ export const PostListMultiple = async () => {
       className="bg-white w-full pt-4 md:pt-6 lg:pt-8
       px-4 sm:px-6 md:px-10 lg:px-14 xl:px-16"
     >
-      <div className="flex flex-col gap-4 items-center">
+      <div className="flex flex-col gap-8 items-center">
         {featureCollections.map((data, idx) => (
           <PostListSingle
             key={idx}
             data={data}
-            size="w-full h-28 md:h-32 md:max-w-3xl lg:max-w-4xl"
+            size="w-full h-28 md:h-32 lg:h-36 xl:h-40"
             style="text-center grid grid-cols-3"
           />
         ))}

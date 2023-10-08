@@ -11,7 +11,7 @@ export const Navigation = () => {
         className="bg-white flex items-center w-full px-4 sm:px-6 md:px-10 lg:px-14 xl:px-16
         my-4 text-secondary"
       >
-        <ul className="flex justify-between items-center text-sm w-full">
+        <ul className="flex justify-between items-center text-xs lg:text-sm w-full">
           <div className="flex space-x-4">
             <li>
               <Link href={`/users/${userId}/maps`}>Maps</Link>
