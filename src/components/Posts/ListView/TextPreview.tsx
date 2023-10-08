@@ -1,6 +1,6 @@
 type Props = { textPreview: string; style?: string };
 
-export const TextPreview: React.FC<Props> = ({ textPreview, style }) => {
+export const TextPreview = ({ textPreview, style }: Props) => {
   const TextPreviewClasses = `${style || ""}`;
   return <p className={TextPreviewClasses}>{textPreview}</p>;
 };

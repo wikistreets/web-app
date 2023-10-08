@@ -1,7 +1,7 @@
 type Props = { location: string };
 
-export const Location: React.FC<Props> = ({ location }) => {
-  return <p>{location}</p>;
+export const Location = ({ location }: Props) => {
+  return <p className="overflow-hidden whitespace-nowrap">{location}</p>;
 };
 
 export default Location;

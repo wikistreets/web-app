@@ -1,7 +1,7 @@
 type Props = { posted: string };
 
-export const PostedDate: React.FC<Props> = ({ posted }) => {
-  return <p>{posted}</p>;
+export const PostedDate = ({ posted }: Props) => {
+  return <p className="min-w-fit">{posted}</p>;
 };
 
 export default PostedDate;
