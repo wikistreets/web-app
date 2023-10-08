@@ -10,7 +10,7 @@ export const PostsRecommended = ({ style }: Style) => {
     <section className={PostsRecommdedClasses}>
       <h3
         className="px-4 sm:px-6 md:px-10 lg:px-14 xl:px-16
-        text-xl font-dm-sans font-semibold"
+        text-xl font-dm-sans font-bold"
       >
         We thought you might also like...
       </h3>
