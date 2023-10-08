@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
@@ -18,16 +16,16 @@ export const GetInTouch: React.FC = () => {
     >
       {/* Section - 1 */}
       <section className="flex flex-col gap-3 lg:gap-6">
-        <h2 className="font-dm-sans tracking-wide md:text-3xl lg:text-4xl">
+        <h2 className="font-dm-sans tracking-wide md:text-3xl lg:text-3xl">
           Get in touch
         </h2>
-        <p className="text-secondary font-light text-md lg:text-lg">
+        <p className="text-secondary font-light text-sm lg:text-base">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
         </p>
 
         {/* Wiki Links */}
-        <div className="flex flex-col w-full p-0 text-secondary font-light tracking-wide lg:text-lg">
+        <div className="flex flex-col w-full p-0 text-secondary font-light tracking-wide text-sm lg:text-base">
           <div className="flex flex-row justify-start items-center">
             <FontAwesomeIcon
               icon={faEnvelope}
@@ -36,7 +34,7 @@ export const GetInTouch: React.FC = () => {
             />
             <p>{wikiEmail}</p> {/* TODO: direct to email */}
           </div>
-          <div className="flex flex-row justify-start items-center ">
+          <div className="flex flex-row justify-start items-center">
             <FontAwesomeIcon
               icon={faGithub}
               className="mr-2"
@@ -51,10 +49,10 @@ export const GetInTouch: React.FC = () => {
 
       {/* Section - 2 */}
       <section className="flex flex-col gap-3 lg:gap-6">
-        <h2 className="font-dm-sans tracking-wide md:text-3xl lg:text-4xl">
+        <h2 className="font-dm-sans tracking-wide md:text-3xl lg:text-3xl">
           Wikistreets.io
         </h2>
-        <p className="text-secondary font-light md:text-md lg:text-lg">
+        <p className="text-secondary font-light text-sm lg:text-base">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
         </p>

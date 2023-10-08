@@ -20,17 +20,17 @@ export const Footer: React.FC = () => {
 
       <div className="flex gap-4 text-center">
         <Link href="/tos">
-          <h6>Terms of Service</h6>
+          <h6 className="text-xs">Terms of Service</h6>
         </Link>
         <Link href="/about">
-          <h6>About</h6>
+          <h6 className="text-xs">About</h6>
         </Link>
         <Link href="/privacy-policy">
-          <h6>Privacy Policy</h6>
+          <h6 className="text-xs">Privacy Policy</h6>
         </Link>
       </div>
 
-      <div className="flex gap-6">
+      <div className="flex gap-6 text-sm">
         {/* todo: add links */}
         <FontAwesomeIcon
           icon={faGithub}
@@ -49,7 +49,7 @@ export const Footer: React.FC = () => {
         />
       </div>
 
-      <p className="font-light text-gray-400 text-center">
+      <p className="font-light text-gray-400 text-center text-xs">
         <FontAwesomeIcon icon={faCopyright} className="mr-2" />
         2023 Plastic Past LLC. All rights reserved
       </p>
