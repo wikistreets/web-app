@@ -20,7 +20,7 @@ export const Navigation = () => {
               <Link href={`/users/${userId}/posts`}>Posts</Link>
             </li>
             <li>
-              <Link href="/">Saved</Link>
+              <Link href={`/users/${userId}/saved`}>Saved</Link>
             </li>
             <li>
               <Link href="/">Settings</Link>
