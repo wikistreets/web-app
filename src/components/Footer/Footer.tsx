@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import Logo from "@/components/Header/Logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -31,26 +29,30 @@ export const Footer: React.FC = () => {
       </div>
 
       <div className="flex gap-6 text-sm">
-        {/* todo: add links */}
-        <FontAwesomeIcon
-          icon={faGithub}
-          size="lg"
-          style={{ color: "rgb(156 163 175)" }}
-        />
+        <Link href="https://github.com/wikistreets">
+          <FontAwesomeIcon
+            icon={faGithub}
+            size="lg"
+            style={{ color: "rgb(156 163 175)" }}
+          />
+        </Link>
         <FontAwesomeIcon
           icon={faInstagram}
           size="lg"
           style={{ color: "rgb(156 163 175)" }}
+          // add link
         />
-        <FontAwesomeIcon
-          icon={faTwitter}
-          size="lg"
-          style={{ color: "rgb(156 163 175)" }}
-        />
+        <Link href="https://twitter.com/wikistreets_io">
+          <FontAwesomeIcon
+            icon={faTwitter}
+            size="lg"
+            style={{ color: "rgb(156 163 175)" }}
+          />
+        </Link>
       </div>
 
       <p className="font-light text-gray-400 text-center text-xs">
-        <FontAwesomeIcon icon={faCopyright} className="mr-2" />
+        <FontAwesomeIcon icon={faCopyright} className="mr-1" />
         2023 Plastic Past LLC. All rights reserved
       </p>
     </footer>
