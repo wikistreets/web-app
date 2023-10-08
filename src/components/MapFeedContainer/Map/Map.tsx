@@ -10,8 +10,9 @@ import {
 } from "react-leaflet";
 import Loading from "./loading";
 import WSMarker from "@/components/MapFeedContainer/WSMarker/WSMarker";
+import { Data } from "@/types/data";
 
-export const Map = ({ data }) => {
+export const Map = ({ data }: Data) => {
   // useEffect(() => {
   //   const el = document.getElementsByClassName("mapInFeed")[0];
   //   const topPos = el.getBoundingClientRect().top;
@@ -37,12 +38,12 @@ export const Map = ({ data }) => {
     <>
       <MapContainer
         className="mapInFeed w-full h-60 sticky top-0 z-20
-        sm:aspect-square sm:h-full"
+        md:h-full"
         {...mapOptions}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         {/* <GeoJSON key={data.publicId} data={data} /> */}
-        {features.map(feature => {
+        {features.map((feature) => {
           // console.log(feature.geometry.coordinates);
           return <WSMarker key={feature._id} feature={feature} />;
         })}

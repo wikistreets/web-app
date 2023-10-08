@@ -1,7 +1,5 @@
 import dynamic from "next/dynamic";
 import Container from "@/components/Posts/Container";
-import MockData from "@/mock-data/mockData";
-// import Map from "@/components/MapFeedContainer/Map/Map"
 
 const Map = dynamic(
   () => {
@@ -9,8 +7,11 @@ const Map = dynamic(
   },
   { ssr: false }
 );
+interface Style {
+  style?: string;
+}
 
-const MapFeedContainer = async () => {
+const MapFeedContainer = async ({ style }: Style) => {
   // get some mock data
   const res = await fetch(
     "http://localhost:3000/media/mock-feature-collections/feature-collection-1.json"
@@ -23,20 +24,17 @@ const MapFeedContainer = async () => {
 
   const data = await res.json();
   // console.log("data", data);
+  const MapContainerClasses = `relative mx-auto flex w-full h-full md:h-screen 
+      flex-col md:grid md:grid-cols-2 md:gap-4
+      max-w-lg md:max-w-none 
+      px-4 sm:px-4 md:px-10 lg:px-14 xl:px-16
+      ${style}
+      md:overflow-auto`;
 
-  const mockUsers = MockData;
-  //   console.log("mockUsers", mockUsers);
   return (
-    <section
-      className="relative mx-auto flex w-full h-full sm:h-screen 
-      flex-col sm:flex-row sm:gap-4
-      max-w-lg sm:max-w-none 
-      sm:px-4 md:px-10 lg:px-14 xl:px-16
-      py-2 sm:py-2
-      sm:overflow-auto"
-    >
+    <section className={MapContainerClasses}>
       <Map data={data} />
-      <Container data={data} users={mockUsers} />
+      <Container data={data} />
     </section>
   );
 };

@@ -6,7 +6,7 @@ export default function Map({ params }: { params: { id: string } }) {
   return (
     <>
       <Header />
-      <MapFeedContainer />
+      <MapFeedContainer style="my-4 md:my-8" />
       <GetInTouch />
     </>
   );

@@ -26,7 +26,7 @@ export const Hamburger: React.FC = () => {
         <DropdownMenuTrigger className="w-9 h-9 flex justify-center items-center">
           <FontAwesomeIcon icon={faBars} size="lg" />
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="mr-2.5">
+        <DropdownMenuContent className="mr-4">
           {!isLoggedIn && (
             <>
               <DropdownMenuItem>

@@ -1,11 +1,11 @@
 import Selector from "./Selector";
 import ToolBar from "./ToolBar";
 
-export const Header: React.FC = () => {
+export const Header = () => {
   return (
     <div
       className="flex flex-col w-full justify-center items-center bg-white
-      sticky top-60 sm:top-0 z-10"
+      sticky top-60 md:top-0 z-10"
     >
       <Selector />
       <ToolBar />

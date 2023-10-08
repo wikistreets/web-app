@@ -1,66 +1,43 @@
 "use client";
 
-import { StaticImageData } from "next/image";
 import { useState } from "react";
 import Header from "./Header/Header";
 import Carousel from "./Carousel/Carousel";
 import MapInfo from "./MapInfo/MapInfo";
-import Caption from "./Body/Body";
+import Body from "./Body/Body";
 import RepliesPreview from "./RepliesPreview/RepliesPreview";
+import { Data } from "@/types/data";
 
-type PostProps = {
-  userID: string;
-  userName: string;
-  userPic: StaticImageData;
-  maps: {
-    mapID: string;
-    mapType: string;
-    mapTitle: string;
-    mapData: {
-      centerX: number;
-      centerY: number;
-      markerX: number;
-      markerY: number;
-    };
-    posts: {
-      postID: string;
-      postTitle: string;
-      posted: number;
-      postMedia: StaticImageData[];
-      location?: string;
-      caption?: string | null;
-      comments?: Array<{ commentText: string }> | [];
-    }[];
-  }[];
-};
-
-export const Post: React.FC<PostProps> = ({ userName, userPic, maps }) => {
+export const Post = ({ data }: Data) => {
   const [userID, setUserID] = useState(null);
-  const Post = maps.map(map => {
-    return map.posts.map((post, idx) => {
-      const uniqueKey = `${map.mapID}-${post.postID}`;
-      return (
-        <div key={uniqueKey}>
-          <Header
-            userPic={userPic}
-            username={userName}
-            posted={post.posted}
-            mapTitle={map.mapTitle}
+  const features = data.features;
+
+  const Post = features.map((feature, idx) => {
+    return (
+      <div key={idx}>
+        <Header
+          userPic={""}
+          username={"foo.barstein"}
+          createdAt={feature.createdAt}
+          mapTitle={data.title}
+        />
+        {feature.properties.photos && (
+          <Carousel
+            postID={feature._id}
+            photos={feature.properties.photos}
+            options={{ loop: true }}
           />
-          {post.postMedia && (
-            <Carousel
-              postID={post.postID}
-              postMedia={post.postMedia}
-              options={{ loop: true }}
-            />
-          )}
-          {map.mapType === "Geo" && <MapInfo location={post.location} />}
-          {map.mapType === "Image" && <MapInfo postTitle={post.postTitle} />}
-          {post.caption && <Caption bodyText={post.caption} />}
-          <RepliesPreview total={25} />
-        </div>
-      );
-    });
+        )}
+        {data.mapType === "geographic" && (
+          <MapInfo location={feature.properties.address} />
+        )}
+        {data.mapType === "image" && (
+          <MapInfo postTitle={feature.properties.title} />
+        )}
+        {feature.properties.body && <Body bodyText={feature.properties.body} />}
+        <RepliesPreview total={25} />
+      </div>
+    );
   });
   return <>{Post}</>;
 };

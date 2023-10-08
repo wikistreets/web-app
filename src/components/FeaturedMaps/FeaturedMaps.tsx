@@ -46,6 +46,7 @@ export const FeaturedMaps: React.FC = async () => {
         gap-5 sm:gap-5 md:gap-7 lg:gap-9 xl:gap-9 2xl:gap-12
         justify-items-center items-center w-full"
       >
+
         {featureCollections.map((data, idx) => (
           <MapCard key={idx} data={data} />
         ))}

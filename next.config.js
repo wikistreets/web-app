@@ -19,4 +19,7 @@ module.exports = {
 
     return config;
   },
+  images: {
+    domains: ['wikistreets.io'], // Add the domain(s) where images are hosted
+  },
 };

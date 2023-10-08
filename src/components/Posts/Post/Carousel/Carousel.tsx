@@ -9,14 +9,15 @@ import {
   faCircleChevronLeft,
   faCircleChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
+import { Photo } from "@/types/featureCollection";
 
 type Props = {
   postID: string;
-  postMedia: StaticImageData[] | [];
+  photos: Photo[];
   options?: EmblaOptionsType;
 };
 
-export const Carousel: React.FC<Props> = ({ postID, postMedia, options }) => {
+export const Carousel: React.FC<Props> = ({ postID, photos, options }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
   const scrollPrev = useCallback(() => {
@@ -27,18 +28,20 @@ export const Carousel: React.FC<Props> = ({ postID, postMedia, options }) => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
-  const carouselContent = postMedia.map((media, idx) => (
-    <div className="embla__slide shrink-0 w-full" key={idx}>
-      <Image
-        key={idx}
-        src={media["src"]}
-        alt={""}
-        width={390}
-        height={390}
-        className="aspect-square object-cover w-full"
-      />
-    </div>
-  ));
+  const carouselContent = photos.map((photo, idx) => {
+    return (
+      <div className="embla__slide shrink-0 w-full" key={idx}>
+        <Image
+          key={idx}
+          src={photo.path}
+          alt=""
+          width={390}
+          height={390}
+          className="aspect-square object-cover w-full"
+        />
+      </div>
+    );
+  });
 
   return (
     <>
