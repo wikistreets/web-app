@@ -21,7 +21,7 @@ export const Header: React.FC = () => {
       <nav
         className="bg-white w-full h-fit inline-flex items-center 
         px-4 sm:px-6 md:px-10 lg:px-14 xl:px-16
-        mt-2 sm:mt-2 lg:mt-2 xl:mt-2"
+        mt-2 sm:mt-4 md:mt-6 lg:mt-8 xl:mt-8"
       >
         <Link href="/">
           <div className="w-9 h-9 xl:w-12 xl:h-12">
