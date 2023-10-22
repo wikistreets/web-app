@@ -1,11 +1,11 @@
 import Image from "next/image";
 import SplitImg from "public/media/login-signup-img.png";
-import SignUpForm from "@/components/Forms/Account/SignUpForm";
+import LogInForm from "@/components/Forms/LogIn-SignUp/LogInForm";
 import Header from "@/components/Header/Header";
 
 type Props = {};
 
-const SignUp = (props: Props) => {
+const LogIn = (props: Props) => {
   return (
     <>
       <div className="sm:hidden">
@@ -19,7 +19,7 @@ const SignUp = (props: Props) => {
         lg:grid-cols-7"
       >
         <section className="sm:col-span-2 lg:col-span-4 w-full max-w-sm mx-auto h-full justify-center flex flex-col relative">
-          <SignUpForm />
+          <LogInForm />
         </section>
 
         <figure className="hidden sm:block sm:col-span-1 lg:col-span-3 h-full">
@@ -30,4 +30,4 @@ const SignUp = (props: Props) => {
   );
 };
 
-export default SignUp;
+export default LogIn;

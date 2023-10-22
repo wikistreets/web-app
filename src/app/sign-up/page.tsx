@@ -1,6 +1,6 @@
 import Image from "next/image";
 import SplitImg from "public/media/login-signup-img.png";
-import SignUpForm from "@/components/Forms/Account/SignUpForm";
+import SignUpForm from "@/components/Forms/LogIn-SignUp/SignUpForm";
 import Header from "@/components/Header/Header";
 
 type Props = {};
