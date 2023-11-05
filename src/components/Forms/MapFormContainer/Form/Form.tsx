@@ -22,10 +22,17 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserGroup } from "@fortawesome/free-solid-svg-icons";
 
-const MapForm = () => {
+export default function MapForm() {
   const formSchema = z.object({
     title: z
       .string()
@@ -36,6 +43,7 @@ const MapForm = () => {
       .max(300, { message: "Description must be within 300 characters" }),
     privacy: z.enum(["private", "public"]),
     collaborators: z.string().min(1),
+    mapType: z.string(),
   });
 
   // 1. Define your form.
@@ -45,6 +53,8 @@ const MapForm = () => {
       title: "",
       description: "",
       privacy: "public",
+      collaborators: "",
+      mapType: "geographicMap",
     },
   });
 
@@ -60,7 +70,7 @@ const MapForm = () => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-6 my-4 mx-2 lg:mx-4 xl:mx-6 2xl:mx-8"
+          className="space-y-6 my-4 mx-2 lg:mx-4 xl:mx-6 2xl:mx-8 "
         >
           <FormField
             control={form.control}
@@ -71,7 +81,7 @@ const MapForm = () => {
                 <FormControl>
                   <Input
                     placeholder="Title*"
-                    className="resize-none "
+                    className="resize-none text-xs"
                     {...field}
                   />
                 </FormControl>
@@ -90,7 +100,7 @@ const MapForm = () => {
                 <FormControl>
                   <Textarea
                     placeholder="Add a description..."
-                    className="focus-visible:ring-slate-400"
+                    className="focus-visible:ring-slate-400 text-xs"
                     {...field}
                   />
                 </FormControl>
@@ -106,8 +116,10 @@ const MapForm = () => {
             render={({ field }) => (
               <FormItem className="flex flex-col space-y-4">
                 <div className="flex flex-col space-y-1">
-                  <FormLabel>Who can see this map?</FormLabel>
-                  <FormDescription>
+                  <FormLabel className="text-xs">
+                    Who can see this map?
+                  </FormLabel>
+                  <FormDescription className="text-xs">
                     Choose who you want to share with
                   </FormDescription>
                 </div>
@@ -123,8 +135,10 @@ const MapForm = () => {
                         <RadioGroupItem value="public" />
                       </FormControl>
                       <div className="flex flex-col gap-1">
-                        <FormLabel className="font-normal">Public</FormLabel>
-                        <FormDescription>
+                        <FormLabel className="font-normal text-xs">
+                          Public
+                        </FormLabel>
+                        <FormDescription className="text-xs">
                           Anyone can view and search this map
                         </FormDescription>
                       </div>
@@ -135,8 +149,10 @@ const MapForm = () => {
                         <RadioGroupItem value="private" />
                       </FormControl>
                       <div className="flex flex-col gap-1">
-                        <FormLabel className="font-normal">Private</FormLabel>
-                        <FormDescription>
+                        <FormLabel className="font-normal text-xs">
+                          Private
+                        </FormLabel>
+                        <FormDescription className="text-xs">
                           Only your collaboraters can view this map
                         </FormDescription>
                       </div>
@@ -153,13 +169,13 @@ const MapForm = () => {
             name="collaborators"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Invite collaborators</FormLabel>
+                <FormLabel className="text-xs">Invite collaborators</FormLabel>
                 <FormControl>
                   <div className="relative flex w-full items-center">
                     <Input
                       type="username"
                       placeholder="Search by username"
-                      className="pl-9 rounded-tr-none rounded-br-none border-r-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                      className="text-xs pl-9 rounded-tr-none rounded-br-none border-r-0 focus-visible:ring-0 focus-visible:ring-offset-0"
                       {...field}
                     />
                     <div
@@ -176,7 +192,7 @@ const MapForm = () => {
                     <Button
                       type="button"
                       variant="secondary"
-                      className="rounded-tl-none rounded-bl-none border-2 border-secondary"
+                      className="rounded-tl-none rounded-bl-none border-2 border-secondary text-xs"
                     >
                       Invite
                     </Button>
@@ -189,19 +205,74 @@ const MapForm = () => {
 
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
-              <AccordionTrigger className="text-sm">
+              <AccordionTrigger className="text-xs">
                 Advanced Settings
               </AccordionTrigger>
-              <AccordionContent>Choose a style</AccordionContent>
-              <AccordionContent>Import a file</AccordionContent>
+
+              <AccordionContent className="text-xs pt-4">
+                Choose a style
+                {/* FORM STARTS */}
+                <FormField
+                  control={form.control}
+                  name="mapType"
+                  render={({ field }) => (
+                    <FormItem>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger className="w-full h-8 text-[10px] mt-2 focus:ring-0 focus:ring-offset-0 placeholder:text-[2px]">
+                            <SelectValue placeholder="Geographic map" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem
+                            value="geographicMap"
+                            className="text-[10px]"
+                          >
+                            Geographic Map
+                          </SelectItem>
+                          <SelectItem
+                            value="customImageMap"
+                            className="text-[10px]"
+                          >
+                            Custom Image Map
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />{" "}
+                {/* FORM ENDS */}
+              </AccordionContent>
+
+              <AccordionContent className="text-xs">
+                <div className="flex justify-between items-center">
+                  Import a file
+                  <Button
+                    type="button"
+                    variant="secondary"
+                    className="w-16 h-6 text-[10px] bg-slate-100"
+                  >
+                    Select
+                  </Button>
+                </div>
+              </AccordionContent>
             </AccordionItem>
           </Accordion>
 
           <div className="flex gap-3 justify-end">
-            <Button type="button" variant="outline" className="">
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              className="text-xs"
+            >
               Discard
             </Button>
-            <Button type="submit" className="text-white">
+            <Button type="submit" size="sm" className="text-white text-xs">
               Create
             </Button>
           </div>
@@ -210,5 +281,3 @@ const MapForm = () => {
     </>
   );
 };
-
-export default MapForm;
