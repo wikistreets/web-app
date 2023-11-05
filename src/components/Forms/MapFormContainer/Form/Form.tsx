@@ -32,7 +32,11 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserGroup } from "@fortawesome/free-solid-svg-icons";
 
-export default function MapForm() {
+interface Props {
+  onClose: () => void;
+}
+
+export default function MapForm({ onClose }: Props) {
   const formSchema = z.object({
     title: z
       .string()
@@ -46,7 +50,7 @@ export default function MapForm() {
     mapType: z.string(),
   });
 
-  // 1. Define your form.
+  // 1. Define form
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -58,7 +62,7 @@ export default function MapForm() {
     },
   });
 
-  // 2. Define a submit handler.
+  // 2. Define a submit handler
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
@@ -70,7 +74,7 @@ export default function MapForm() {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-6 my-4 mx-2 lg:mx-4 xl:mx-6 2xl:mx-8 "
+          className="flex flex-col justify-center h-full space-y-6 lg:mx-4 xl:mx-6 2xl:mx-8 "
         >
           <FormField
             control={form.control}
@@ -114,8 +118,8 @@ export default function MapForm() {
             control={form.control}
             name="privacy"
             render={({ field }) => (
-              <FormItem className="flex flex-col space-y-4">
-                <div className="flex flex-col space-y-1">
+              <FormItem className="w-full space-y-4">
+                <div className="w-full flex flex-col space-y-1 justify-center items-start">
                   <FormLabel className="text-xs">
                     Who can see this map?
                   </FormLabel>
@@ -128,13 +132,13 @@ export default function MapForm() {
                   <RadioGroup
                     onValueChange={field.onChange}
                     defaultValue={field.value}
-                    className="flex flex-col space-y-1"
+                    className="space-y-1"
                   >
                     <FormItem className="flex items-start space-x-3 space-y-0">
                       <FormControl>
                         <RadioGroupItem value="public" />
                       </FormControl>
-                      <div className="flex flex-col gap-1">
+                      <div className="flex flex-col gap-1 justify-center items-start">
                         <FormLabel className="font-normal text-xs">
                           Public
                         </FormLabel>
@@ -148,7 +152,7 @@ export default function MapForm() {
                       <FormControl>
                         <RadioGroupItem value="private" />
                       </FormControl>
-                      <div className="flex flex-col gap-1">
+                      <div className="flex flex-col gap-1 justify-center items-start">
                         <FormLabel className="font-normal text-xs">
                           Private
                         </FormLabel>
@@ -168,7 +172,7 @@ export default function MapForm() {
             control={form.control}
             name="collaborators"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="flex flex-col justify-center items-start">
                 <FormLabel className="text-xs">Invite collaborators</FormLabel>
                 <FormControl>
                   <div className="relative flex w-full items-center">
@@ -204,19 +208,19 @@ export default function MapForm() {
           />
 
           <Accordion type="single" collapsible>
-            <AccordionItem value="item-1">
+            <AccordionItem value="item-1" className="w-full">
               <AccordionTrigger className="text-xs">
                 Advanced Settings
               </AccordionTrigger>
 
-              <AccordionContent className="text-xs pt-4">
-                Choose a style
+              <AccordionContent className="text-xs pt-4 text-start">
+                <span>Choose a style</span>
                 {/* FORM STARTS */}
                 <FormField
                   control={form.control}
                   name="mapType"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className="w-full">
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
@@ -269,11 +273,12 @@ export default function MapForm() {
               variant="outline"
               size="sm"
               className="text-xs"
+              onClick={onClose}
             >
               Discard
             </Button>
             <Button type="submit" size="sm" className="text-white text-xs">
-              Create
+              Save
             </Button>
           </div>
         </form>
