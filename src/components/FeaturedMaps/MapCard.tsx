@@ -55,7 +55,7 @@ const MapCard = ({ data }: Data) => {
   return (
     <>
       <figure
-        className="flex flex-col justify-center items-center w-full px-4 pt-4 rounded-lg bg-white
+        className="z-0 flex flex-col justify-center items-center w-full px-4 pt-4 rounded-lg bg-white
           max-w-sm 2xl:max-w-md"
         onMouseDown={(e) => mouseDownCoords(e)}
         onMouseUp={(e) => clickOrDrag(e, data.publicId)}
