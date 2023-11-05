@@ -2,23 +2,53 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { PopOverContent } from "../PopOver/PopOverContent";
+import { PopOverTrigger } from "../PopOver/PopOverTrigger";
+import MapForm from "../Forms/MapFormContainer/Form/Form";
 import heroImage from "public/media/hero-img.png";
 
-export const Hero: React.FC = () => {
+export default function Hero() {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isPopOverOpen, setIsPopOverOpen] = useState(false);
+
+  const togglePopOver = () => {
+    setIsPopOverOpen((prevIsPopOverOpen) => !prevIsPopOverOpen);
+  };
+
+  const closePopOver = () => {
+    setIsPopOverOpen(false);
+  };
+
+  const buttonStyle =
+    "w-fit text-white font-normal tracking-wide \
+    lg:px-6 xl:px-8 2xl:px-10 \
+    lg:py-6 xl:py-7 2xl:py-8 \
+    lg:text-lg 2xl:text-xl";
+
+  const popOverTriggerProps = {
+    text: "Create a map",
+    style: buttonStyle,
+  };
+
+  const popOverContentProps = {
+    isOpen: isPopOverOpen,
+    onClose: closePopOver,
+    content: <MapForm onClose={closePopOver} />,
+    style: "",
+  };
+
   return (
     <section
-      className="md:flex flex-row 
-      justify-between
+      className="md:flex flex-row justify-between
       gap-8 lg:gap-20 xl:gap-20 2xl:gap-24 
       px-4 sm:px-6 md:px-10 lg:px-14 xl:px-16
       my-8 xl:my-14 2xl:my-16"
     >
-      {/* Left Section */}
       <section
         className="flex flex-col justify-center 
         w-full md:w-fit 
-        
         gap-6 lg:gap-8 xl:gap-12 2xl:gap-14  
         items-center md:items-start 
         text-center md:text-left"
@@ -29,31 +59,30 @@ export const Hero: React.FC = () => {
 
         <h1
           className="font-dm-sans capitalize tracking-wide w-max
-            lg:text-4xl xl:text-5xl
-            leading-tight lg:leading-snug xl:leading-snug"
+          lg:text-4xl xl:text-5xl
+          leading-tight lg:leading-snug xl:leading-snug"
         >
           The Collaborative
           <br />
           Map Maker
         </h1>
 
-        <Link href="/sign-up">
-          <Button
-            className="text-white font-normal w-fit tracking-wide 
-            lg:px-6 xl:px-8 2xl:px-10
-            lg:py-6 xl:py-7 2xl:py-8
-            lg:text-lg 2xl:text-xl"
-          >
-            Get Started
+        {!isLoggedIn && (
+          <Button className={buttonStyle}>
+            <Link href="/sign-up">Get started</Link>
           </Button>
-        </Link>
+        )}
+
+        {isLoggedIn && (
+          <>
+            <PopOverTrigger onClick={togglePopOver} {...popOverTriggerProps} />
+            <PopOverContent {...popOverContentProps} />
+          </>
+        )}
       </section>
 
       {/* Hero Image */}
-      <figure
-        className="hidden md:block w-full 
-        bg-cover"
-      >
+      <figure className="hidden md:block w-full bg-cover">
         <Image
           src={heroImage}
           priority={true}
@@ -64,5 +93,3 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
-
-export default Hero;
