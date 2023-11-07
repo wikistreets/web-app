@@ -1,19 +1,47 @@
 "use client";
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import Logo from "./Logo";
-import Search from "./Search";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "@/components/ui/button";
+import { Logo } from "./Logo";
+import { Search } from "./Search";
+import { PopUpTrigger } from "../PopUp/PopUpTrigger";
+import { PopUpContainer } from "../PopUp/PopUpContainer";
+import { HamburgerNav } from "./Hamburger/Nav";
+import { Notification } from "./Hamburger/Notification";
 import UserProfileImage from "../Profile/UserProfileImage";
-import Hamburger from "./Hamburger/Hamburger";
-import Notification from "./Hamburger/Notification";
 
 export const Header: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [userId, setUserId] = useState(null);
+
   const handleNotification = () => {
     console.log("notification clicked");
+  };
+
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+
+  const hamburgerTriggerProps = {
+    content: <FontAwesomeIcon icon={faBars} size="lg" />,
+    style:
+      "w-9 h-9 bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent sm:hidden",
+  };
+
+  const togglePopUp = () => {
+    setIsPopUpOpen((prevIsPopUpOpen) => !prevIsPopUpOpen);
+  };
+
+  const closePopUp = () => {
+    setIsPopUpOpen(false);
+  };
+
+  const hamburgerMenuProps = {
+    isOpen: isPopUpOpen,
+    onClose: closePopUp,
+    content: <HamburgerNav />,
+    style: "",
   };
 
   return (
@@ -34,7 +62,10 @@ export const Header: React.FC = () => {
 
         <Search />
 
-        <Hamburger />
+        <>
+          <PopUpTrigger onClick={togglePopUp} {...hamburgerTriggerProps} />
+          <PopUpContainer {...hamburgerMenuProps} />
+        </>
 
         {!isLoggedIn && (
           <Button className="hidden sm:block w-fit shrink-0 text-indigo-600 bg-secondary">

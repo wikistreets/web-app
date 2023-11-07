@@ -28,5 +28,3 @@ export const Notification: React.FC<Props> = ({
     />
   );
 };
-
-export default Notification;
