@@ -5,7 +5,7 @@ interface Props {
   onClose: () => void;
 }
 
-export default function PopOverClose({ onClose }: Props) {
+export const PopUpClose: React.FC<Props> = ({ onClose }) => {
   return (
     <button className="absolute right-4">
       <FontAwesomeIcon
@@ -15,4 +15,4 @@ export default function PopOverClose({ onClose }: Props) {
       />
     </button>
   );
-}
+};

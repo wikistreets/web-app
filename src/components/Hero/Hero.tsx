@@ -4,21 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { PopOverContent } from "../PopOver/PopOverContent";
-import { PopOverTrigger } from "../PopOver/PopOverTrigger";
-import MapForm from "../Forms/MapFormContainer/Form/Form";
+import { PopUpContainer } from "../PopUp/PopUpContainer";
+import { PopUpTrigger } from "../PopUp/PopUpTrigger";
+import { MapForm } from "../Forms/MapFormContainer/Form/Form";
 import heroImage from "public/media/hero-img.png";
 
 export default function Hero() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [isPopOverOpen, setIsPopOverOpen] = useState(false);
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
 
-  const togglePopOver = () => {
-    setIsPopOverOpen((prevIsPopOverOpen) => !prevIsPopOverOpen);
+  const togglePopUp = () => {
+    setIsPopUpOpen((prevIsPopUpOpen) => !prevIsPopUpOpen);
   };
 
-  const closePopOver = () => {
-    setIsPopOverOpen(false);
+  const closePopUp = () => {
+    setIsPopUpOpen(false);
   };
 
   const buttonStyle =
@@ -27,15 +27,20 @@ export default function Hero() {
     lg:py-6 xl:py-7 2xl:py-8 \
     lg:text-lg 2xl:text-xl";
 
-  const popOverTriggerProps = {
-    text: "Create a map",
+  const popUpTriggerProps = {
+    content: "Create a map",
     style: buttonStyle,
   };
 
-  const popOverContentProps = {
-    isOpen: isPopOverOpen,
-    onClose: closePopOver,
-    content: <MapForm onClose={closePopOver} />,
+  const popUpContentProps = {
+    isOpen: isPopUpOpen,
+    onClose: closePopUp,
+    content: (
+      <MapForm
+        onClose={closePopUp}
+        style="sm:max-w-md md:max-w-md xl:max-w-lg"
+      />
+    ),
     style: "",
   };
 
@@ -75,8 +80,8 @@ export default function Hero() {
 
         {isLoggedIn && (
           <>
-            <PopOverTrigger onClick={togglePopOver} {...popOverTriggerProps} />
-            <PopOverContent {...popOverContentProps} />
+            <PopUpTrigger onClick={togglePopUp} {...popUpTriggerProps} />
+            <PopUpContainer {...popUpContentProps} />
           </>
         )}
       </section>

@@ -8,5 +8,3 @@ export const Logo: React.FC<Props> = ({ size, style }) => {
 
   return <div className={LogoClasses}>W</div>;
 };
-
-export default Logo;

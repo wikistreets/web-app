@@ -1,4 +1,4 @@
-import MapForm from "./Form";
+import { MapForm } from "./Form";
 import Selector from "@/components/MapFeedContainer/Feed/Selector";
 
 const FormContainer = () => {

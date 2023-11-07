@@ -1,18 +1,14 @@
-interface PopOverTriggerProps {
+interface Props {
   onClick: () => void;
-  text: string;
+  content: React.ReactNode;
   style?: string;
 }
 import { Button } from "../ui/button";
 
-export const PopOverTrigger: React.FC<PopOverTriggerProps> = ({
-  onClick,
-  text,
-  style,
-}) => {
+export const PopUpTrigger: React.FC<Props> = ({ onClick, content, style }) => {
   return (
     <Button onClick={onClick} className={style}>
-      {text}
+      {content}
     </Button>
   );
 };
