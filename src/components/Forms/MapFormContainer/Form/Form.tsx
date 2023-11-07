@@ -33,10 +33,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserGroup } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
-  onClose: () => void;
+  onClose?: () => void;
+  style?: string;
 }
 
-export default function MapForm({ onClose }: Props) {
+export const MapForm: React.FC<Props> = ({ onClose, style }: Props) => {
   const formSchema = z.object({
     title: z
       .string()
@@ -74,7 +75,7 @@ export default function MapForm({ onClose }: Props) {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex flex-col justify-center h-full space-y-6 lg:mx-4 xl:mx-6 2xl:mx-8 "
+          className={`flex flex-col justify-center w-full h-full space-y-6 mx-auto ${style}`}
         >
           <FormField
             control={form.control}
