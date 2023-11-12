@@ -30,7 +30,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserGroup } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFileArrowUp,
+  faImage,
+  faUserGroup,
+} from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 interface Props {
   onClose?: () => void;
@@ -38,6 +43,8 @@ interface Props {
 }
 
 export const MapForm: React.FC<Props> = ({ onClose, style }: Props) => {
+  const [showUploadImage, setShowUploadImage] = useState(false);
+
   const formSchema = z.object({
     title: z
       .string()
@@ -49,9 +56,18 @@ export const MapForm: React.FC<Props> = ({ onClose, style }: Props) => {
     privacy: z.enum(["private", "public"]),
     collaborators: z.string().min(1),
     mapType: z.string(),
+    customImage: z.string().refine(
+      (data) => {
+        // Add custom validation logic for the file upload field
+        if (form.getValues("mapType") === "customImageMap") {
+          return !!data; // Return true if the file path or URL is provided
+        }
+        return true; // Return true if the mapType is not 'customImageMap'
+      },
+      { message: "Please upload an image for Custom Image Map" }
+    ),
   });
 
-  // 1. Define form
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -60,10 +76,10 @@ export const MapForm: React.FC<Props> = ({ onClose, style }: Props) => {
       privacy: "public",
       collaborators: "",
       mapType: "geographicMap",
+      customImage: "",
     },
   });
 
-  // 2. Define a submit handler
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
@@ -75,7 +91,7 @@ export const MapForm: React.FC<Props> = ({ onClose, style }: Props) => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className={`flex flex-col justify-center w-full h-full space-y-6 mx-auto ${style}`}
+          className={`flex flex-col justify-center w-full h-full space-y-6 px-2 mx-auto overflow-y-auto ${style}`}
         >
           <FormField
             control={form.control}
@@ -216,31 +232,33 @@ export const MapForm: React.FC<Props> = ({ onClose, style }: Props) => {
 
               <AccordionContent className="text-xs pt-4 text-start">
                 <span>Choose a style</span>
-                {/* FORM STARTS */}
                 <FormField
                   control={form.control}
                   name="mapType"
                   render={({ field }) => (
                     <FormItem className="w-full">
                       <Select
-                        onValueChange={field.onChange}
+                        onValueChange={(value) => {
+                          field.onChange(value);
+                          setShowUploadImage(value === "customImageMap");
+                        }}
                         defaultValue={field.value}
                       >
                         <FormControl>
-                          <SelectTrigger className="w-full h-8 text-[10px] mt-2 focus:ring-0 focus:ring-offset-0 placeholder:text-[2px]">
+                          <SelectTrigger className="w-full h-8 text-2xs mt-2 focus:ring-0 focus:ring-offset-0 placeholder:text-[2px]">
                             <SelectValue placeholder="Geographic map" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
                           <SelectItem
                             value="geographicMap"
-                            className="text-[10px]"
+                            className="text-2xs"
                           >
                             Geographic Map
                           </SelectItem>
                           <SelectItem
                             value="customImageMap"
-                            className="text-[10px]"
+                            className="text-2xs"
                           >
                             Custom Image Map
                           </SelectItem>
@@ -250,20 +268,89 @@ export const MapForm: React.FC<Props> = ({ onClose, style }: Props) => {
                     </FormItem>
                   )}
                 />{" "}
-                {/* FORM ENDS */}
+                {showUploadImage && (
+                  <FormField
+                    control={form.control}
+                    name="customImage"
+                    render={({ field }) => (
+                      <FormItem className="w-full">
+                        <div className="my-4 flex flex-col justify-center items-center gap-2">
+                          <Button
+                            type="button"
+                            variant={"outline"}
+                            className="flex flex-col gap-1 w-full py-14 text-2xs text-blue-primary border-dashed"
+                            onClick={() => {
+                              // Handle image upload logic
+                            }}
+                          >
+                            <FontAwesomeIcon
+                              icon={faImage}
+                              size="3x"
+                              className="text-tertiary"
+                            />
+                            <div className="flex flex-col gap-1">
+                              <span>Upload an image</span>
+                              <span className="text-secondary font-light">
+                                JPG, JPEG, PNG up to 10MB
+                              </span>
+                            </div>
+                          </Button>
+                          <span className="text-secondary font-light text-2xs">
+                            or
+                          </span>
+                          <Button
+                            type="button"
+                            variant={"secondary"}
+                            className="h-8 px-6 bg-light-gray rounded-2xl text-2xs"
+                            onClick={() => {
+                              // Handle image upload logic
+                            }}
+                          >
+                            Take Photo
+                          </Button>
+                        </div>
+                        {/* Additional file input or drop zone for image upload */}
+                        {/* Handle file upload logic using field.onChange or other event handlers */}
+                      </FormItem>
+                    )}
+                  />
+                )}
               </AccordionContent>
 
-              <AccordionContent className="text-xs">
-                <div className="flex justify-between items-center">
-                  Import a file
-                  <Button
-                    type="button"
-                    variant="secondary"
-                    className="w-16 h-6 text-[10px] bg-slate-100"
-                  >
-                    Select
-                  </Button>
-                </div>
+              <AccordionContent className="text-xs text-left">
+                <span>Import GeoJSON</span>
+                <FormItem className="w-full">
+                  <div className="mt-2 flex flex-col justify-center items-center gap-2">
+                    <Button
+                      type="button"
+                      variant={"outline"}
+                      className="flex flex-col gap-3 w-full py-14 text-2xs text-blue-primary border-dashed"
+                      onClick={() => {
+                        // Handle image upload logic
+                      }}
+                    >
+                      <FontAwesomeIcon
+                        icon={faFileArrowUp}
+                        size="3x"
+                        className="text-tertiary"
+                      />
+                      <div className="flex flex-col gap-1">
+                        <div className="flex">
+                          <span>Click to add a file</span>
+                          <span className="ml-1 text-secondary">
+                            or drag and drop
+                          </span>
+                        </div>
+
+                        <span className="text-secondary font-light">
+                          up to 10MB
+                        </span>
+                      </div>
+                    </Button>
+                  </div>
+                  {/* Additional file input or drop zone for image upload */}
+                  {/* Handle file upload logic using field.onChange or other event handlers */}
+                </FormItem>
               </AccordionContent>
             </AccordionItem>
           </Accordion>
