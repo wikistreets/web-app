@@ -36,6 +36,7 @@ import {
   faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { Bubble } from "@/components/Bubble/Bubble";
 
 interface Props {
   onClose?: () => void;
@@ -44,6 +45,9 @@ interface Props {
 
 export const MapForm: React.FC<Props> = ({ onClose, style }: Props) => {
   const [showUploadImage, setShowUploadImage] = useState(false);
+  const [invitedCollaborators, setInvitedCollaborators] = useState<string[]>(
+    []
+  );
 
   const formSchema = z.object({
     title: z
@@ -80,11 +84,22 @@ export const MapForm: React.FC<Props> = ({ onClose, style }: Props) => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
-  }
+  };
+
+  const handleInvite = () => {
+    const collaborators = form.getValues("collaborators");
+    if (collaborators) {
+      setInvitedCollaborators((prevCollaborators) => [
+        ...prevCollaborators,
+        collaborators,
+      ]);
+      form.setValue("collaborators", ""); // Clear the input after inviting
+    }
+  };
 
   return (
     <>
@@ -192,32 +207,53 @@ export const MapForm: React.FC<Props> = ({ onClose, style }: Props) => {
               <FormItem className="flex flex-col justify-center items-start">
                 <FormLabel className="text-xs">Invite collaborators</FormLabel>
                 <FormControl>
-                  <div className="relative flex w-full items-center">
-                    <Input
-                      type="username"
-                      placeholder="Search by username"
-                      className="text-xs pl-9 rounded-tr-none rounded-br-none border-r-0 focus-visible:ring-0 focus-visible:ring-offset-0"
-                      {...field}
-                    />
-                    <div
-                      className="absolute inset-y-0 left-0 pl-3  
+                  <>
+                    <div className="relative flex w-full items-center">
+                      <Input
+                        type="username"
+                        placeholder="Search by username"
+                        className="text-xs pl-9 rounded-tr-none rounded-br-none border-r-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                        {...field}
+                      />
+                      <div
+                        className="absolute inset-y-0 left-0 pl-3  
                     flex items-center
                     pointer-events-none"
-                    >
-                      <FontAwesomeIcon
-                        icon={faUserGroup}
-                        size="sm"
-                        className="text-slate-400"
-                      />
+                      >
+                        <FontAwesomeIcon
+                          icon={faUserGroup}
+                          size="sm"
+                          className="text-slate-400"
+                        />
+                      </div>
+                      <Button
+                        onClick={handleInvite}
+                        type="button"
+                        variant="secondary"
+                        className="rounded-tl-none rounded-bl-none border-2 border-secondary text-xs"
+                      >
+                        Invite
+                      </Button>
                     </div>
-                    <Button
-                      type="button"
-                      variant="secondary"
-                      className="rounded-tl-none rounded-bl-none border-2 border-secondary text-xs"
-                    >
-                      Invite
-                    </Button>
-                  </div>
+                    {/* show added collaborators */}
+                    <div className="flex flex-wrap gap-2">
+                      {invitedCollaborators.map((collaborator, idx) => {
+                        return (
+                          <Bubble
+                            key={idx}
+                            bgColor="bg-secondary"
+                            textColor="text-primary"
+                            collaborator={collaborator}
+                            onDelete={() => {
+                              setInvitedCollaborators((prev) => [
+                                ...prev.filter((c) => c !== collaborator),
+                              ]);
+                            }}
+                          ></Bubble>
+                        );
+                      })}
+                    </div>
+                  </>
                 </FormControl>
                 <FormMessage />
               </FormItem>
