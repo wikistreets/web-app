@@ -7,7 +7,7 @@ import { faBell } from "@fortawesome/free-regular-svg-icons";
 import { HamburgerProfile } from "./Profile";
 import { PopUpTrigger } from "@/components/PopUp/PopUpTrigger";
 import { PopUpContainer } from "@/components/PopUp/PopUpContainer";
-import { MapForm } from "@/components/Forms/MapFormContainer/Form/Form";
+import { MapForm } from "@/components/Forms/CreateMap/Form";
 
 export const HamburgerNav: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);

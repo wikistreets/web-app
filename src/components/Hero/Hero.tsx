@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { PopUpContainer } from "../PopUp/PopUpContainer";
 import { PopUpTrigger } from "../PopUp/PopUpTrigger";
-import { MapForm } from "../Forms/MapFormContainer/Form/Form";
+import { MapForm } from "../Forms/CreateMap/Form";
 import heroImage from "public/media/hero-img.png";
 
 export default function Hero() {
@@ -32,7 +32,7 @@ export default function Hero() {
     style: buttonStyle,
   };
 
-  const popUpContentProps = {
+  const popUpContainerProps = {
     isOpen: isPopUpOpen,
     onClose: closePopUp,
     content: (
@@ -81,7 +81,7 @@ export default function Hero() {
         {isLoggedIn && (
           <>
             <PopUpTrigger onClick={togglePopUp} {...popUpTriggerProps} />
-            <PopUpContainer {...popUpContentProps} />
+            <PopUpContainer {...popUpContainerProps} />
           </>
         )}
       </section>

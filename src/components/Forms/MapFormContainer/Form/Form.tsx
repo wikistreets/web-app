@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -35,7 +36,6 @@ import {
   faImage,
   faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
 import { Bubble } from "@/components/Bubble/Bubble";
 
 interface Props {

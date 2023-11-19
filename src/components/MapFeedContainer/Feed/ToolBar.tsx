@@ -23,7 +23,9 @@ import {
   faDrawPolygon,
 } from "@fortawesome/free-solid-svg-icons";
 import { PiPlusCircleBold, PiGearBold } from "react-icons/pi";
-import { IoAnalyticsSharp } from "react-icons/io5";
+import { PopUpContainer } from "@/components/PopUp/PopUpContainer";
+import { PopUpTrigger } from "@/components/PopUp/PopUpTrigger";
+import { PostForm } from "@/components/Forms/CreatePost/Form";
 
 export const ToolBar: React.FC = () => {
   const [isAdmin, setIsAdmin] = useState(true);
@@ -38,6 +40,47 @@ export const ToolBar: React.FC = () => {
   };
 
   const handleSettings = () => {};
+
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+
+  const togglePopUp = () => {
+    setIsPopUpOpen((prevIsPopUpOpen) => !prevIsPopUpOpen);
+  };
+
+  const closePopUp = () => {
+    setIsPopUpOpen(false);
+  };
+
+  const popUpTriggerProps = {
+    content: (
+      <>
+        <PiPlusCircleBold
+          size="1.1rem"
+          onClick={handleCreate}
+          className="lg:hidden"
+        />
+        <PiPlusCircleBold
+          size="1.3rem"
+          onClick={handleCreate}
+          className="hidden lg:block"
+        />
+      </>
+    ),
+    style:
+      "bg-transparent text-blue-primary hover:bg-transparent active:bg-transparent focus:bg-transparent",
+  };
+
+  const popUpContainerProps = {
+    isOpen: isPopUpOpen,
+    onClose: closePopUp,
+    content: (
+      <PostForm
+        onClose={closePopUp}
+        style="sm:max-w-md md:max-w-md xl:max-w-lg"
+      />
+    ),
+    style: "",
+  };
 
   return (
     <>
@@ -98,7 +141,7 @@ export const ToolBar: React.FC = () => {
 
         {/* CREATE */}
         <MenubarMenu>
-          <MenubarTrigger>
+          <MenubarTrigger onClick={togglePopUp}>
             <>
               <PiPlusCircleBold
                 size="1.1rem"
@@ -112,31 +155,8 @@ export const ToolBar: React.FC = () => {
               />
             </>
           </MenubarTrigger>
-          <MenubarContent>
-            <MenubarItem disabled>Add to map :</MenubarItem>
-            <MenubarSeparator></MenubarSeparator>
-            <MenubarItem>
-              <div className="flex gap-2 justify-start items-center">
-                <FontAwesomeIcon icon={faLocationDot} size="lg" />
-                Marker
-              </div>
-              {/* <MenubarShortcut>m</MenubarShortcut> */}
-            </MenubarItem>
-            <MenubarItem>
-              <div className="flex gap-2 justify-start items-center">
-                <IoAnalyticsSharp size="1.3rem" />
-                Line
-              </div>
-              {/* <MenubarShortcut>l</MenubarShortcut> */}
-            </MenubarItem>
-            <MenubarItem>
-              <div className="flex gap-2 justify-start items-center">
-                <FontAwesomeIcon icon={faDrawPolygon} size="lg" />
-                Area
-              </div>
-              {/* <MenubarShortcut>a</MenubarShortcut> */}
-            </MenubarItem>
-          </MenubarContent>
+
+          <PopUpContainer {...popUpContainerProps} />
         </MenubarMenu>
 
         {/* ADMIN FEATURES */}
