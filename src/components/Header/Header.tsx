@@ -26,7 +26,7 @@ export const Header: React.FC = () => {
   const hamburgerTriggerProps = {
     content: <FontAwesomeIcon icon={faBars} size="lg" />,
     style:
-      "w-9 h-9 bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent sm:hidden",
+      "w-9 h-9 text-black bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent sm:hidden",
   };
 
   const togglePopUp = () => {

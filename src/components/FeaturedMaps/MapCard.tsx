@@ -3,6 +3,7 @@
 import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from "react-leaflet";
 import { useRouter } from "next/navigation";
 import { Data } from "@/types/data";
+import { LatLng } from "leaflet";
 
 const MapCard = ({ data }: Data) => {
   console.log(JSON.stringify(data, null, 2));
@@ -11,7 +12,7 @@ const MapCard = ({ data }: Data) => {
   const mapOptions = {
     center: data.features.length
       ? data.features[0].properties.center.filter(() => true).reverse() // clone, then reverse to get lat, lng
-      : [51.505, -0.09],
+      : new LatLng(51.505, -0.09),
     zoom: data.features.length ? data.features[0].properties.zoom - 2 : 13,
     scrollWheelZoom: true,
     zoomControl: false,

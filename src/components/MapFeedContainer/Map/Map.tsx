@@ -37,7 +37,7 @@ export const Map = ({ data }: Data) => {
   return (
     <>
       <MapContainer
-        className="mapInFeed w-full h-60 sticky top-0 z-20
+        className="mapInFeed w-full h-60 sticky top-0 z-10
         md:h-full"
         {...mapOptions}
       >

@@ -24,7 +24,7 @@ const MapFeedContainer = async ({ style }: Style) => {
 
   const data = await res.json();
   // console.log("data", data);
-  const MapContainerClasses = `relative mx-auto flex w-full h-full md:h-screen 
+  const MapContainerClasses = `z-0 relative mx-auto flex w-full h-full md:h-screen 
       flex-col md:grid md:grid-cols-2 md:gap-4
       max-w-lg md:max-w-none 
       px-4 sm:px-4 md:px-10 lg:px-14 xl:px-16

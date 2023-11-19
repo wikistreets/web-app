@@ -7,7 +7,7 @@ interface Props {
 
 export const PopUpClose: React.FC<Props> = ({ onClose }) => {
   return (
-    <button className="absolute right-4">
+    <button className="z-50 absolute right-4">
       <FontAwesomeIcon
         icon={faXmark}
         onClick={onClose}

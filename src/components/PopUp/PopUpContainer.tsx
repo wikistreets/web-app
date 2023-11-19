@@ -8,7 +8,7 @@ interface Props {
 }
 
 const PopUpStyleDefault =
-  "flex flex-col z-50 fixed w-full h-full inset-x-0 bottom-0 p-4 \
+  "z-50 fixed w-full h-full inset-x-0 bottom-0 p-4 \
   bg-white text-primary rounded-t-none shadow-md \
   transform transition-transform ease-in-out duration-700";
 
