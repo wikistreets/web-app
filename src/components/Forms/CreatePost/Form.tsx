@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -20,11 +19,11 @@ import { cn } from "@/lib/utils";
 import { Map } from "@/components/Forms/CreatePost/Map";
 
 interface Props {
-  onClose?: () => void;
+  onDismiss?: () => void;
   style?: string;
 }
 
-export const PostForm: React.FC<Props> = ({ onClose, style }: Props) => {
+export const PostForm: React.FC<Props> = ({ onDismiss, style }: Props) => {
   const formSchema = z.object({
     title: z
       .string()
@@ -55,7 +54,7 @@ export const PostForm: React.FC<Props> = ({ onClose, style }: Props) => {
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className={cn(
-            "z-50 flex flex-col justify-center w-full h-full space-y-6 px-2 mx-auto overflow-y-auto",
+            "w-full h-full space-y-6 p-4 mx-auto overflow-auto sm:max-w-md md:max-w-md xl:max-w-lg",
             style
           )}
         >
@@ -67,8 +66,8 @@ export const PostForm: React.FC<Props> = ({ onClose, style }: Props) => {
                 <FormLabel>{""}</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="Title*"
-                    className="resize-none text-xs"
+                    placeholder="Title"
+                    className="focus-visible:ring-0 focus-visible:ring-offset-0 resize-none text-xs"
                     {...field}
                   />
                 </FormControl>
@@ -87,7 +86,7 @@ export const PostForm: React.FC<Props> = ({ onClose, style }: Props) => {
                 <FormControl>
                   <Textarea
                     placeholder="Add a description..."
-                    className="focus-visible:ring-slate-400 text-xs"
+                    className="focus-visible:ring-0 focus-visible:ring-offset-0 text-xs"
                     {...field}
                   />
                 </FormControl>
@@ -105,7 +104,7 @@ export const PostForm: React.FC<Props> = ({ onClose, style }: Props) => {
               variant="outline"
               size="sm"
               className="text-xs"
-              onClick={onClose}
+              onClick={() => onDismiss && onDismiss()}
             >
               Discard
             </Button>

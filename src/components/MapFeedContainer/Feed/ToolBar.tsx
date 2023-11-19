@@ -19,17 +19,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass,
   faArrowUpFromBracket,
-  faLocationDot,
-  faDrawPolygon,
 } from "@fortawesome/free-solid-svg-icons";
 import { PiPlusCircleBold, PiGearBold } from "react-icons/pi";
-import { PopUpContainer } from "@/components/PopUp/PopUpContainer";
-import { PopUpTrigger } from "@/components/PopUp/PopUpTrigger";
+import { BottomSheet } from "react-spring-bottom-sheet";
 import { PostForm } from "@/components/Forms/CreatePost/Form";
 
 export const ToolBar: React.FC = () => {
   const [isAdmin, setIsAdmin] = useState(true);
   const { searchIsClicked, handleSearch } = useContext(SearchContext);
+  const [bottomSheetOpen, setBottomSheetOpen] = useState(false);
+
+  const onDismiss = () => {
+    setBottomSheetOpen(false);
+  };
 
   const handleShare = () => {
     console.log("Share");
@@ -40,47 +42,6 @@ export const ToolBar: React.FC = () => {
   };
 
   const handleSettings = () => {};
-
-  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
-
-  const togglePopUp = () => {
-    setIsPopUpOpen((prevIsPopUpOpen) => !prevIsPopUpOpen);
-  };
-
-  const closePopUp = () => {
-    setIsPopUpOpen(false);
-  };
-
-  const popUpTriggerProps = {
-    content: (
-      <>
-        <PiPlusCircleBold
-          size="1.1rem"
-          onClick={handleCreate}
-          className="lg:hidden"
-        />
-        <PiPlusCircleBold
-          size="1.3rem"
-          onClick={handleCreate}
-          className="hidden lg:block"
-        />
-      </>
-    ),
-    style:
-      "bg-transparent text-blue-primary hover:bg-transparent active:bg-transparent focus:bg-transparent",
-  };
-
-  const popUpContainerProps = {
-    isOpen: isPopUpOpen,
-    onClose: closePopUp,
-    content: (
-      <PostForm
-        onClose={closePopUp}
-        style="sm:max-w-md md:max-w-md xl:max-w-lg"
-      />
-    ),
-    style: "",
-  };
 
   return (
     <>
@@ -141,7 +102,7 @@ export const ToolBar: React.FC = () => {
 
         {/* CREATE */}
         <MenubarMenu>
-          <MenubarTrigger onClick={togglePopUp}>
+          <MenubarTrigger onClick={() => setBottomSheetOpen(true)}>
             <>
               <PiPlusCircleBold
                 size="1.1rem"
@@ -155,8 +116,13 @@ export const ToolBar: React.FC = () => {
               />
             </>
           </MenubarTrigger>
-
-          <PopUpContainer {...popUpContainerProps} />
+          <BottomSheet
+            open={bottomSheetOpen}
+            onDismiss={onDismiss}
+            snapPoints={({ maxHeight }) => maxHeight * 0.95}
+          >
+            <PostForm onDismiss={onDismiss} style="" />
+          </BottomSheet>
         </MenubarMenu>
 
         {/* ADMIN FEATURES */}

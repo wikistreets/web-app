@@ -40,7 +40,7 @@ export const Selector: React.FC = () => {
           />
           {/* for centering purposes only */}
 
-          <h3 className="font-dm-sans font-medium tracking-wide text-sm text-center">
+          <h3 className="font-dm-sans font-medium tracking-wide text-xs sm:text-sm text-center">
             {selectedMap}
           </h3>
 

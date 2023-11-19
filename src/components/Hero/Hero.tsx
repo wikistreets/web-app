@@ -1,47 +1,19 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import heroImage from "public/media/hero-img.png";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { PopUpContainer } from "../PopUp/PopUpContainer";
-import { PopUpTrigger } from "../PopUp/PopUpTrigger";
+import { BottomSheet } from "react-spring-bottom-sheet";
 import { MapForm } from "../Forms/CreateMap/Form";
-import heroImage from "public/media/hero-img.png";
 
 export default function Hero() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+  const [bottomSheetOpen, setBottomSheetOpen] = useState(false);
 
-  const togglePopUp = () => {
-    setIsPopUpOpen((prevIsPopUpOpen) => !prevIsPopUpOpen);
-  };
-
-  const closePopUp = () => {
-    setIsPopUpOpen(false);
-  };
-
-  const buttonStyle =
-    "w-fit text-white font-normal tracking-wide \
-    lg:px-6 xl:px-8 2xl:px-10 \
-    lg:py-6 xl:py-7 2xl:py-8 \
-    lg:text-lg 2xl:text-xl";
-
-  const popUpTriggerProps = {
-    content: "Create a map",
-    style: buttonStyle,
-  };
-
-  const popUpContainerProps = {
-    isOpen: isPopUpOpen,
-    onClose: closePopUp,
-    content: (
-      <MapForm
-        onClose={closePopUp}
-        style="sm:max-w-md md:max-w-md xl:max-w-lg"
-      />
-    ),
-    style: "",
+  const onDismiss = () => {
+    setBottomSheetOpen(false);
   };
 
   return (
@@ -73,15 +45,34 @@ export default function Hero() {
         </h1>
 
         {!isLoggedIn && (
-          <Button className={buttonStyle}>
+          <Button
+            className="w-fit text-white font-normal tracking-wide
+                        lg:px-6 xl:px-8 2xl:px-10
+                        lg:py-6 xl:py-7 2xl:py-8
+                        lg:text-lg 2xl:text-xl"
+          >
             <Link href="/sign-up">Get started</Link>
           </Button>
         )}
 
         {isLoggedIn && (
           <>
-            <PopUpTrigger onClick={togglePopUp} {...popUpTriggerProps} />
-            <PopUpContainer {...popUpContainerProps} />
+            <Button
+              onClick={() => setBottomSheetOpen(true)}
+              className="w-fit text-white font-normal tracking-wide
+                        lg:px-6 xl:px-8 2xl:px-10
+                        lg:py-6 xl:py-7 2xl:py-8
+                        lg:text-lg 2xl:text-xl"
+            >
+              Create a map
+            </Button>
+            <BottomSheet
+              open={bottomSheetOpen}
+              onDismiss={onDismiss}
+              snapPoints={({ maxHeight }) => maxHeight * 0.95}
+            >
+              <MapForm style="" onDismiss={onDismiss} />
+            </BottomSheet>
           </>
         )}
       </section>
@@ -97,4 +88,5 @@ export default function Hero() {
       </figure>
     </section>
   );
-};
+}
+

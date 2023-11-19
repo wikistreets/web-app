@@ -2,45 +2,25 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { BottomSheet } from "react-spring-bottom-sheet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-regular-svg-icons";
 import { HamburgerProfile } from "./Profile";
-import { PopUpTrigger } from "@/components/PopUp/PopUpTrigger";
-import { PopUpContainer } from "@/components/PopUp/PopUpContainer";
 import { MapForm } from "@/components/Forms/CreateMap/Form";
 
 export const HamburgerNav: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+  const [bottomSheetOpen, setBottomSheetOpen] = useState(false);
 
-  const togglePopUp = () => {
-    setIsPopUpOpen((prevIsPopUpOpen) => !prevIsPopUpOpen);
+  const onDismiss = () => {
+    setBottomSheetOpen(false);
   };
 
-  const closePopUp = () => {
-    setIsPopUpOpen(false);
-  };
-
-  const popUpTriggerProps = {
-    content: "Create a map",
-    style: "text-white px-12 w-full",
-  };
-
-  const popUpContentProps = {
-    isOpen: isPopUpOpen,
-    onClose: closePopUp,
-    content: (
-      <MapForm
-        onClose={closePopUp}
-        style="sm:max-w-md md:max-w-md xl:max-w-lg"
-      />
-    ),
-    style: "",
-  };
   return (
     <>
-      <nav>
-        <ul className="space-y-6 mt-10 text-sm text-primary">
+      <nav className="p-4 h-full">
+        <ul className="space-y-6 text-sm text-primary">
           {!isLoggedIn && (
             <>
               <li>
@@ -63,8 +43,19 @@ export const HamburgerNav: React.FC = () => {
               <li>Settings</li>
               <li>Log out</li>
               <li>
-                <PopUpTrigger onClick={togglePopUp} {...popUpTriggerProps} />
-                <PopUpContainer {...popUpContentProps} />
+                <Button
+                  onClick={() => setBottomSheetOpen(true)}
+                  className="w-full text-white px-12"
+                >
+                  Create a map
+                </Button>
+                <BottomSheet
+                  open={bottomSheetOpen}
+                  onDismiss={onDismiss}
+                  snapPoints={({ maxHeight }) => maxHeight * 0.95}
+                >
+                  <MapForm style="" onDismiss={onDismiss} />
+                </BottomSheet>
               </li>
             </>
           )}

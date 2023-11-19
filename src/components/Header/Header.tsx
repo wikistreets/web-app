@@ -5,6 +5,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button";
+import { BottomSheet } from "react-spring-bottom-sheet";
 import { Logo } from "./Logo";
 import { Search } from "./Search";
 import { PopUpTrigger } from "../PopUp/PopUpTrigger";
@@ -17,31 +18,14 @@ export const Header: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [userId, setUserId] = useState(null);
 
+  const [bottomSheetOpen, setBottomSheetOpen] = useState(false);
+
+  const onDismiss = () => {
+    setBottomSheetOpen(false);
+  };
+
   const handleNotification = () => {
     console.log("notification clicked");
-  };
-
-  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
-
-  const hamburgerTriggerProps = {
-    content: <FontAwesomeIcon icon={faBars} size="lg" />,
-    style:
-      "w-9 h-9 text-black bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent sm:hidden",
-  };
-
-  const togglePopUp = () => {
-    setIsPopUpOpen((prevIsPopUpOpen) => !prevIsPopUpOpen);
-  };
-
-  const closePopUp = () => {
-    setIsPopUpOpen(false);
-  };
-
-  const hamburgerMenuProps = {
-    isOpen: isPopUpOpen,
-    onClose: closePopUp,
-    content: <HamburgerNav />,
-    style: "",
   };
 
   return (
@@ -62,10 +46,17 @@ export const Header: React.FC = () => {
 
         <Search />
 
-        <>
-          <PopUpTrigger onClick={togglePopUp} {...hamburgerTriggerProps} />
-          <PopUpContainer {...hamburgerMenuProps} />
-        </>
+        <button onClick={() => setBottomSheetOpen(true)}>
+          <FontAwesomeIcon icon={faBars} size="lg" className="" />
+        </button>
+
+        <BottomSheet
+          open={bottomSheetOpen}
+          onDismiss={onDismiss}
+          snapPoints={({ maxHeight }) => maxHeight * 0.95}
+        >
+          <HamburgerNav />
+        </BottomSheet>
 
         {!isLoggedIn && (
           <Button className="hidden sm:block w-fit shrink-0 text-indigo-600 bg-secondary">

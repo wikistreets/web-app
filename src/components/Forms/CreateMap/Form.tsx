@@ -39,11 +39,11 @@ import {
 import { Bubble } from "@/components/Bubble/Bubble";
 
 interface Props {
-  onClose?: () => void;
+  onDismiss?: () => void;
   style?: string;
 }
 
-export const MapForm: React.FC<Props> = ({ onClose, style }: Props) => {
+export const MapForm: React.FC<Props> = ({ onDismiss, style }: Props) => {
   const [showUploadImage, setShowUploadImage] = useState(false);
   const [invitedCollaborators, setInvitedCollaborators] = useState<string[]>(
     []
@@ -106,7 +106,7 @@ export const MapForm: React.FC<Props> = ({ onClose, style }: Props) => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className={`w-full h-full space-y-6 px-2 mx-auto my-auto overflow-auto ${style}`}
+          className={`w-full h-full space-y-6 p-4 mx-auto overflow-auto sm:max-w-md md:max-w-md xl:max-w-lg ${style}`}
         >
           <FormField
             control={form.control}
@@ -116,8 +116,8 @@ export const MapForm: React.FC<Props> = ({ onClose, style }: Props) => {
                 <FormLabel>{""}</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="Title*"
-                    className="resize-none text-xs"
+                    placeholder="Title"
+                    className="focus-visible:ring-0 focus-visible:ring-offset-0 resize-none text-xs"
                     {...field}
                   />
                 </FormControl>
@@ -136,7 +136,7 @@ export const MapForm: React.FC<Props> = ({ onClose, style }: Props) => {
                 <FormControl>
                   <Textarea
                     placeholder="Add a description..."
-                    className="focus-visible:ring-slate-400 text-xs"
+                    className="focus-visible:ring-0 focus-visible:ring-offset-0 text-xs"
                     {...field}
                   />
                 </FormControl>
@@ -397,7 +397,7 @@ export const MapForm: React.FC<Props> = ({ onClose, style }: Props) => {
               variant="outline"
               size="sm"
               className="text-xs"
-              onClick={onClose}
+              onClick={() => onDismiss && onDismiss()}
             >
               Discard
             </Button>
