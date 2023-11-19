@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Data } from "@/types/data";
 import { LatLng } from "leaflet";
 
-const MapCard = ({ data }: Data) => {
+export const Map = ({ data }: Data) => {
   console.log(JSON.stringify(data, null, 2));
   const router = useRouter();
 
@@ -73,4 +73,4 @@ const MapCard = ({ data }: Data) => {
   );
 };
 
-export default MapCard;
+export default Map;

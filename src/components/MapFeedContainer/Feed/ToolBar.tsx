@@ -19,15 +19,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass,
   faArrowUpFromBracket,
-  faLocationDot,
-  faDrawPolygon,
 } from "@fortawesome/free-solid-svg-icons";
 import { PiPlusCircleBold, PiGearBold } from "react-icons/pi";
-import { IoAnalyticsSharp } from "react-icons/io5";
+import { BottomSheet } from "react-spring-bottom-sheet";
+import { PostForm } from "@/components/Forms/CreatePost/Form";
 
 export const ToolBar: React.FC = () => {
   const [isAdmin, setIsAdmin] = useState(true);
   const { searchIsClicked, handleSearch } = useContext(SearchContext);
+  const [bottomSheetOpen, setBottomSheetOpen] = useState(false);
+
+  const onDismiss = () => {
+    setBottomSheetOpen(false);
+  };
 
   const handleShare = () => {
     console.log("Share");
@@ -98,7 +102,7 @@ export const ToolBar: React.FC = () => {
 
         {/* CREATE */}
         <MenubarMenu>
-          <MenubarTrigger>
+          <MenubarTrigger onClick={() => setBottomSheetOpen(true)}>
             <>
               <PiPlusCircleBold
                 size="1.1rem"
@@ -112,31 +116,13 @@ export const ToolBar: React.FC = () => {
               />
             </>
           </MenubarTrigger>
-          <MenubarContent>
-            <MenubarItem disabled>Add to map :</MenubarItem>
-            <MenubarSeparator></MenubarSeparator>
-            <MenubarItem>
-              <div className="flex gap-2 justify-start items-center">
-                <FontAwesomeIcon icon={faLocationDot} size="lg" />
-                Marker
-              </div>
-              {/* <MenubarShortcut>m</MenubarShortcut> */}
-            </MenubarItem>
-            <MenubarItem>
-              <div className="flex gap-2 justify-start items-center">
-                <IoAnalyticsSharp size="1.3rem" />
-                Line
-              </div>
-              {/* <MenubarShortcut>l</MenubarShortcut> */}
-            </MenubarItem>
-            <MenubarItem>
-              <div className="flex gap-2 justify-start items-center">
-                <FontAwesomeIcon icon={faDrawPolygon} size="lg" />
-                Area
-              </div>
-              {/* <MenubarShortcut>a</MenubarShortcut> */}
-            </MenubarItem>
-          </MenubarContent>
+          <BottomSheet
+            open={bottomSheetOpen}
+            onDismiss={onDismiss}
+            snapPoints={({ maxHeight }) => maxHeight * 0.95}
+          >
+            <PostForm onDismiss={onDismiss} style="" />
+          </BottomSheet>
         </MenubarMenu>
 
         {/* ADMIN FEATURES */}

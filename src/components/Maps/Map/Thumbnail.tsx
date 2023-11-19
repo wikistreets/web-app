@@ -27,7 +27,7 @@ const Thumbnail = ({ data, size, style }: Data) => {
   return (
     <>
       <figure
-        className="justify-center items-center h-full
+        className="z-0 justify-center items-center h-full 
               aspect-square max-w-xs sm:w-full 2xl:max-w-md
               sm:pl-8"
       >

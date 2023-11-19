@@ -16,16 +16,21 @@ module.exports = {
     //   },
     // },
     extend: {
-
+      fontSize: {
+        '2xs': '0.65rem',
+      },
       textColor: {
         primary: "#1F2937", // gray-800
         secondary: "#6B7280", // gray-500
         tertiary: "#E5E7EB", // gray-200
-        white: "#FFF"
+        white: "#FFF",
+        "blue-primary": "#4F46E5" // indigo-600
       },
       colors: {
         primary: "#4F46E5", // indigo-600
         secondary: "#EEF2FF", // indigo-50
+        "light-gray": "#F1F5F9",
+        "medium-gray": "#E5E7EB",
         white: "#FFF"
       },
       fontFamily: {

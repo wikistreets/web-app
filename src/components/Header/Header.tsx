@@ -1,17 +1,29 @@
 "use client";
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import Logo from "./Logo";
-import Search from "./Search";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "@/components/ui/button";
+import { BottomSheet } from "react-spring-bottom-sheet";
+import { Logo } from "./Logo";
+import { Search } from "./Search";
+import { PopUpTrigger } from "../PopUp/PopUpTrigger";
+import { PopUpContainer } from "../PopUp/PopUpContainer";
+import { HamburgerNav } from "./Hamburger/Nav";
+import { Notification } from "./Hamburger/Notification";
 import UserProfileImage from "../Profile/UserProfileImage";
-import Hamburger from "./Hamburger/Hamburger";
-import Notification from "./Hamburger/Notification";
 
 export const Header: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [userId, setUserId] = useState(null);
+
+  const [bottomSheetOpen, setBottomSheetOpen] = useState(false);
+
+  const onDismiss = () => {
+    setBottomSheetOpen(false);
+  };
+
   const handleNotification = () => {
     console.log("notification clicked");
   };
@@ -34,7 +46,17 @@ export const Header: React.FC = () => {
 
         <Search />
 
-        <Hamburger />
+        <button onClick={() => setBottomSheetOpen(true)}>
+          <FontAwesomeIcon icon={faBars} size="lg" className="" />
+        </button>
+
+        <BottomSheet
+          open={bottomSheetOpen}
+          onDismiss={onDismiss}
+          snapPoints={({ maxHeight }) => maxHeight * 0.95}
+        >
+          <HamburgerNav />
+        </BottomSheet>
 
         {!isLoggedIn && (
           <Button className="hidden sm:block w-fit shrink-0 text-indigo-600 bg-secondary">

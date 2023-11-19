@@ -5,7 +5,6 @@ import MapFeedContainer from "@/components/MapFeedContainer/MapFeedContainer";
 export default function Map({ params }: { params: { id: string } }) {
   return (
     <>
-      <Header />
       <MapFeedContainer style="my-4 md:my-8" />
       <GetInTouch />
     </>
