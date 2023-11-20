@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 
 import Link from "next/link";
-import { Logo } from "@/components/Header/Logo";
+import { Logo } from "@/components/Logo";
 import { OrDivider } from "./OrDivider";
 import { SocialLogIn } from "./SocialLogIn";
 import { FormBtn } from "./Button";
