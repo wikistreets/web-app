@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { SearchContext } from "@/context/SearchContext";
-import SearchBar from "@/components/Search/SearchBar";
+import { SearchInput } from "@/components/SearchInput";
 import {
   Menubar,
   MenubarContent,
@@ -22,15 +22,39 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { PiPlusCircleBold, PiGearBold } from "react-icons/pi";
 import { BottomSheet } from "react-spring-bottom-sheet";
-import { PostForm } from "@/components/Forms/CreatePost/Form";
+import { PostForm } from "@/components/Forms/CreatePost";
+
+interface BottomSheetState {
+  search: boolean;
+  share: boolean;
+  createPost: boolean;
+  admin: boolean;
+}
 
 export const ToolBar: React.FC = () => {
   const [isAdmin, setIsAdmin] = useState(true);
   const { searchIsClicked, handleSearch } = useContext(SearchContext);
-  const [bottomSheetOpen, setBottomSheetOpen] = useState(false);
+  const [bottomSheetOpen, setBottomSheetOpen] = useState<BottomSheetState>({
+    search: false,
+    share: false,
+    createPost: false,
+    admin: false,
+  });
+
+  const handleBottomSheetToggle = (sheetName: keyof BottomSheetState) => {
+    setBottomSheetOpen((prevState) => ({
+      ...prevState,
+      [sheetName]: !prevState[sheetName],
+    }));
+  };
 
   const onDismiss = () => {
-    setBottomSheetOpen(false);
+    setBottomSheetOpen({
+      search: false,
+      share: false,
+      createPost: false,
+      admin: false,
+    });
   };
 
   const handleShare = () => {
@@ -48,21 +72,28 @@ export const ToolBar: React.FC = () => {
       <Menubar className="flex gap-6 justify-center items-center bg-white w-full text-indigo-600 border-none">
         {/* SEARCH */}
         <MenubarMenu>
-          <MenubarTrigger>
+          <MenubarTrigger onClick={() => handleBottomSheetToggle("search")}>
             <>
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
-                onClick={() => handleSearch(searchIsClicked)}
+                // onClick={() => handleSearch(searchIsClicked)}
                 className="lg:hidden"
               />
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
-                onClick={() => handleSearch(searchIsClicked)}
+                // onClick={() => handleSearch(searchIsClicked)}
                 size="lg"
                 className="hidden lg:block"
               />
             </>
           </MenubarTrigger>
+          <BottomSheet
+            open={bottomSheetOpen["search"]}
+            onDismiss={onDismiss}
+            snapPoints={({ maxHeight }) => maxHeight * 0.95}
+          >
+            <SearchInput></SearchInput>
+          </BottomSheet>
         </MenubarMenu>
 
         {/* SHARE */}
@@ -102,7 +133,7 @@ export const ToolBar: React.FC = () => {
 
         {/* CREATE */}
         <MenubarMenu>
-          <MenubarTrigger onClick={() => setBottomSheetOpen(true)}>
+          <MenubarTrigger onClick={() => handleBottomSheetToggle("createPost")}>
             <>
               <PiPlusCircleBold
                 size="1.1rem"
@@ -117,7 +148,7 @@ export const ToolBar: React.FC = () => {
             </>
           </MenubarTrigger>
           <BottomSheet
-            open={bottomSheetOpen}
+            open={bottomSheetOpen["createPost"]}
             onDismiss={onDismiss}
             snapPoints={({ maxHeight }) => maxHeight * 0.95}
           >
@@ -157,7 +188,6 @@ export const ToolBar: React.FC = () => {
           </>
         )}
       </Menubar>
-      {searchIsClicked && <SearchBar />}
     </>
   );
 };
