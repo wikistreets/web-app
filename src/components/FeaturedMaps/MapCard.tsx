@@ -65,7 +65,7 @@ const MapCard = ({ data }: Data) => {
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           <GeoJSON key={data.publicId} data={data} />
         </MapContainer>
-        <figcaption className="w-full py-4 text-center text-md">
+        <figcaption className="w-full py-4 text-center text-sm">
           {data.title}
         </figcaption>
       </figure>
