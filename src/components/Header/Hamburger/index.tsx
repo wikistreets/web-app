@@ -7,7 +7,7 @@ import { BottomSheet } from "react-spring-bottom-sheet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-regular-svg-icons";
 import { HamburgerProfile } from "./Profile";
-import { MapForm } from "@/components/Forms/CreateMap/Form";
+import { MapForm } from "@/components/Forms/CreateMap";
 
 export const HamburgerNav: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);

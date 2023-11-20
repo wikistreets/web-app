@@ -3,25 +3,41 @@
 import Link from "next/link";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button";
 import { BottomSheet } from "react-spring-bottom-sheet";
-import { Logo } from "./Logo";
-import { Search } from "./Search";
-import { PopUpTrigger } from "../PopUp/PopUpTrigger";
-import { PopUpContainer } from "../PopUp/PopUpContainer";
-import { HamburgerNav } from "./Hamburger/Nav";
+import { Logo } from "@/components/Logo";
+import { HamburgerNav } from "./Hamburger";
 import { Notification } from "./Hamburger/Notification";
 import UserProfileImage from "../Profile/UserProfileImage";
+import { SearchInput } from "../SearchInput";
+
+interface BottomSheetState {
+  search: boolean;
+  menu: boolean;
+}
 
 export const Header: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [userId, setUserId] = useState(null);
 
-  const [bottomSheetOpen, setBottomSheetOpen] = useState(false);
+  const [bottomSheetOpen, setBottomSheetOpen] = useState<BottomSheetState>({
+    search: false,
+    menu: false,
+  });
+
+  const handleBottomSheetToggle = (sheetName: keyof BottomSheetState) => {
+    setBottomSheetOpen((prevState) => ({
+      ...prevState,
+      [sheetName]: !prevState[sheetName],
+    }));
+  };
 
   const onDismiss = () => {
-    setBottomSheetOpen(false);
+    setBottomSheetOpen({
+      search: false,
+      menu: false,
+    });
   };
 
   const handleNotification = () => {
@@ -44,14 +60,36 @@ export const Header: React.FC = () => {
           </div>
         </Link>
 
-        <Search />
+        {/* Search */}
+        <button
+          onClick={() => handleBottomSheetToggle("search")}
+          className="flex w-full h-full items-center justify-center sm:justify-start mx-4"
+        >
+          <FontAwesomeIcon
+            icon={faSearch}
+            size="sm"
+            style={{ color: "#9CA3AF" }}
+            className="mr-2"
+          />
+          <h6 className="text-secondary">Search</h6>
+        </button>
+        <BottomSheet
+          open={bottomSheetOpen["search"]}
+          onDismiss={onDismiss}
+          snapPoints={({ maxHeight }) => maxHeight * 0.95}
+        >
+          <SearchInput></SearchInput>
+        </BottomSheet>
 
-        <button onClick={() => setBottomSheetOpen(true)}>
+        {/* Hamburger Menu */}
+        <button
+          onClick={() => handleBottomSheetToggle("menu")}
+          className="sm:hidden"
+        >
           <FontAwesomeIcon icon={faBars} size="lg" className="" />
         </button>
-
         <BottomSheet
-          open={bottomSheetOpen}
+          open={bottomSheetOpen["menu"]}
           onDismiss={onDismiss}
           snapPoints={({ maxHeight }) => maxHeight * 0.95}
         >
@@ -78,5 +116,3 @@ export const Header: React.FC = () => {
     </header>
   );
 };
-
-export default Header;

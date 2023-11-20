@@ -7,5 +7,3 @@ export const OrDivider: React.FC = () => {
     </div>
   );
 };
-
-export default OrDivider;

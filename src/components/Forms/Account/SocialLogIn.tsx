@@ -24,5 +24,3 @@ export const SocialLogIn: React.FC = () => {
     </div>
   );
 };
-
-export default SocialLogIn;

@@ -96,7 +96,7 @@ export const PostForm: React.FC<Props> = ({ onDismiss, style }: Props) => {
             )}
           />
 
-          <figure className="rounded-2xl"></figure>
+          <figure className="rounded-2xl">{/* <Map></Map> */}</figure>
 
           <div className="flex gap-3 justify-end">
             <Button

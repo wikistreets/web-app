@@ -14,5 +14,3 @@ export const SearchResult: React.FC = () => {
     </>
   );
 };
-
-export default SearchResult;

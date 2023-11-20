@@ -2,8 +2,7 @@ import "./globals.css";
 import "leaflet/dist/leaflet.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
+import { Footer } from "@/components/Footer";
 import { Inter, DM_Sans } from "next/font/google";
 import Script from "next/script";
 

@@ -36,7 +36,7 @@ import {
   faImage,
   faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
-import { Bubble } from "@/components/Bubble/Bubble";
+import { Bubble } from "@/components/Bubble";
 
 interface Props {
   onDismiss?: () => void;

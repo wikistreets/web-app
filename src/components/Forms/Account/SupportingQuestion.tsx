@@ -19,5 +19,3 @@ export const SupportingQuestion: React.FC<Props> = ({ ask, answer }) => {
     </div>
   );
 };
-
-export default SupportingQuestion;

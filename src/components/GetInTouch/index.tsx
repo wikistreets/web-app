@@ -16,9 +16,7 @@ export const GetInTouch: React.FC = () => {
     >
       {/* Section - 1 */}
       <section className="flex flex-col gap-3 lg:gap-6">
-        <h2 className="font-dm-sans tracking-wide md:text-3xl lg:text-3xl">
-          Get in touch
-        </h2>
+        <h2 className="font-dm-sans tracking-wide md:text-2xl">Get in touch</h2>
         <p className="text-secondary font-light text-sm lg:text-base">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
@@ -49,7 +47,7 @@ export const GetInTouch: React.FC = () => {
 
       {/* Section - 2 */}
       <section className="flex flex-col gap-3 lg:gap-6">
-        <h2 className="font-dm-sans tracking-wide md:text-3xl lg:text-3xl">
+        <h2 className="font-dm-sans tracking-wide md:text-2xl">
           Wikistreets.io
         </h2>
         <p className="text-secondary font-light text-sm lg:text-base">
@@ -60,5 +58,3 @@ export const GetInTouch: React.FC = () => {
     </section>
   );
 };
-
-export default GetInTouch;

@@ -2,7 +2,7 @@ import Title from "./Title";
 import Info from "./Info/Info";
 import TextPreview from "./TextPreview";
 import Thumbnail from "./Thumbnail";
-import Separator from "@/components/Separator/Separator";
+import Separator from "@/components/Separator";
 import { Data } from "@/types/data";
 
 export const PostListSingle = ({ data, size, style }: Data) => {

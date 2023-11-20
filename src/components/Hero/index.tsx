@@ -6,9 +6,9 @@ import heroImage from "public/media/hero-img.png";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { BottomSheet } from "react-spring-bottom-sheet";
-import { MapForm } from "../Forms/CreateMap/Form";
+import { MapForm } from "../Forms/CreateMap";
 
-export default function Hero() {
+export const Hero = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [bottomSheetOpen, setBottomSheetOpen] = useState(false);
 
@@ -59,10 +59,10 @@ export default function Hero() {
           <>
             <Button
               onClick={() => setBottomSheetOpen(true)}
-              className="w-fit text-white font-normal tracking-wide
+              className="w-fit
                         lg:px-6 xl:px-8 2xl:px-10
                         lg:py-6 xl:py-7 2xl:py-8
-                        lg:text-lg 2xl:text-xl"
+                        lg:text-base"
             >
               Create a map
             </Button>
@@ -88,5 +88,4 @@ export default function Hero() {
       </figure>
     </section>
   );
-}
-
+};

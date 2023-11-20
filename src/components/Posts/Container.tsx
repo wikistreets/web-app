@@ -4,7 +4,7 @@ import SearchContextProvider from "@/context/SearchContext";
 import { Data } from "@/types/data";
 
 // TODO: create UserContext
-const Container = ({ data }: Data) => {
+export const Container = ({ data }: Data) => {
   return (
     <SearchContextProvider>
       <section className="relative flex flex-col items-center justify-start h-full container">
@@ -14,5 +14,3 @@ const Container = ({ data }: Data) => {
     </SearchContextProvider>
   );
 };
-
-export default Container;

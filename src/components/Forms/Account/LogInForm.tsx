@@ -15,12 +15,12 @@ import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 
 import Link from "next/link";
-import Logo from "@/components/Header/Logo";
-import OrDivider from "./OrDivider";
-import SocialLogIn from "./SocialLogIn";
-import SupportingInput from "./SupportingInput";
-import FormBtn from "./Button";
-import SupportingQuestion from "./SupportingQuestion";
+import { Logo } from "@/components/Logo";
+import { OrDivider } from "./OrDivider";
+import { SocialLogIn } from "./SocialLogIn";
+import { SupportingInput } from "./SupportingInput";
+import { FormBtn } from "./Button";
+import { SupportingQuestion } from "./SupportingQuestion";
 
 const formSchema = z.object({
   email: z.string().min(2).max(50),
