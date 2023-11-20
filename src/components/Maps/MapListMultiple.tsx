@@ -1,7 +1,7 @@
-import Separator from "../Separator/Separator";
+import { Separator } from "../Separator";
 import dynamic from "next/dynamic";
 
-const MapListSingle = dynamic(
+export const MapListSingle = dynamic(
   () => {
     return import("../Maps/Map/MapListSingle");
   },

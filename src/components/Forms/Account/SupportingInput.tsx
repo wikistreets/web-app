@@ -19,5 +19,3 @@ export const SupportingInput: React.FC = () => {
     </div>
   );
 };
-
-export default SupportingInput;

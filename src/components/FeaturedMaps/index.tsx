@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import LearnMoreButton from "@/components/ui/learn-more-button";
+import { Button } from "../ui/button";
 // import MockFeatureCollection from "@/mock-data/mockFeatureCollection";
 
 const MapCard = dynamic(
@@ -36,7 +36,7 @@ export const FeaturedMaps: React.FC = async () => {
     >
       <h2
         className="font-dm-sans text-white tracking-wide
-        md:text-2xl lg:text-3xl xl:text-4xl"
+        text-xl md:text-2xl lg:text-3xl xl:text-4xl"
       >
         Featured Maps
       </h2>
@@ -51,7 +51,7 @@ export const FeaturedMaps: React.FC = async () => {
         ))}
       </div>
 
-      <LearnMoreButton />
+      <Button className="text-xs">View more</Button>
     </section>
   );
 };

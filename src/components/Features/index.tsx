@@ -1,4 +1,4 @@
-import FeatureCard from "./FeatureCard";
+import { FeatureCard } from "./FeatureCard";
 
 export const Features: React.FC = () => {
   return (

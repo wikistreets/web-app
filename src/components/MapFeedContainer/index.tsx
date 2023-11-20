@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import Container from "@/components/Posts/Container";
+import { Container } from "@/components/Posts/Container";
 
 const Map = dynamic(
   () => {
@@ -11,7 +11,7 @@ interface Style {
   style?: string;
 }
 
-const MapFeedContainer = async ({ style }: Style) => {
+export const MapFeedContainer = async ({ style }: Style) => {
   // get some mock data
   const res = await fetch(
     "http://localhost:3000/media/mock-feature-collections/feature-collection-1.json"
@@ -38,5 +38,3 @@ const MapFeedContainer = async ({ style }: Style) => {
     </section>
   );
 };
-
-export default MapFeedContainer;

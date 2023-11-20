@@ -1,11 +1,11 @@
-import Header from "@/components/Header/Header";
-import Hero from "@/components/Hero/Hero";
-import FeaturedMaps from "@/components/FeaturedMaps/FeaturedMaps";
-import MapFeedContainer from "@/components/MapFeedContainer/MapFeedContainer";
-import Features from "@/components/Features/Features";
-import MapStyles from "@/components/MapStyles/MapStyles";
-import JoinCTA from "@/components/JoinCTA/JoinCTA";
-import GetInTouch from "@/components/GetInTouch/GetInTouch";
+import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+import { FeaturedMaps } from "@/components/FeaturedMaps";
+import { MapFeedContainer } from "@/components/MapFeedContainer";
+import { Features } from "@/components/Features";
+import { MapStyles } from "@/components/MapStyles";
+import { JoinCTA } from "@/components/JoinCTA";
+import { GetInTouch } from "@/components/GetInTouch";
 
 // Recommended Nesting Pattern: Passing Server Components to Client Components as Props
 

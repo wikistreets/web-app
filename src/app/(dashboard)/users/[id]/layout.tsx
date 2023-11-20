@@ -1,7 +1,7 @@
-import Header from "@/components/Header/Header";
-import ProfileHeader from "@/components/Profile/Dashboard/ProfileHeader";
+import { Header } from "@/components/Header";
+import { DashboardProfileHeader } from "@/components/Profile/Dashboard";
 import Navigation from "@/components/Profile/Dashboard/Navigation";
-import GetInTouch from "@/components/GetInTouch/GetInTouch";
+import { GetInTouch } from "@/components/GetInTouch";
 import { Separator } from "@/components/ui/separator";
 
 export default function ProfileLayout({
@@ -12,7 +12,7 @@ export default function ProfileLayout({
   return (
     <section>
       <Header />
-      <ProfileHeader />
+      <DashboardProfileHeader />
       <Separator />
       <Navigation />
       {children}

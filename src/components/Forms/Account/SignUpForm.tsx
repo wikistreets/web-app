@@ -16,10 +16,10 @@ import { useForm } from "react-hook-form";
 
 import Link from "next/link";
 import { Logo } from "@/components/Header/Logo";
-import OrDivider from "./OrDivider";
-import SocialLogIn from "./SocialLogIn";
-import FormBtn from "./Button";
-import SupportingQuestion from "./SupportingQuestion";
+import { OrDivider } from "./OrDivider";
+import { SocialLogIn } from "./SocialLogIn";
+import { FormBtn } from "./Button";
+import { SupportingQuestion } from "./SupportingQuestion";
 
 const formSchema = z.object({
   email: z.string().min(2).max(50),
@@ -102,5 +102,3 @@ export const SignUpForm: React.FC = () => {
     </>
   );
 };
-
-export default SignUpForm;

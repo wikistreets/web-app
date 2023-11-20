@@ -4,7 +4,7 @@ import EditProfileButton from "../EditProfileBtn";
 import UserTotalMaps from "../UserTotalMaps";
 import UserBio from "../UserBio";
 
-export const ProfileHeader = () => {
+export const DashboardProfileHeader = () => {
   return (
     <header
       className="flex flex-col 
@@ -31,7 +31,7 @@ export const ProfileHeader = () => {
 
       <UserBio
         userBioData={""}
-        size="text-sm"
+        size="text-xs"
         style="text-secondary text-left"
       />
 
@@ -55,5 +55,3 @@ export const ProfileHeader = () => {
     </header>
   );
 };
-
-export default ProfileHeader;
