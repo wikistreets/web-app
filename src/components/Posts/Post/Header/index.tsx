@@ -1,7 +1,7 @@
 "use client";
 
 import { StaticImageData } from "next/image";
-import UserProfileImage from "@/components/Profile/UserProfileImage";
+import { UserProfileImage } from "@/components/Profile/UserProfileImage";
 import Info from "./Info";
 import Nav from "./Nav";
 

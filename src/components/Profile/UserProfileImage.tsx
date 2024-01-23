@@ -40,5 +40,3 @@ export const UserProfileImage: React.FC<Props> = ({
     </Link>
   );
 };
-
-export default UserProfileImage;

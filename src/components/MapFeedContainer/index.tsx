@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
-import { Container } from "@/components/Posts/Container";
+import { Container } from "@/components/Posts/PostHeaderContainer";
 
 const Map = dynamic(
   () => {
-    return import("@/components/MapFeedContainer/Map/Map");
+    return import("@/components/MapFeedContainer/Map");
   },
   { ssr: false }
 );
@@ -35,6 +35,8 @@ export const MapFeedContainer = async ({ style }: Style) => {
     <section className={MapContainerClasses}>
       <Map data={data} />
       <Container data={data} />
+
+      {/* when + button is clicked, map takes up the whole screen & post form slides in */}
     </section>
   );
 };

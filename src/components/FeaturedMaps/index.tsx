@@ -49,6 +49,7 @@ export const FeaturedMaps: React.FC = async () => {
         {featureCollections.map((data, idx) => (
           <MapCard key={idx} data={data} />
         ))}
+        {/*  */}
       </div>
 
       <Button className="text-xs">View more</Button>

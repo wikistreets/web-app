@@ -1,5 +1,5 @@
-import Selector from "./Selector";
-import ToolBar from "./ToolBar";
+import { Selector } from "./Selector";
+import { ToolBar } from "./ToolBar";
 
 export const Header = () => {
   return (

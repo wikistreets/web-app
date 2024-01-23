@@ -1,4 +1,4 @@
-import MapFormContainer from "@/components/Forms/MapFormContainer/MapFormContainer";
+import MapFormContainer from "@/components/Forms/MapFormContainer";
 
 export default function CreateMap({ params }: { params: { id: string } }) {
   return (

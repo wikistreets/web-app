@@ -1,7 +1,7 @@
 "use client";
 import { useContext } from "react";
-import Post from "./Post/Post";
-import Info from "@/components/MapFeedContainer/Feed/Info";
+import { Post } from "./Post/Post";
+import { Info } from "@/components/MapFeedContainer/Feed/Info";
 import { SearchContext } from "@/context/SearchContext";
 import { Data } from "@/types/data";
 
@@ -22,7 +22,7 @@ export const Posts = ({ data }: Data) => {
   return (
     <div
       className="flex flex-col w-full h-full bg-white 
-          overflow-auto overscroll-contain scroll-smooth
+          overflow-x-clip overflow-y-auto overscroll-contain scroll-smooth
           md:h-screen"
     >
       {/* TODO: POSTS ALSO NEED TO SHOW UP WHEN CLICKED OUTSIDE OF THE SEARCH ICON! */}

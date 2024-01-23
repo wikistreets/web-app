@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Header from "./Header/Header";
-import Carousel from "./Carousel/Carousel";
-import MapInfo from "./MapInfo/MapInfo";
-import Body from "./Body/Body";
-import RepliesPreview from "./RepliesPreview/RepliesPreview";
+import { Header } from "./Header";
+import { Carousel } from "./Carousel/Carousel";
+import { MapInfo } from "./MapInfo/MapInfo";
+import { Body } from "./Body/Body";
+import { RepliesPreview } from "./RepliesPreview/RepliesPreview";
 import { Data } from "@/types/data";
 
 export const Post = ({ data }: Data) => {

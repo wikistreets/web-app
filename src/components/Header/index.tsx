@@ -9,7 +9,7 @@ import { BottomSheet } from "react-spring-bottom-sheet";
 import { Logo } from "@/components/Logo";
 import { HamburgerNav } from "./Hamburger";
 import { Notification } from "./Hamburger/Notification";
-import UserProfileImage from "../Profile/UserProfileImage";
+import { UserProfileImage } from "../Profile/UserProfileImage";
 import { SearchInput } from "../SearchInput";
 
 interface BottomSheetState {
@@ -116,3 +116,5 @@ export const Header: React.FC = () => {
     </header>
   );
 };
+
+export default Header;

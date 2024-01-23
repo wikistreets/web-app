@@ -1,6 +1,6 @@
-import Header from "@/components/MapFeedContainer/Feed/Header";
-import Posts from "./Posts";
-import SearchContextProvider from "@/context/SearchContext";
+import { Header } from "@/components/MapFeedContainer/Feed/Header";
+import { Posts } from ".";
+import { SearchContextProvider } from "@/context/SearchContext";
 import { Data } from "@/types/data";
 
 // TODO: create UserContext

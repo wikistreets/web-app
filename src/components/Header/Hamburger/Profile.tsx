@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import UserProfileImage from "@/components/Profile/UserProfileImage";
+import { UserProfileImage } from "@/components/Profile/UserProfileImage";
+import { UserName } from "@/components/Profile/UserName";
+import { UserTotalMaps } from "@/components/Profile/UserTotalMaps";
 import userDefault from "../../../../public/media/user-default.svg";
-import UserName from "@/components/Profile/UserName";
-import UserTotalMaps from "@/components/Profile/UserTotalMaps";
 
 export const HamburgerProfile: React.FC = () => {
   const [userId, setUserId] = useState(null);
